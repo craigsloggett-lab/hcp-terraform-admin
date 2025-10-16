@@ -39,3 +39,9 @@ variable "data_platform_shared_services_workspace_name" {
   description = "The name of the workspace managing the Data Platform shared services infrastructure."
   default     = "azure-fabric-shared-services"
 }
+
+variable "sentinel_policy_sets_repository_name" {
+  type        = string
+  description = "The name of the GitHub repository hosting the Sentinel policy sets."
+  default     = "hcp-terraform-sentinel-policy"
+}
