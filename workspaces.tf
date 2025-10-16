@@ -1,7 +1,7 @@
 resource "tfe_workspace" "data_platform_shared_services" {
   name         = var.data_platform_shared_services_workspace_name
   organization = data.tfe_organization.this.name
-  project_id   = data.tfe_project.data_platform.id
+  project_id   = tfe_project.data_platform.id
 
   auto_apply            = true
   queue_all_runs        = true

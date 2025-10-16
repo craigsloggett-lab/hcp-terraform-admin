@@ -1,3 +1,9 @@
+variable "hcp_terraform_organization_name" {
+  type        = string
+  description = "The name of the HCP Terraform organization being managed."
+  default     = "craigsloggett-lab"
+}
+
 variable "terraform_version" {
   type        = string
   description = "The version of Terraform to use in all workspaces."
