@@ -1,11 +1,3 @@
-# AWS Provider Credentials
-
-resource "tfe_variable_set" "aws_provider_authentication" {
-  name         = var.aws_provider_authentication_variable_set_name
-  description  = "The secrets used to authenticate the AWS Provider."
-  organization = data.tfe_organization.this.name
-}
-
 # Azure Provider Credentials
 
 resource "tfe_variable_set" "azurerm_provider_authentication" {
