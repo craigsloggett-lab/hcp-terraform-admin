@@ -1,7 +1,7 @@
 resource "tfe_team" "data_engineers" {
   name         = "data-engineers"
   organization = data.tfe_organization.this.name
-  visibility   = "visible"
+  visibility   = "organization"
 
   organization_access {
     access_secret_teams        = false
@@ -25,7 +25,7 @@ resource "tfe_team" "data_engineers" {
 resource "tfe_team" "data_platform_admins" {
   name         = "data-platform-admins"
   organization = data.tfe_organization.this.name
-  visibility   = "visible"
+  visibility   = "organization"
 
   organization_access {
     access_secret_teams        = false
