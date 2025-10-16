@@ -30,9 +30,11 @@ No modules.
 | [tfe_registry_provider.microsoft](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_provider) | resource |
 | [tfe_team.data_engineers](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team) | resource |
 | [tfe_team.data_platform_admins](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team) | resource |
-| [tfe_team_project_access.data_engineering](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
-| [tfe_team_project_access.data_platform](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
-| [tfe_team_project_access.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.data_engineering_data_engineers](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.data_engineering_data_platform_admins](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.data_platform_data_platform_admins](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.modules_data_engineers](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.modules_data_platform_admins](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team_project_access) | resource |
 | [tfe_variable_set.azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/organization) | data source |
