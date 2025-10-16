@@ -23,6 +23,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [tfe_policy_set.global](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/policy_set) | resource |
 | [tfe_project.data_engineering](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
 | [tfe_project.data_platform](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
@@ -52,10 +53,12 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_azurerm_provider_authentication_variable_set_name"></a> [azurerm\_provider\_authentication\_variable\_set\_name](#input\_azurerm\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the Azure Provider. | `string` | `"Azure Provider Authentication"` | no |
+| <a name="input_data_platform_environments"></a> [data\_platform\_environments](#input\_data\_platform\_environments) | A set of environments used by the Data Platform. | `set(string)` | <pre>[<br/>  "dev"<br/>]</pre> | no |
 | <a name="input_data_platform_shared_services_workspace_name"></a> [data\_platform\_shared\_services\_workspace\_name](#input\_data\_platform\_shared\_services\_workspace\_name) | The name of the workspace managing the Data Platform shared services infrastructure. | `string` | `"azure-fabric-shared-services"` | no |
 | <a name="input_fabric_provider_authentication_variable_set_name"></a> [fabric\_provider\_authentication\_variable\_set\_name](#input\_fabric\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the Fabric Provider. | `string` | `"Microsoft Fabric Provider Authentication"` | no |
 | <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name) | The name of the GitHub organization used to configure the VCS provider. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_hcp_terraform_organization_name"></a> [hcp\_terraform\_organization\_name](#input\_hcp\_terraform\_organization\_name) | The name of the HCP Terraform organization being managed. | `string` | `"craigsloggett-lab"` | no |
+| <a name="input_sentinel_policy_sets_repository_name"></a> [sentinel\_policy\_sets\_repository\_name](#input\_sentinel\_policy\_sets\_repository\_name) | The name of the GitHub repository hosting the Sentinel policy sets. | `string` | `"hcp-terraform-sentinel-policy"` | no |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.13.3"` | no |
 
 ## Outputs
