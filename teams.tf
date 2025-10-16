@@ -46,31 +46,31 @@ resource "tfe_team" "data_platform_admins" {
   }
 }
 
-resource "tfe_team_project_access" "data_engineering" {
+resource "tfe_team_project_access" "data_engineering_data_platform_admins" {
   access     = "write"
   team_id    = tfe_team.data_platform_admins.id
   project_id = tfe_project.data_engineering.id
 }
 
-resource "tfe_team_project_access" "data_engineering" {
+resource "tfe_team_project_access" "data_engineering_data_engineers" {
   access     = "write"
   team_id    = tfe_team.data_engineers.id
   project_id = tfe_project.data_engineering.id
 }
 
-resource "tfe_team_project_access" "data_platform" {
+resource "tfe_team_project_access" "data_platform_data_platform_admins" {
   access     = "write"
   team_id    = tfe_team.data_platform_admins.id
   project_id = tfe_project.data_platform.id
 }
 
-resource "tfe_team_project_access" "modules" {
+resource "tfe_team_project_access" "modules_data_engineers" {
   access     = "write"
   team_id    = tfe_team.data_engineers.id
   project_id = tfe_project.modules.id
 }
 
-resource "tfe_team_project_access" "modules" {
+resource "tfe_team_project_access" "modules_data_platform_admins" {
   access     = "write"
   team_id    = tfe_team.data_platform_admins.id
   project_id = tfe_project.modules.id
