@@ -10,6 +10,12 @@ variable "terraform_version" {
   default     = "1.13.3"
 }
 
+variable "data_platform_environments" {
+  type        = set(string)
+  description = "A set of environments used by the Data Platform."
+  default     = ["dev"]
+}
+
 variable "github_organization_name" {
   type        = string
   description = "The name of the GitHub organization used to configure the VCS provider."
