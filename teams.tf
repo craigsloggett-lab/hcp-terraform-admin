@@ -47,9 +47,14 @@ resource "tfe_team" "data_platform_admins" {
 }
 
 resource "tfe_team_project_access" "data_engineering" {
-  for_each   = toset([tfe_team.data_engineers.id, tfe_team.data_platform_admins.id])
   access     = "write"
-  team_id    = each.key
+  team_id    = tfe_team.data_platform_admins.id
+  project_id = tfe_project.data_engineering.id
+}
+
+resource "tfe_team_project_access" "data_engineering" {
+  access     = "write"
+  team_id    = tfe_team.data_engineers.id
   project_id = tfe_project.data_engineering.id
 }
 
@@ -60,9 +65,13 @@ resource "tfe_team_project_access" "data_platform" {
 }
 
 resource "tfe_team_project_access" "modules" {
-  for_each   = toset([tfe_team.data_engineers.id, tfe_team.data_platform_admins.id])
   access     = "write"
-  team_id    = each.key
+  team_id    = tfe_team.data_engineers.id
   project_id = tfe_project.modules.id
 }
 
+resource "tfe_team_project_access" "modules" {
+  access     = "write"
+  team_id    = tfe_team.data_platform_admins.id
+  project_id = tfe_project.modules.id
+}
