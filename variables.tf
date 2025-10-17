@@ -34,6 +34,12 @@ variable "fabric_provider_authentication_variable_set_name" {
   default     = "Microsoft Fabric Provider Authentication"
 }
 
+variable "github_provider_authentication_variable_set_name" {
+  type        = string
+  description = "The name of the variable set used to authenticate the GitHub Provider."
+  default     = "GitHub Provider Authentication"
+}
+
 variable "data_platform_shared_services_workspace_name" {
   type        = string
   description = "The name of the workspace managing the Data Platform shared services infrastructure."
