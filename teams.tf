@@ -22,8 +22,8 @@ resource "tfe_team" "data_engineers" {
   }
 }
 
-resource "tfe_team" "data_platform_admins" {
-  name         = "data-platform-admins"
+resource "tfe_team" "data_platform_engineers" {
+  name         = "data-platform-engineers"
   organization = data.tfe_organization.this.name
   visibility   = "organization"
 
@@ -46,21 +46,21 @@ resource "tfe_team" "data_platform_admins" {
   }
 }
 
-resource "tfe_team_project_access" "data_engineering_data_platform_admins" {
-  access     = "write"
-  team_id    = tfe_team.data_platform_admins.id
-  project_id = tfe_project.data_engineering.id
-}
-
 resource "tfe_team_project_access" "data_engineering_data_engineers" {
   access     = "write"
   team_id    = tfe_team.data_engineers.id
   project_id = tfe_project.data_engineering.id
 }
 
-resource "tfe_team_project_access" "data_platform_data_platform_admins" {
+resource "tfe_team_project_access" "data_engineering_data_platform_engineers" {
   access     = "write"
-  team_id    = tfe_team.data_platform_admins.id
+  team_id    = tfe_team.data_platform_engineers.id
+  project_id = tfe_project.data_engineering.id
+}
+
+resource "tfe_team_project_access" "data_platform_data_platform_engineers" {
+  access     = "write"
+  team_id    = tfe_team.data_platform_engineers.id
   project_id = tfe_project.data_platform.id
 }
 
@@ -70,8 +70,8 @@ resource "tfe_team_project_access" "modules_data_engineers" {
   project_id = tfe_project.modules.id
 }
 
-resource "tfe_team_project_access" "modules_data_platform_admins" {
+resource "tfe_team_project_access" "modules_data_platform_engineers" {
   access     = "write"
-  team_id    = tfe_team.data_platform_admins.id
+  team_id    = tfe_team.data_platform_engineers.id
   project_id = tfe_project.modules.id
 }
