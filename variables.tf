@@ -40,10 +40,16 @@ variable "github_provider_authentication_variable_set_name" {
   default     = "GitHub Provider Authentication"
 }
 
-variable "fabric_connection_credentials_variable_set_name" {
+variable "fabric_connection_storage_account_credentials_variable_set_name" {
   type        = string
-  description = "The name of the variable set used to set credentials for Fabric Connections by Data Platform Engineers."
-  default     = "Microsoft Fabric Connection Credentials"
+  description = "The name of the variable set used to set credentials for Fabric Connections to a Storage Account."
+  default     = "Microsoft Fabric Connection Storage Account Credentials"
+}
+
+variable "fabric_connection_github_credentials_variable_set_name" {
+  type        = string
+  description = "The name of the variable set used to set credentials for Fabric Connections to a GitHub repository."
+  default     = "Microsoft Fabric Connection GitHub Credentials"
 }
 
 variable "data_platform_shared_services_workspace_name" {
