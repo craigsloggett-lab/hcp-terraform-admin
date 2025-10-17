@@ -15,4 +15,3 @@ resource "tfe_workspace" "data_platform_shared_services" {
     oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
   }
 }
-
