@@ -56,7 +56,15 @@ resource "tfe_variable_set" "github_provider_authentication" {
   organization = data.tfe_organization.this.name
 }
 
-resource "tfe_project_variable_set" "data_platform_github_provider_authentication" {
+# Microsoft Fabric Connection Credentials
+
+resource "tfe_variable_set" "fabric_connection_credentials" {
+  name         = var.fabric_connection_credentials_variable_set_name
+  description  = "The credentials used to configure a Microsoft Fabric Connection."
+  organization = data.tfe_organization.this.name
+}
+
+resource "tfe_project_variable_set" "data_platform_fabric_connection_credentials" {
   project_id      = tfe_project.data_platform.id
-  variable_set_id = tfe_variable_set.github_provider_authentication.id
+  variable_set_id = tfe_variable_set.fabric_connection_credentials.id
 }
