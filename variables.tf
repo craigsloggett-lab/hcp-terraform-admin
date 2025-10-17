@@ -43,7 +43,7 @@ variable "github_provider_authentication_variable_set_name" {
 variable "fabric_connection_credentials_variable_set_name" {
   type        = string
   description = "The name of the variable set used to set credentials for Fabric Connections by Data Platform Engineers."
-  default     = "Fabric Connection Credentials"
+  default     = "Microsoft Fabric Connection Credentials"
 }
 
 variable "data_platform_shared_services_workspace_name" {
