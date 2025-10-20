@@ -1,19 +1,3 @@
-# TFE Provider Credentials
-
-data "tfe_variable_set" "tfe_provider_authentication" {
-  name         = var.tfe_provider_authentication_variable_set_name
-  organization = data.tfe_organization.this.name
-}
-
-# Assign the Variable Set to the relevant Data Platform workspaces.
-
-resource "tfe_workspace_variable_set" "data_platform_azure_shared_services_tfe_provider_authentication" {
-  for_each = var.data_platform_environments
-
-  variable_set_id = data.tfe_variable_set.tfe_provider_authentication.id
-  workspace_id    = tfe_workspace.data_platform_azure_shared_services[each.key].id
-}
-
 # Azure Provider Credentials
 
 resource "tfe_variable_set" "azurerm_provider_authentication" {
