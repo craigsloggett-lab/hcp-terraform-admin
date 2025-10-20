@@ -22,6 +22,12 @@ variable "github_organization_name" {
   default     = "craigsloggett-lab"
 }
 
+variable "tfe_provider_authentication_variable_set_name" {
+  type        = string
+  description = "The name of the variable set used to authenticate the TFE Provider."
+  default     = "TFE Provider Authentication"
+}
+
 variable "azurerm_provider_authentication_variable_set_name" {
   type        = string
   description = "The name of the variable set used to authenticate the Azure Provider."
@@ -40,22 +46,16 @@ variable "github_provider_authentication_variable_set_name" {
   default     = "GitHub Provider Authentication"
 }
 
-variable "fabric_connection_storage_account_credentials_variable_set_name" {
+variable "data_platform_azure_shared_services_workspace_name" {
   type        = string
-  description = "The name of the variable set used to set credentials for Fabric Connections to a Storage Account."
-  default     = "Microsoft Fabric Connection Storage Account Credentials"
+  description = "The name of the workspace managing the Data Platform's Azure shared services."
+  default     = "azure-shared-services"
 }
 
-variable "fabric_connection_github_credentials_variable_set_name" {
+variable "data_platform_fabric_shared_services_workspace_name" {
   type        = string
-  description = "The name of the variable set used to set credentials for Fabric Connections to a GitHub repository."
-  default     = "Microsoft Fabric Connection GitHub Credentials"
-}
-
-variable "data_platform_shared_services_workspace_name" {
-  type        = string
-  description = "The name of the workspace managing the Data Platform shared services infrastructure."
-  default     = "azure-fabric-shared-services"
+  description = "The name of the workspace managing the Data Platform's Microsoft Fabric shared services."
+  default     = "fabric-shared-services"
 }
 
 variable "sentinel_policy_sets_repository_name" {
