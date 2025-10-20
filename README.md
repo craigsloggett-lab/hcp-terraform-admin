@@ -45,7 +45,7 @@ No modules.
 | [tfe_variable_set.azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
-| [tfe_workspace.data_platform_azure_shared_services](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/workspace) | resource |
+| [tfe_workspace.data_platform_shared_services](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/workspace) | resource |
 | [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/oauth_client) | data source |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/organization) | data source |
 
