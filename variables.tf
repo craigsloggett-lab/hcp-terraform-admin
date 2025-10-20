@@ -22,12 +22,6 @@ variable "github_organization_name" {
   default     = "craigsloggett-lab"
 }
 
-variable "tfe_provider_authentication_variable_set_name" {
-  type        = string
-  description = "The name of the variable set used to authenticate the TFE Provider."
-  default     = "TFE Provider Authentication"
-}
-
 variable "azurerm_provider_authentication_variable_set_name" {
   type        = string
   description = "The name of the variable set used to authenticate the Azure Provider."
@@ -46,16 +40,10 @@ variable "github_provider_authentication_variable_set_name" {
   default     = "GitHub Provider Authentication"
 }
 
-variable "data_platform_azure_shared_services_workspace_name" {
+variable "data_platform_shared_services_workspace_name" {
   type        = string
-  description = "The name of the workspace managing the Data Platform's Azure shared services."
-  default     = "azure-shared-services"
-}
-
-variable "data_platform_fabric_shared_services_workspace_name" {
-  type        = string
-  description = "The name of the workspace managing the Data Platform's Microsoft Fabric shared services."
-  default     = "fabric-shared-services"
+  description = "The name of the workspace managing the Data Platform's shared services."
+  default     = "azure-fabric-shared-services"
 }
 
 variable "sentinel_policy_sets_repository_name" {
