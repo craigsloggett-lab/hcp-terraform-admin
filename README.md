@@ -1,5 +1,6 @@
-# terraform-root-module-template
-A GitHub repository template for creating new Terraform root module.
+# hcp-terraform-admin
+
+An infrastructure as code repository to manage the craigsloggett-lab HCP Terraform organization.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
