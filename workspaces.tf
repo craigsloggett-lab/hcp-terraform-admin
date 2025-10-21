@@ -13,3 +13,8 @@ resource "tfe_workspace" "data_platform_shared_services" {
     oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
   }
 }
+
+resource "tfe_workspace_settings" "data_platform_shared_services" {
+  workspace_id        = tfe_workspace.data_platform_shared_services.id
+  global_remote_state = true
+}
