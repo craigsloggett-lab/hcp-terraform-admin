@@ -22,6 +22,7 @@ resource "tfe_registry_provider" "microsoft" {
 
 resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
   organization    = data.tfe_organization.this.name
+  registry_name   = "private"
   namespace       = "microsoft"
   module_provider = "fabric"
   name            = "data-engineering-onboarding"
