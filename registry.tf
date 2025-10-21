@@ -20,11 +20,6 @@ resource "tfe_registry_provider" "microsoft" {
 
 # Private Modules
 
-import {
-  to = tfe_no_code_module.terraform_fabric_data_engineering_onboarding
-  id = "nocode-KuPWjLPux2U7QXRe"
-}
-
 resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
   test_config {
     tests_enabled = true
