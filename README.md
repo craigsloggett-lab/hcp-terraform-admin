@@ -24,6 +24,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [tfe_no_code_module.terraform_fabric_data_engineering_onboarding](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/no_code_module) | resource |
 | [tfe_policy_set.global](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/policy_set) | resource |
 | [tfe_project.data_engineering](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
 | [tfe_project.data_platform](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
@@ -34,6 +35,7 @@ No modules.
 | [tfe_project_variable_set.data_platform_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.modules_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.modules_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
+| [tfe_registry_module.terraform_fabric_data_engineering_onboarding](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_module) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_provider) | resource |
 | [tfe_registry_provider.microsoft](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_provider) | resource |
 | [tfe_team.data_engineers](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/team) | resource |

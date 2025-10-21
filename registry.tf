@@ -17,3 +17,23 @@ resource "tfe_registry_provider" "microsoft" {
   namespace     = "microsoft"
   name          = each.key
 }
+
+# Private Modules
+
+resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
+  organization    = data.tfe_organization.this.name
+  namespace       = "microsoft"
+  module_provider = "fabric"
+  name            = "data-engineering-onboarding"
+
+  vcs_repo {
+    display_identifier = "craigsloggett-org/terraform-fabric-data-engineering-onboarding"
+    identifier         = "craigsloggett-org/terraform-fabric-data-engineering-onboarding"
+    oauth_token_id     = data.tfe_oauth_client.github.oauth_token_id
+  }
+}
+
+resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
+  organization    = data.tfe_organization.this.name
+  registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
+}
