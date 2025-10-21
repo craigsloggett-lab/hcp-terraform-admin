@@ -21,11 +21,7 @@ resource "tfe_registry_provider" "microsoft" {
 # Private Modules
 
 resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
-  organization    = data.tfe_organization.this.name
-  registry_name   = "private"
-  namespace       = "microsoft"
-  module_provider = "fabric"
-  name            = "data-engineering-onboarding"
+  organization = data.tfe_organization.this.name
 
   vcs_repo {
     display_identifier = "craigsloggett-org/terraform-fabric-data-engineering-onboarding"
