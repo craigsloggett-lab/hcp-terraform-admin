@@ -2,7 +2,7 @@
 
 data "tfe_variable_set" "tfe_provider_authentication" {
   name         = var.tfe_provider_authentication_variable_set_name
-  organization = data.tfe_organization.this
+  organization = data.tfe_organization.this.name
 }
 
 # Assign the Variable Set to Projects
