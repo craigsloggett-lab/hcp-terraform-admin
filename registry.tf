@@ -21,8 +21,8 @@ resource "tfe_registry_provider" "microsoft" {
 # Private Modules
 
 import {
-  to = tfe_registry_module.terraform_fabric_data_engineering_onboarding
-  id = "craigsloggett-lab/private/craigsloggett-lab/data-engineering-onboarding/fabric/mod-JAKXuRogdvNVXPhr"
+  to = tfe_no_code_module.terraform_fabric_data_engineering_onboarding
+  id = "nocode-KuPWjLPux2U7QXRe"
 }
 
 resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
