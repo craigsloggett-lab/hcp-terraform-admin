@@ -33,6 +33,11 @@ resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
   }
 }
 
+import {
+  to = tfe_no_code_module.terraform_fabric_data_engineering_onboarding
+  id = "nocode-KuPWjLPux2U7QXRe"
+}
+
 resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   organization    = data.tfe_organization.this.name
   registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
@@ -42,30 +47,6 @@ resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
     name    = "environment"
     type    = "string"
     options = ["dev"]
-  }
-
-  variable_options {
-    name    = "fabric_workspace_name"
-    type    = "string"
-    options = [""]
-  }
-
-  variable_options {
-    name    = "fabric_environment_name"
-    type    = "string"
-    options = [""]
-  }
-
-  variable_options {
-    name    = "fabric_spark_custom_pool_name"
-    type    = "string"
-    options = [""]
-  }
-
-  variable_options {
-    name    = "fabric_lakehouse_name"
-    type    = "string"
-    options = [""]
   }
 }
 
