@@ -47,25 +47,25 @@ resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   variable_options {
     name    = "fabric_workspace_name"
     type    = "string"
-    options = []
+    options = [""]
   }
 
   variable_options {
     name    = "fabric_environment_name"
     type    = "string"
-    options = []
+    options = [""]
   }
 
   variable_options {
     name    = "fabric_spark_custom_pool_name"
     type    = "string"
-    options = []
+    options = [""]
   }
 
   variable_options {
     name    = "fabric_lakehouse_name"
     type    = "string"
-    options = []
+    options = [""]
   }
 }
 
