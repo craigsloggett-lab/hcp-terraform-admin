@@ -16,5 +16,5 @@ resource "tfe_workspace" "data_platform_shared_services" {
 
 resource "tfe_workspace_settings" "data_platform_shared_services" {
   workspace_id        = tfe_workspace.data_platform_shared_services.id
-  global_remote_state = true
+  global_remote_state = false
 }
