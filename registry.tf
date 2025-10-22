@@ -36,6 +36,7 @@ resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
 resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   organization    = data.tfe_organization.this.name
   registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
+  version_pin     = var.terraform_fabric_data_engineering_onboarding_module_version
 
   variable_options {
     name    = "environment"
