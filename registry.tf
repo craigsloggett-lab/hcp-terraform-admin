@@ -33,11 +33,6 @@ resource "tfe_registry_module" "terraform_fabric_data_engineering_onboarding" {
   }
 }
 
-import {
-  to = tfe_no_code_module.terraform_fabric_data_engineering_onboarding
-  id = "nocode-KuPWjLPux2U7QXRe"
-}
-
 resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   organization    = data.tfe_organization.this.name
   registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
