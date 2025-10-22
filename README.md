@@ -31,10 +31,12 @@ No modules.
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
 | [tfe_project_variable_set.data_engineering_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_engineering_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
+| [tfe_project_variable_set.data_engineering_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_platform_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_platform_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.modules_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.modules_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
+| [tfe_project_variable_set.modules_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_registry_module.terraform_fabric_data_engineering_onboarding](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_module) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_provider) | resource |
 | [tfe_registry_provider.microsoft](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/registry_provider) | resource |
@@ -52,6 +54,7 @@ No modules.
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_client_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_client_secret](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_tenant_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
+| [tfe_test_variable.terraform_fabric_data_engineering_onboarding_tfe_provider_authentication_tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_variable_set.azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
@@ -59,6 +62,7 @@ No modules.
 | [tfe_workspace_settings.data_platform_shared_services](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/workspace_settings) | resource |
 | [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/oauth_client) | data source |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/organization) | data source |
+| [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/data-sources/variable_set) | data source |
 
 ## Inputs
 
@@ -72,6 +76,7 @@ No modules.
 | <a name="input_hcp_terraform_organization_name"></a> [hcp\_terraform\_organization\_name](#input\_hcp\_terraform\_organization\_name) | The name of the HCP Terraform organization being managed. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_sentinel_policy_sets_repository_name"></a> [sentinel\_policy\_sets\_repository\_name](#input\_sentinel\_policy\_sets\_repository\_name) | The name of the GitHub repository hosting the Sentinel policy sets. | `string` | `"hcp-terraform-sentinel-policy"` | no |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.13.3"` | no |
+| <a name="input_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#input\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the TFE Provider. | `string` | `"TFE Provider Authentication"` | no |
 
 ## Outputs
 

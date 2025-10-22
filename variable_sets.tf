@@ -1,3 +1,20 @@
+data "tfe_variable_set" "tfe_provider_authentication" {
+  name         = var.tfe_provider_authentication_variable_set_name
+  organization = data.tfe_organization.this.name
+}
+
+# Assign the Variable Set to Projects
+
+resource "tfe_project_variable_set" "modules_tfe_provider_authentication" {
+  project_id      = tfe_project.modules.id
+  variable_set_id = data.tfe_variable_set.tfe_provider_authentication.id
+}
+
+resource "tfe_project_variable_set" "data_engineering_tfe_provider_authentication" {
+  project_id      = tfe_project.data_engineering.id
+  variable_set_id = data.tfe_variable_set.tfe_provider_authentication.id
+}
+
 # Azure Provider Credentials
 
 resource "tfe_variable_set" "azurerm_provider_authentication" {
