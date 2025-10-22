@@ -38,6 +38,18 @@ resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
 }
 
+# TFE Provider Authentication
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_tfe_provider_authentication_tfe_token" {
+  key             = "TFE_TOKEN"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
 # Azure Provider Authentication
 
 resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_azure_provider_authentication_arm_client_id" {
