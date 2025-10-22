@@ -37,3 +37,76 @@ resource "tfe_no_code_module" "terraform_fabric_data_engineering_onboarding" {
   organization    = data.tfe_organization.this.name
   registry_module = tfe_registry_module.terraform_fabric_data_engineering_onboarding.id
 }
+
+# Azure Provider Authentication
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_azure_provider_authentication_arm_client_id" {
+  key             = "ARM_CLIENT_ID"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_azure_provider_authentication_arm_client_secret" {
+  key             = "ARM_CLIENT_SECRET"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_azure_provider_authentication_arm_subscription_id" {
+  key             = "ARM_SUBSCRIPTION_ID"
+  value_wo        = ""
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_azure_provider_authentication_arm_tenant_id" {
+  key             = "ARM_TENANT_ID"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+# Microsoft Fabric Provider Authentication
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_client_id" {
+  key             = "FABRIC_CLIENT_ID"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_client_secret" {
+  key             = "FABRIC_CLIENT_SECRET"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
+
+resource "tfe_test_variable" "terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_tenant_id" {
+  key             = "FABRIC_TENANT_ID"
+  value_wo        = ""
+  sensitive       = true
+  category        = "env"
+  organization    = data.tfe_organization.this.name
+  module_name     = tfe_registry_module.terraform_fabric_data_engineering_onboarding.name
+  module_provider = tfe_registry_module.terraform_fabric_data_engineering_onboarding.module_provider
+}
