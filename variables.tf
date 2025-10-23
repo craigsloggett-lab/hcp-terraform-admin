@@ -55,5 +55,5 @@ variable "sentinel_policy_sets_repository_name" {
 variable "terraform_fabric_data_engineering_onboarding_module_version" {
   type        = string
   description = "The Terraform module version to pin the data-engineering-onboarding no-code module to."
-  default     = "0.2.0"
+  default     = "0.2.1"
 }
