@@ -18,3 +18,11 @@ resource "tfe_workspace_settings" "data_platform_shared_services" {
   workspace_id        = tfe_workspace.data_platform_shared_services.id
   global_remote_state = false
 }
+
+resource "tfe_variable" "data_platform_shared_services_github_personal_access_token" {
+  key          = "github_personal_access_token"
+  value_wo     = ""
+  category     = "terraform"
+  workspace_id = tfe_workspace.data_platform_shared_services.id
+  description  = "Set to a personal access token for a Service Account in the GitHub Organization."
+}
