@@ -56,6 +56,7 @@ No modules.
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_tenant_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_tfe_provider_authentication_tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_variable.data_platform_shared_services_github_personal_access_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.github_provider_authentication_github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
 | [tfe_variable_set.azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
@@ -76,7 +77,7 @@ No modules.
 | <a name="input_github_provider_authentication_variable_set_name"></a> [github\_provider\_authentication\_variable\_set\_name](#input\_github\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the GitHub Provider. | `string` | `"GitHub Provider Authentication"` | no |
 | <a name="input_hcp_terraform_organization_name"></a> [hcp\_terraform\_organization\_name](#input\_hcp\_terraform\_organization\_name) | The name of the HCP Terraform organization being managed. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_sentinel_policy_sets_repository_name"></a> [sentinel\_policy\_sets\_repository\_name](#input\_sentinel\_policy\_sets\_repository\_name) | The name of the GitHub repository hosting the Sentinel policy sets. | `string` | `"hcp-terraform-sentinel-policy"` | no |
-| <a name="input_terraform_fabric_data_engineering_onboarding_module_version"></a> [terraform\_fabric\_data\_engineering\_onboarding\_module\_version](#input\_terraform\_fabric\_data\_engineering\_onboarding\_module\_version) | The Terraform module version to pin the data-engineering-onboarding no-code module to. | `string` | `"0.2.1"` | no |
+| <a name="input_terraform_fabric_data_engineering_onboarding_module_version"></a> [terraform\_fabric\_data\_engineering\_onboarding\_module\_version](#input\_terraform\_fabric\_data\_engineering\_onboarding\_module\_version) | The Terraform module version to pin the data-engineering-onboarding no-code module to. | `string` | `"0.2.2"` | no |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.13.3"` | no |
 | <a name="input_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#input\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the TFE Provider. | `string` | `"TFE Provider Authentication"` | no |
 
