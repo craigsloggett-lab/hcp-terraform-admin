@@ -72,3 +72,11 @@ resource "tfe_variable_set" "github_provider_authentication" {
   description  = "The secrets used to authenticate the GitHub Provider."
   organization = data.tfe_organization.this.name
 }
+
+resource "tfe_variable" "github_provider_authentication_github_token" {
+  key             = "GITHUB_TOKEN"
+  value_wo        = ""
+  category        = "env"
+  description     = "Uses a service account personal access token."
+  variable_set_id = tfe_variable_set.github_provider_authentication.id
+}
