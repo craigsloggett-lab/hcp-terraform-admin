@@ -73,6 +73,15 @@ resource "tfe_variable_set" "github_provider_authentication" {
   organization = data.tfe_organization.this.name
 }
 
+# Assign the Variable Set to Projects
+
+resource "tfe_project_variable_set" "data_engineering_github_provider_authentication" {
+  project_id      = tfe_project.data_engineering.id
+  variable_set_id = tfe_variable_set.github_provider_authentication.id
+}
+
+# Populate the Variable Set with Required Keys
+
 resource "tfe_variable" "github_provider_authentication_github_token" {
   key             = "GITHUB_TOKEN"
   value_wo        = ""

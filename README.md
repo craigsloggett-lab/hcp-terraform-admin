@@ -31,6 +31,7 @@ No modules.
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project) | resource |
 | [tfe_project_variable_set.data_engineering_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_engineering_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
+| [tfe_project_variable_set.data_engineering_github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_engineering_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_platform_azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.data_platform_fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/project_variable_set) | resource |
