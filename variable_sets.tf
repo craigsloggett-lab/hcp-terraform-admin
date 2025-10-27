@@ -84,7 +84,7 @@ resource "tfe_project_variable_set" "data_engineering_github_provider_authentica
 
 resource "tfe_variable" "github_provider_authentication_github_token" {
   key             = "GITHUB_TOKEN"
-  value_wo        = ""
+  value           = ""
   category        = "env"
   sensitive       = true
   description     = "Uses a service account personal access token."
