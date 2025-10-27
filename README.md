@@ -56,7 +56,14 @@ No modules.
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_client_secret](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_fabric_provider_authentication_fabric_tenant_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
 | [tfe_test_variable.terraform_fabric_data_engineering_onboarding_tfe_provider_authentication_tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/test_variable) | resource |
+| [tfe_variable.azurerm_provider_authentication_arm_client_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.azurerm_provider_authentication_arm_client_secret](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.azurerm_provider_authentication_arm_subscription_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.azurerm_provider_authentication_arm_tenant_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
 | [tfe_variable.data_platform_shared_services_github_personal_access_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.fabric_provider_authentication_fabric_client_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.fabric_provider_authentication_fabric_client_secret](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
+| [tfe_variable.fabric_provider_authentication_fabric_tenant_id](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
 | [tfe_variable.github_provider_authentication_github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable) | resource |
 | [tfe_variable_set.azurerm_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.fabric_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.70.0/docs/resources/variable_set) | resource |
@@ -72,13 +79,14 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_azurerm_provider_authentication_variable_set_name"></a> [azurerm\_provider\_authentication\_variable\_set\_name](#input\_azurerm\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the Azure Provider. | `string` | `"Azure Provider Authentication"` | no |
+| <a name="input_azurerm_provider_subscription_id"></a> [azurerm\_provider\_subscription\_id](#input\_azurerm\_provider\_subscription\_id) | The ID of the Azure subscription used to configure the AzureRM provider. | `string` | `"8e880cb2-5dd1-40c4-9d22-a2dc8c7ddafe"` | no |
 | <a name="input_data_platform_shared_services_workspace_name"></a> [data\_platform\_shared\_services\_workspace\_name](#input\_data\_platform\_shared\_services\_workspace\_name) | The name of the workspace managing the Data Platform's shared services. | `string` | `"azure-fabric-shared-services"` | no |
 | <a name="input_fabric_provider_authentication_variable_set_name"></a> [fabric\_provider\_authentication\_variable\_set\_name](#input\_fabric\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the Fabric Provider. | `string` | `"Microsoft Fabric Provider Authentication"` | no |
 | <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name) | The name of the GitHub organization used to configure the VCS provider. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_github_provider_authentication_variable_set_name"></a> [github\_provider\_authentication\_variable\_set\_name](#input\_github\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the GitHub Provider. | `string` | `"GitHub Provider Authentication"` | no |
 | <a name="input_hcp_terraform_organization_name"></a> [hcp\_terraform\_organization\_name](#input\_hcp\_terraform\_organization\_name) | The name of the HCP Terraform organization being managed. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_sentinel_policy_sets_repository_name"></a> [sentinel\_policy\_sets\_repository\_name](#input\_sentinel\_policy\_sets\_repository\_name) | The name of the GitHub repository hosting the Sentinel policy sets. | `string` | `"hcp-terraform-sentinel-policy"` | no |
-| <a name="input_terraform_fabric_data_engineering_onboarding_module_version"></a> [terraform\_fabric\_data\_engineering\_onboarding\_module\_version](#input\_terraform\_fabric\_data\_engineering\_onboarding\_module\_version) | The Terraform module version to pin the data-engineering-onboarding no-code module to. | `string` | `"0.2.2"` | no |
+| <a name="input_terraform_fabric_data_engineering_onboarding_module_version"></a> [terraform\_fabric\_data\_engineering\_onboarding\_module\_version](#input\_terraform\_fabric\_data\_engineering\_onboarding\_module\_version) | The Terraform module version to pin the data-engineering-onboarding no-code module to. | `string` | `"0.3.3"` | no |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.13.3"` | no |
 | <a name="input_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#input\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the variable set used to authenticate the TFE Provider. | `string` | `"TFE Provider Authentication"` | no |
 

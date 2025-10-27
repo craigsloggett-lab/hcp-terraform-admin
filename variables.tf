@@ -16,6 +16,12 @@ variable "github_organization_name" {
   default     = "craigsloggett-lab"
 }
 
+variable "azurerm_provider_subscription_id" {
+  type        = string
+  description = "The ID of the Azure subscription used to configure the AzureRM provider."
+  default     = "8e880cb2-5dd1-40c4-9d22-a2dc8c7ddafe"
+}
+
 variable "tfe_provider_authentication_variable_set_name" {
   type        = string
   description = "The name of the variable set used to authenticate the TFE Provider."
