@@ -10,6 +10,12 @@ variable "terraform_version" {
   default     = "1.13.3"
 }
 
+variable "sentinel_version" {
+  type        = string
+  description = "The version of Sentinel to use in all policy sets."
+  default     = "0.40.0"
+}
+
 variable "github_organization_name" {
   type        = string
   description = "The name of the GitHub organization used to configure the VCS provider."
