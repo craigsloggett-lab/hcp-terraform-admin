@@ -5,6 +5,7 @@ resource "tfe_policy_set" "global" {
   description   = "A global set of policies to apply across the whole organization."
   organization  = data.tfe_organization.this.name
   kind          = "sentinel"
+  agent_enabled = true
   policies_path = "policy-sets/global"
   global        = true
 
