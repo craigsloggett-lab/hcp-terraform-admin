@@ -15,3 +15,9 @@ resource "tfe_project" "data_engineering" {
   organization = data.tfe_organization.this.name
   description  = "A collection of workspaces to manage the resources created by Data Engineers."
 }
+
+resource "tfe_project" "stacks" {
+  name         = "Stacks"
+  organization = data.tfe_organization.this.name
+  description  = "A collection of stacks."
+}
