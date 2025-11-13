@@ -1,5 +1,14 @@
+data "tfe_organizations" "this" {}
+
 data "tfe_organization" "this" {
-  name = var.hcp_terraform_organization_name
+  name = data.tfe_organizations.this.names[0]
+
+  lifecycle {
+    precondition {
+      condition     = length(data.tfe_organizations.this.names) == 1
+      error_message = "Expected exactly one TFE organization for this token, but found ${length(data.tfe_organizations.this.names)}."
+    }
+  }
 }
 
 data "tfe_oauth_client" "github" {
