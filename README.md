@@ -42,6 +42,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_tfe_oauth_client_id"></a> [tfe\_oauth\_client\_id](#output\_tfe\_oauth\_client\_id) | The client ID of the OAuth app created in the backing GitHub organization. |
+| <a name="output_tfe_oauth_client_id"></a> [tfe\_oauth\_client\_id](#output\_tfe\_oauth\_client\_id) | The ID of the VCS Provider configuration. |
 | <a name="output_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#output\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the TFE Provider Authentication variable set. |
 <!-- END_TF_DOCS -->
