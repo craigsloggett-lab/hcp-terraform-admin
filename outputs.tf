@@ -5,5 +5,5 @@ output "tfe_provider_authentication_variable_set_name" {
 
 output "tfe_oauth_client_id" {
   value       = data.tfe_oauth_client.github.id
-  description = "The client ID of the OAuth app created in the backing GitHub organization."
+  description = "The ID of the VCS Provider configuration."
 }
