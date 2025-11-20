@@ -1,6 +1,21 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
+provider "registry.terraform.io/craigsloggett/utility-functions" {
+  version     = "0.2.1"
+  constraints = "0.2.1"
+  hashes = [
+    "h1:TSLgx7KLlEghfU1TH1NbnpNHJ8iRfSfJ3E3UQbr6+wU=",
+    "zh:32767a6554e8dded5744fedad051c31af92701cadd4498c9c0f95f5cafae6f58",
+    "zh:5ceac41ff84e4f4a9086491ceb92128e00028adf76c7440abba93f2c0f7648f6",
+    "zh:b6738088c889e613566a6036698349e4c2e5fc8562c1bc032d89bcee28f1aa3a",
+    "zh:c0216ea59c006a74bbf994f9e94d7b1a76f5b90e972bb5c2ae9f2dd4661474f3",
+    "zh:d281363a9bbc35bf2516d7b3ab04f9ab90df8e2e29b94a918cd573d743a0294d",
+    "zh:def3093e2613a69cb08be570ed862a2627d53295c75ef9d8651e045607068c5d",
+    "zh:f809ab383cca0a5f83072981c64208cbd7fa67e986a86ee02dd2c82333221e32",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/tfe" {
   version     = "0.71.0"
   constraints = "0.71.0"

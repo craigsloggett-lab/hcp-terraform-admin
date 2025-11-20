@@ -9,7 +9,7 @@ terraform {
     }
     utilities = {
       source  = "craigsloggett/utility-functions"
-      version = "0.2.0"
+      version = "0.2.1"
     }
   }
 }
