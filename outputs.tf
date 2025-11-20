@@ -9,6 +9,6 @@ output "tfe_oauth_client_id" {
 }
 
 output "module_path" {
-  value       = module.path
+  value       = path.module
   description = "The path to the module."
 }
