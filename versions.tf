@@ -7,5 +7,9 @@ terraform {
       source  = "hashicorp/tfe"
       version = "0.71.0"
     }
+    utilities = {
+      source  = "craigsloggett/utility-functions"
+      version = "0.1.1"
+    }
   }
 }
