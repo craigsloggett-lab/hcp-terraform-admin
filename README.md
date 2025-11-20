@@ -9,6 +9,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.7 |
 | <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | 0.71.0 |
+| <a name="requirement_utilities"></a> [utilities](#requirement\_utilities) | 0.2.0 |
 
 ## Providers
 
@@ -42,6 +43,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_random_string"></a> [random\_string](#output\_random\_string) | Generate a random number and store it in state. |
 | <a name="output_tfe_oauth_client_id"></a> [tfe\_oauth\_client\_id](#output\_tfe\_oauth\_client\_id) | The ID of the VCS Provider configuration. |
 | <a name="output_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#output\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the TFE Provider Authentication variable set. |
 <!-- END_TF_DOCS -->
