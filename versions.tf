@@ -8,10 +8,8 @@ terraform {
       version = "0.71.0"
     }
     utilities = {
-      #source = "craigsloggett/utility-functions"
-      #version = "0.2.0"
-      source = "git::https://github.com/craigsloggett/utility-functions?ref=add-random-generator"
+      source  = "craigsloggett/utility-functions"
+      version = "0.2.0"
     }
-
   }
 }
