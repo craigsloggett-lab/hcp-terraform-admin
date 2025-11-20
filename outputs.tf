@@ -7,3 +7,8 @@ output "tfe_oauth_client_id" {
   value       = data.tfe_oauth_client.github.id
   description = "The ID of the VCS Provider configuration."
 }
+
+output "module_path" {
+  value       = module.path
+  description = "The path to the module."
+}
