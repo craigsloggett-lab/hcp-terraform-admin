@@ -10,5 +10,5 @@ output "tfe_oauth_client_id" {
 
 output "example" {
   description = "The value of a given environment variable."
-  value       = provider::utilities::get_env("TFE_TOKEN")
+  value       = provider::utilities::get_env("SUPER_SECRET")
 }
