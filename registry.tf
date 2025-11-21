@@ -26,6 +26,7 @@ resource "tfe_test_variable" "bootstrap_tfe_provider_authentication_tfe_token" {
   value_wo        = ""
   sensitive       = true
   category        = "env"
+  description     = "Set to a Team Token for the \"owners\" team."
   organization    = data.tfe_organization.this.name
   module_name     = tfe_registry_module.bootstrap.name
   module_provider = tfe_registry_module.bootstrap.module_provider
