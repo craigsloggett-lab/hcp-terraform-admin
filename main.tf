@@ -17,11 +17,6 @@ data "tfe_oauth_client" "github" {
 }
 
 module "bootstrap" {
-  source  = "app.terraform.io/craigsloggett-lab/bootstrap/tfe"
-  version = "0.0.3"
-  # insert required variables here
-
-  tfe_organization = {
-    email = "craig.sloggett@hashicorp.com"
-  }
+  source = "git::https://github.com/craigsloggett-lab/hcp-terraform-bootstrap?ref=restructure-as-module"
+  #version = "0.10.0"
 }
