@@ -20,4 +20,8 @@ module "bootstrap" {
   source  = "app.terraform.io/craigsloggett-lab/bootstrap/tfe"
   version = "0.0.1"
   # insert required variables here
+
+  tfe_organization = {
+    email = "craig.sloggett@hashicorp.com"
+  }
 }
