@@ -9,7 +9,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.7 |
 | <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | 0.71.0 |
-| <a name="requirement_utilities"></a> [utilities](#requirement\_utilities) | 0.2.1 |
 
 ## Providers
 

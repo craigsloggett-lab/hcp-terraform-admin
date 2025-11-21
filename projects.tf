@@ -8,8 +8,4 @@ resource "tfe_project" "stacks" {
   organization = data.tfe_organization.this.name
   name         = "Stacks"
   description  = "A collection of stacks."
-
-  tags = {
-    identifier = provider::utilities::generate_random_string(10)
-  }
 }
