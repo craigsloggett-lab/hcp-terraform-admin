@@ -6,10 +6,6 @@ resource "tfe_registry_provider" "hashicorp" {
   namespace     = "hashicorp"
 }
 
-moved {
-  from = tfe_registry_module.bootstrap
-  to   = tfe_registry_module.terraform_tfe_bootstrap
-}
 resource "tfe_registry_module" "terraform_tfe_bootstrap" {
   organization = data.tfe_organization.this.name
 

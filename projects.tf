@@ -1,8 +1,3 @@
-moved {
-  from = tfe_team_project_access.backend
-  to   = tfe_team_project_access.admins_default_project
-}
-
 # Provide the 'admins' team admin access to the 'Default Project' project.
 resource "tfe_team_project_access" "admins_default_project" {
   access     = "admin"
@@ -14,11 +9,6 @@ resource "tfe_project" "admin" {
   organization = data.tfe_organization.this.name
   name         = "Administration"
   description  = "A collection of workspaces to manage the platform."
-}
-
-moved {
-  from = tfe_team_project_access.default
-  to   = tfe_team_project_access.admins_administrator
 }
 
 # Provide the 'admins' team admin access to the 'Administration' project.
