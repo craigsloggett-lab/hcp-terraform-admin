@@ -11,11 +11,12 @@ data "tfe_organization" "this" {
   }
 }
 
+data "tfe_project" "default" {
+  organization = data.tfe_organization.this.name
+  name         = "Default Project"
+}
+
 data "tfe_oauth_client" "github" {
   organization     = data.tfe_organization.this.name
   service_provider = "github"
-}
-
-module "bootstrap" {
-  source = "git::https://github.com/craigsloggett-lab/terraform-tfe-bootstrap?ref=v0.10.1"
 }
