@@ -54,7 +54,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 |------|-------------|------|---------|:--------:|
 | <a name="input_admins_team_emails"></a> [admins\_team\_emails](#input\_admins\_team\_emails) | A list of member email addresses for the admins team. | `set(string)` | <pre>[<br/>  "craig.sloggett@hashicorp.com"<br/>]</pre> | no |
 | <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name) | The name of the GitHub organization used to configure the VCS provider. | `string` | `"craigsloggett-lab"` | no |
-| <a name="input_github_personal_access_token"></a> [github\_personal\_access\_token](#input\_github\_personal\_access\_token) | A personal access token for the GitHub service account used to configure the VCS provider. | `string` | `""` | no |
+| <a name="input_github_personal_access_token"></a> [github\_personal\_access\_token](#input\_github\_personal\_access\_token) | A personal access token for the GitHub service account used to configure the VCS provider. | `string` | n/a | yes |
 | <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.14.0"` | no |
 
 ## Outputs
