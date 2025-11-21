@@ -20,7 +20,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | git::https://github.com/craigsloggett-lab/hcp-terraform-bootstrap | restructure-as-module |
+| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | git::https://github.com/craigsloggett-lab/terraform-tfe-bootstrap | v0.10.1 |
 
 ## Resources
 
@@ -28,7 +28,10 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 |------|------|
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/project) | resource |
 | [tfe_project.stacks](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/project) | resource |
+| [tfe_registry_module.bootstrap](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/registry_module) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/registry_provider) | resource |
+| [tfe_test_variable.bootstrap_tfe_provider_authentication_tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/test_variable) | resource |
+| [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/oauth_client) | data source |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/organization) | data source |
 | [tfe_organizations.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/organizations) | data source |
 
