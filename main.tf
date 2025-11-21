@@ -18,7 +18,7 @@ data "tfe_oauth_client" "github" {
 
 module "bootstrap" {
   source  = "app.terraform.io/craigsloggett-lab/bootstrap/tfe"
-  version = "0.0.1"
+  version = "0.0.2"
   # insert required variables here
 
   tfe_organization = {
