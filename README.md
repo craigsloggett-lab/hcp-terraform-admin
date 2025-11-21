@@ -33,8 +33,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/registry_provider) | resource |
 | [tfe_team.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team) | resource |
 | [tfe_team_organization_members.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_organization_members) | resource |
-| [tfe_team_project_access.backend](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_project_access) | resource |
-| [tfe_team_project_access.default](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.admins_administration](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.admins_default_project](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_project_access) | resource |
 | [tfe_test_variable.bootstrap_tfe_provider_authentication_tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/test_variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable_set) | resource |

@@ -1,5 +1,10 @@
-# Provide admin access to the 'Default Project' that comes with HCP Terraform.
-resource "tfe_team_project_access" "backend" {
+moved {
+  from = tfe_team_project_access.backend
+  to   = tfe_team_project_access.admins_default_project
+}
+
+# Provide the 'admins' team admin access to the 'Default Project' project.
+resource "tfe_team_project_access" "admins_default_project" {
   access     = "admin"
   team_id    = tfe_team.admins.id
   project_id = data.tfe_project.default.id
@@ -11,8 +16,13 @@ resource "tfe_project" "admin" {
   description  = "A collection of workspaces to manage the platform."
 }
 
-# Provide admin access to the 'Administration' project.
-resource "tfe_team_project_access" "default" {
+moved {
+  from = tfe_team_project_access.default
+  to   = tfe_team_project_access.admins_administrator
+}
+
+# Provide the 'admins' team admin access to the 'Administration' project.
+resource "tfe_team_project_access" "admins_administration" {
   access     = "admin"
   team_id    = tfe_team.admins.id
   project_id = tfe_project.admin.id
