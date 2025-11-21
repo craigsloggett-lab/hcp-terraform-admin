@@ -6,7 +6,7 @@ resource "tfe_variable_set" "tfe_provider_authentication" {
 
 resource "tfe_variable" "tfe_token" {
   key             = "TFE_TOKEN"
-  value_wo        = ""
+  value           = ""
   sensitive       = true
   category        = "env"
   description     = "Set to a Team Token for the \"owners\" team."
