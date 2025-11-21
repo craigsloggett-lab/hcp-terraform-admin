@@ -6,7 +6,11 @@ resource "tfe_registry_provider" "hashicorp" {
   namespace     = "hashicorp"
 }
 
-resource "tfe_registry_module" "bootstrap" {
+moved {
+  from = tfe_registry_module.bootstrap
+  to   = tfe_registry_module.terraform_tfe_bootstrap
+}
+resource "tfe_registry_module" "terraform_tfe_bootstrap" {
   organization = data.tfe_organization.this.name
 
   test_config {
@@ -15,8 +19,8 @@ resource "tfe_registry_module" "bootstrap" {
 
   vcs_repo {
     branch             = "main"
-    display_identifier = "craigsloggett-lab/terraform-tfe-bootstrap"
-    identifier         = "craigsloggett-lab/terraform-tfe-bootstrap"
+    display_identifier = "${var.github_organization_name}/terraform-tfe-bootstrap"
+    identifier         = "${var.github_organization_name}/terraform-tfe-bootstrap"
     oauth_token_id     = data.tfe_oauth_client.github.oauth_token_id
   }
 }
@@ -28,6 +32,6 @@ resource "tfe_test_variable" "bootstrap_tfe_provider_authentication_tfe_token" {
   category        = "env"
   description     = "Set to a Team Token for the \"owners\" team."
   organization    = data.tfe_organization.this.name
-  module_name     = tfe_registry_module.bootstrap.name
-  module_provider = tfe_registry_module.bootstrap.module_provider
+  module_name     = tfe_registry_module.terraform_tfe_bootstrap.name
+  module_provider = tfe_registry_module.terraform_tfe_bootstrap.module_provider
 }

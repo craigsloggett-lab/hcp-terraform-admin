@@ -1,0 +1,15 @@
+resource "tfe_workspace" "hcp_terraform_admin" {
+  name         = "hcp-terraform-admin"
+  organization = data.tfe_organization.this.name
+  project_id   = tfe_project.admin.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    identifier     = "${var.github_organization_name}/hcp-terraform-admin"
+    oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
+  }
+}
