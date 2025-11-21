@@ -7,3 +7,10 @@ output "tfe_oauth_client_id" {
   value       = data.tfe_oauth_client.github.id
   description = "The ID of the VCS Provider configuration."
 }
+
+# Module Testing
+
+output "module_outputs" {
+  value       = module.bootstrap
+  description = "."
+}

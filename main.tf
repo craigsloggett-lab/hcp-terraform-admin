@@ -15,3 +15,9 @@ data "tfe_oauth_client" "github" {
   organization     = data.tfe_organization.this.name
   service_provider = "github"
 }
+
+module "bootstrap" {
+  source  = "app.terraform.io/craigsloggett-lab/bootstrap/tfe"
+  version = "0.0.1"
+  # insert required variables here
+}

@@ -18,7 +18,9 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | app.terraform.io/craigsloggett-lab/bootstrap/tfe | 0.0.1 |
 
 ## Resources
 
@@ -42,6 +44,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_module_outputs"></a> [module\_outputs](#output\_module\_outputs) | . |
 | <a name="output_tfe_oauth_client_id"></a> [tfe\_oauth\_client\_id](#output\_tfe\_oauth\_client\_id) | The ID of the VCS Provider configuration. |
 | <a name="output_tfe_provider_authentication_variable_set_name"></a> [tfe\_provider\_authentication\_variable\_set\_name](#output\_tfe\_provider\_authentication\_variable\_set\_name) | The name of the TFE Provider Authentication variable set. |
 <!-- END_TF_DOCS -->
