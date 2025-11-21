@@ -13,3 +13,12 @@ resource "tfe_workspace" "hcp_terraform_admin" {
     oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
   }
 }
+
+resource "tfe_variable" "github_personal_access_token" {
+  key          = "github_personal_access_token"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "Set to a Personal Access Token for a GitHub service account."
+  workspace_id = tfe_workspace.hcp_terraform_admin.id
+}
