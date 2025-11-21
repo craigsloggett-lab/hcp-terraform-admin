@@ -7,6 +7,8 @@ resource "tfe_registry_provider" "hashicorp" {
 }
 
 resource "tfe_registry_module" "bootstrap" {
+  organization = data.tfe_organization.this.name
+
   test_config {
     tests_enabled = true
   }
