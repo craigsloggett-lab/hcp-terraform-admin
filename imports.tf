@@ -1,6 +1,6 @@
 # The bootstrap module is the source for all of the identifiers being imported.
 module "bootstrap" {
-  source = "git::https://github.com/craigsloggett-lab/terraform-tfe-bootstrap?ref=v0.10.1"
+  source = "git::https://github.com/craigsloggett-lab/terraform-tfe-bootstrap?ref=v0.10.2"
 }
 
 # The HCP Terraform organization.
