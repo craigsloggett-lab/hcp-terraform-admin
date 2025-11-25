@@ -16,7 +16,7 @@ moved {
 }
 
 resource "tfe_organization_membership" "this" {
-  for_each = module.bootstrap.data.tfe_organization_membership.this
+  for_each = ["ou-9KRr8gq4h6JikktE", "ou-iG7fN1RibVaEebEM", "ou-tSVPjvXHB4iTqcPb"]
 
   organization = tfe_organization.this.name
   email        = each.value.email
@@ -38,8 +38,11 @@ moved {
 }
 
 resource "tfe_team_organization_members" "owners" {
-  team_id                     = tfe_team.owners.id
-  organization_membership_ids = module.bootstrap.tfe_team_organization_members.owners.organization_membership_ids
+  team_id = tfe_team.owners.id
+  organization_membership_ids = [
+    "ou-9KRr8gq4h6JikktE",
+    "ou-tSVPjvXHB4iTqcPb"
+  ]
 }
 
 moved {
