@@ -1,6 +1,5 @@
 resource "tfe_team" "owners" {
-  name         = "owners"
-  organization = tfe_organization.this.name
+  name = "owners"
 }
 
 resource "tfe_team_organization_members" "owners" {
@@ -10,9 +9,8 @@ resource "tfe_team_organization_members" "owners" {
 
 # Create an admin team to eliminate the need to give owners access to new users.
 resource "tfe_team" "admins" {
-  name         = "admins"
-  organization = data.tfe_organization.this.name
-  visibility   = "secret"
+  name       = "admins"
+  visibility = "secret"
 
   organization_access {
     access_secret_teams        = true
@@ -34,9 +32,8 @@ resource "tfe_team" "admins" {
 }
 
 data "tfe_organization_membership" "admins" {
-  for_each     = var.admins_team_emails
-  organization = data.tfe_organization.this.name
-  email        = each.key
+  for_each = var.admins_team_emails
+  email    = each.key
 }
 
 resource "tfe_team_organization_members" "admins" {

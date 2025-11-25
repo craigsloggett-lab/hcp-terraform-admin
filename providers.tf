@@ -1,1 +1,3 @@
-provider "tfe" {}
+provider "tfe" {
+  organization = "craigsloggett-lab"
+}

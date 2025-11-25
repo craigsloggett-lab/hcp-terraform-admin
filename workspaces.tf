@@ -1,7 +1,6 @@
 resource "tfe_workspace" "hcp_terraform_admin" {
-  name         = "hcp-terraform-admin"
-  organization = data.tfe_organization.this.name
-  project_id   = tfe_project.admin.id
+  name       = "hcp-terraform-admin"
+  project_id = tfe_project.admin.id
 
   auto_apply            = true
   queue_all_runs        = true
