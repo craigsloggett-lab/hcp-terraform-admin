@@ -15,6 +15,13 @@ data "tfe_organization_members" "this" {
   organization = data.tfe_organization.this.name
 }
 
+data "tfe_organization_membership" "this" {
+  for_each = toset(data.tfe_organization_members.this.members[*].organization_membership_id)
+
+  organization               = data.tfe_organization.this.name
+  organization_membership_id = each.value
+}
+
 data "tfe_team" "owners" {
   organization = data.tfe_organization.this.name
   name         = "owners"
