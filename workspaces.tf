@@ -9,17 +9,22 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   file_triggers_enabled = false
 
   vcs_repo {
-    branch                     = "main"
-    identifier                 = "${var.github_organization_name}/hcp-terraform-admin"
-    github_app_installation_id = "96523873"
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/hcp-terraform-admin"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
 }
 
-resource "tfe_variable" "github_personal_access_token" {
-  key          = "github_personal_access_token"
+import {
+  id = "${data.tfe_organization.this.name}/${tfe_workspace.hcp_terraform_admin.name}/var-LrxkiXDptBLWFQ67"
+  to = tfe_variable.github_vcs_provider_oauth_token
+}
+
+resource "tfe_variable" "github_vcs_provider_oauth_token" {
+  key          = "github_vcs_provider_oauth_token"
   value        = ""
   sensitive    = true
   category     = "terraform"
-  description  = "Set to a Personal Access Token for a GitHub service account."
+  description  = "Set to a Personal Access Token for the service account in the craigsloggett-lab GitHub organization."
   workspace_id = tfe_workspace.hcp_terraform_admin.id
 }
