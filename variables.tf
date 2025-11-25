@@ -15,8 +15,3 @@ variable "github_organization_name" {
   description = "The name of the GitHub organization used to configure the VCS provider."
   default     = "craigsloggett-lab"
 }
-
-variable "github_personal_access_token" {
-  type        = string
-  description = "A personal access token for the GitHub service account used to configure the VCS provider."
-}
