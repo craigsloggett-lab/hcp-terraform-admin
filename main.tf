@@ -11,6 +11,15 @@ data "tfe_organization" "this" {
   }
 }
 
+data "tfe_organization_members" "this" {
+  organization = data.tfe_organization.this.name
+}
+
+data "tfe_team" "owners" {
+  organization = data.tfe_organization.this.name
+  name         = "owners"
+}
+
 data "tfe_project" "default" {
   organization = data.tfe_organization.this.name
   name         = "Default Project"

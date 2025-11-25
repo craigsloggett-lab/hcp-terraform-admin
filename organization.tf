@@ -16,7 +16,7 @@ moved {
 }
 
 resource "tfe_organization_membership" "this" {
-  for_each = ["ou-9KRr8gq4h6JikktE", "ou-iG7fN1RibVaEebEM", "ou-tSVPjvXHB4iTqcPb"]
+  for_each = data.tfe_organization_members.this
 
   organization = tfe_organization.this.name
   email        = each.value.email
