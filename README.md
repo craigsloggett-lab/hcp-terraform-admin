@@ -18,7 +18,9 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | git::https://github.com/craigsloggett-lab/terraform-tfe-bootstrap | v0.10.2 |
 
 ## Resources
 
