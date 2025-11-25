@@ -16,9 +16,8 @@ data "tfe_project" "default" {
   name         = "Default Project"
 }
 
-data "tfe_oauth_client" "github" {
-  organization     = data.tfe_organization.this.name
-  service_provider = "github"
+data "tfe_github_app_installation" "this" {
+  name = var.github_organization_name
 }
 
 # These are expected to be imported by the consuming root module as showcased in the examples/ directory.

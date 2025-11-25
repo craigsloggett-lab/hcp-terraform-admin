@@ -26,7 +26,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Type |
 |------|------|
-| [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/oauth_client) | resource |
 | [tfe_project.admin](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/project) | resource |
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/project) | resource |
 | [tfe_project.stacks](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/project) | resource |
@@ -42,7 +41,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable_set) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.hcp_terraform_admin_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/workspace_variable_set) | resource |
-| [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/oauth_client) | data source |
+| [tfe_github_app_installation.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/github_app_installation) | data source |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/organization) | data source |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/organization_membership) | data source |
 | [tfe_organizations.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/data-sources/organizations) | data source |
