@@ -18,11 +18,8 @@ resource "tfe_team" "owners" {
 }
 
 resource "tfe_team_organization_members" "owners" {
-  team_id = tfe_team.owners.id
-  organization_membership_ids = [
-    "ou-9KRr8gq4h6JikktE",
-    "ou-tSVPjvXHB4iTqcPb"
-  ]
+  team_id                     = tfe_team.owners.id
+  organization_membership_ids = module.bootstrap.tfe_team.owners.organization_membership_ids
 }
 
 resource "tfe_project" "default" {
