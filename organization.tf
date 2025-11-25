@@ -1,5 +1,5 @@
 resource "tfe_organization" "this" {
-  name  = data.tfe_organization.this.name
+  name  = module.bootstrap.tfe_organization.this.name
   email = data.tfe_organization.this.email
 
   assessments_enforced = true
