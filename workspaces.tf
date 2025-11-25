@@ -15,11 +15,11 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   }
 }
 
-resource "tfe_variable" "github_personal_access_token" {
-  key          = "github_personal_access_token"
+resource "tfe_variable" "github_vcs_provider_oauth_token" {
+  key          = "github_vcs_provider_oauth_token"
   value        = ""
   sensitive    = true
   category     = "terraform"
-  description  = "Set to a Personal Access Token for a GitHub service account."
+  description  = "Set to a Personal Access Token for the service account in the craigsloggett-lab GitHub organization."
   workspace_id = tfe_workspace.hcp_terraform_admin.id
 }
