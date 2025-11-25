@@ -17,7 +17,7 @@ resource "tfe_registry_module" "terraform_tfe_bootstrap" {
     branch                     = "main"
     display_identifier         = "${var.github_organization_name}/terraform-tfe-bootstrap"
     identifier                 = "${var.github_organization_name}/terraform-tfe-bootstrap"
-    github_app_installation_id = data.tfe_github_app_installation.this.id
+    github_app_installation_id = "96523873"
   }
 }
 

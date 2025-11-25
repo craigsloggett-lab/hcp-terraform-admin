@@ -11,7 +11,7 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   vcs_repo {
     branch                     = "main"
     identifier                 = "${var.github_organization_name}/hcp-terraform-admin"
-    github_app_installation_id = data.tfe_github_app_installation.this.id
+    github_app_installation_id = "96523873"
   }
 }
 
