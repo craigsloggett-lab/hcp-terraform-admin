@@ -16,10 +16,6 @@ data "tfe_project" "default" {
   name         = "Default Project"
 }
 
-data "tfe_github_app_installation" "this" {
-  name = var.github_organization_name
-}
-
 # These are expected to be imported by the consuming root module as showcased in the examples/ directory.
 
 #resource "tfe_organization" "this" {
