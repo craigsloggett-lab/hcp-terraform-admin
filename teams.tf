@@ -1,3 +1,13 @@
+resource "tfe_team" "owners" {
+  name         = "owners"
+  organization = tfe_organization.this.name
+}
+
+resource "tfe_team_organization_members" "owners" {
+  team_id                     = tfe_team.owners.id
+  organization_membership_ids = module.bootstrap.tfe_team.owners.organization_membership_ids
+}
+
 # Create an admin team to eliminate the need to give owners access to new users.
 resource "tfe_team" "admins" {
   name         = "admins"

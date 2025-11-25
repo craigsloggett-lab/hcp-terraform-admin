@@ -1,8 +1,14 @@
+resource "tfe_project" "default" {
+  name         = "Default Project"
+  organization = tfe_organization.this.name
+  description  = "The default project for new workspaces."
+}
+
 # Provide the 'admins' team admin access to the 'Default Project' project.
 resource "tfe_team_project_access" "admins_default_project" {
   access     = "admin"
   team_id    = tfe_team.admins.id
-  project_id = data.tfe_project.default.id
+  project_id = tfe_project.default.id
 }
 
 resource "tfe_project" "admin" {
