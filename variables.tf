@@ -16,7 +16,8 @@ variable "github_organization_name" {
   default     = "craigsloggett-lab"
 }
 
-variable "github_personal_access_token" {
+variable "github_vcs_provider_oauth_token" {
   type        = string
-  description = "A personal access token for the GitHub service account used to configure the VCS provider."
+  description = "The personal access token for a service account in the GitHub organization being connected."
+  sensitive   = true
 }

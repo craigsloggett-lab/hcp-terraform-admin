@@ -14,10 +14,10 @@ resource "tfe_registry_module" "terraform_tfe_bootstrap" {
   }
 
   vcs_repo {
-    branch             = "main"
-    display_identifier = "${var.github_organization_name}/terraform-tfe-bootstrap"
-    identifier         = "${var.github_organization_name}/terraform-tfe-bootstrap"
-    oauth_token_id     = data.tfe_oauth_client.github.oauth_token_id
+    branch                     = "main"
+    display_identifier         = "${var.github_organization_name}/terraform-tfe-bootstrap"
+    identifier                 = "${var.github_organization_name}/terraform-tfe-bootstrap"
+    github_app_installation_id = "96523873"
   }
 }
 

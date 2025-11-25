@@ -9,8 +9,9 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   file_triggers_enabled = false
 
   vcs_repo {
-    identifier     = "${var.github_organization_name}/hcp-terraform-admin"
-    oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
+    branch                     = "main"
+    identifier                 = "${var.github_organization_name}/hcp-terraform-admin"
+    github_app_installation_id = "96523873"
   }
 }
 
