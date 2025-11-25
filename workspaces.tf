@@ -15,6 +15,11 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   }
 }
 
+import {
+  id = "${data.tfe_organization.this.name}/${tfe_workspace.hcp_terraform_admin.name}/var-LrxkiXDptBLWFQ67"
+  to = tfe_variable.github_vcs_provider_oauth_token
+}
+
 resource "tfe_variable" "github_vcs_provider_oauth_token" {
   key          = "github_vcs_provider_oauth_token"
   value        = ""
