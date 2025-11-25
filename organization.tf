@@ -33,7 +33,7 @@ resource "tfe_team" "owners" {
 }
 
 moved {
-  from = module.bootstrap.tfe_organization_members.owners
+  from = module.bootstrap.tfe_team_organization_members.owners
   to   = tfe_team_organization_members.owners
 }
 
