@@ -1,7 +1,6 @@
 resource "tfe_workspace" "hcp_terraform_admin" {
-  name         = "hcp-terraform-admin"
-  organization = data.tfe_organization.this.name
-  project_id   = tfe_project.admin.id
+  name       = "hcp-terraform-admin"
+  project_id = tfe_project.admin.id
 
   auto_apply            = true
   queue_all_runs        = true
@@ -13,11 +12,6 @@ resource "tfe_workspace" "hcp_terraform_admin" {
     identifier     = "${var.github_organization_name}/hcp-terraform-admin"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
-}
-
-import {
-  id = "${data.tfe_organization.this.name}/${tfe_workspace.hcp_terraform_admin.name}/var-LrxkiXDptBLWFQ67"
-  to = tfe_variable.github_vcs_provider_oauth_token
 }
 
 resource "tfe_variable" "github_vcs_provider_oauth_token" {

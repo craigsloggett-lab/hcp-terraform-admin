@@ -1,7 +1,6 @@
 resource "tfe_variable_set" "tfe_provider_authentication" {
-  name         = "TFE Provider Authentication"
-  description  = "The token used to authenticate the TFE provider for managing this HCP Terraform organization."
-  organization = data.tfe_organization.this.name
+  name        = "TFE Provider Authentication"
+  description = "The token used to authenticate the TFE provider for managing this HCP Terraform organization."
 }
 
 resource "tfe_variable" "tfe_token" {
