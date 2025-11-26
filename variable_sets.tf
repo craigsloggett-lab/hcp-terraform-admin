@@ -24,25 +24,12 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
+# This data source is used to get the values of non-sensitive variables since
+# they are expected to be updated outside of Terraform and will cause drift
+# otherwise.
 data "tfe_variables" "aws_provider_authentication" {
   for_each        = var.application_environments
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
-}
-
-# Get the values of non-sensitive variables to eliminate drift.
-locals {
-  aws_access_key_id_value = {
-    for environment in var.application_environments : environment => one([
-      for variable in data.tfe_variables.aws_provider_authentication[environment].variables : variable.value
-      if variable.name == "AWS_ACCESS_KEY_ID"
-    ])
-  }
-  aws_session_expiration_value = {
-    for environment in var.application_environments : environment => one([
-      for variable in data.tfe_variables.aws_provider_authentication[environment].variables : variable.value
-      if variable.name == "AWS_SESSION_EXPIRATION"
-    ])
-  }
 }
 
 resource "tfe_variable" "aws_access_key_id" {
@@ -57,7 +44,7 @@ resource "tfe_variable" "aws_access_key_id" {
 resource "tfe_variable" "aws_secret_access_key" {
   for_each        = var.application_environments
   key             = "AWS_SECRET_ACCESS_KEY"
-  value           = ""
+  value           = "" # An empty value for a sensitive variable will never drift.
   sensitive       = true
   category        = "env"
   description     = "AWS Secret Access Key"
@@ -76,7 +63,7 @@ resource "tfe_variable" "aws_session_expiration" {
 resource "tfe_variable" "aws_session_token" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_TOKEN"
-  value           = ""
+  value           = "" # An empty value for a sensitive variable will never drift.
   sensitive       = true
   category        = "env"
   description     = "AWS Session Token"
