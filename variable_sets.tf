@@ -24,10 +24,31 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
+data "tfe_variables" "aws_provider_authentication" {
+  for_each        = var.application_environments
+  variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
+}
+
+# Get the values of non-sensitive variables to eliminate drift.
+locals {
+  aws_access_key_id_value = {
+    for environment in var.application_environments : environment => one([
+      for variable in data.tfe_variables.aws_provider_authentication[environment].variables : variable.value
+      if variable.name == "AWS_ACCESS_KEY_ID"
+    ])
+  }
+  aws_session_expiration_value = {
+    for environment in var.application_environments : environment => one([
+      for variable in data.tfe_variables.aws_provider_authentication[environment].variables : variable.value
+      if variable.name == "AWS_SESSION_EXPIRATION"
+    ])
+  }
+}
+
 resource "tfe_variable" "aws_access_key_id" {
   for_each        = var.application_environments
   key             = "AWS_ACCESS_KEY_ID"
-  value           = ""
+  value           = local.aws_access_key_id_value[each.key]
   category        = "env"
   description     = "AWS Access Key ID"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
@@ -46,7 +67,7 @@ resource "tfe_variable" "aws_secret_access_key" {
 resource "tfe_variable" "aws_session_expiration" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_EXPIRATION"
-  value           = ""
+  value           = local.aws_session_expiration_value[each.key]
   category        = "env"
   description     = "AWS Session Expiration"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
