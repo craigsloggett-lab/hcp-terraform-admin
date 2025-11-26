@@ -6,6 +6,8 @@ resource "tfe_registry_provider" "hashicorp" {
 }
 
 resource "tfe_registry_module" "terraform_tfe_bootstrap" {
+  initial_version = "0.11.0"
+
   test_config {
     tests_enabled = true
   }
