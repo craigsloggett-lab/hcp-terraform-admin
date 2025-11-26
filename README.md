@@ -42,6 +42,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_team_project_access.admins_default_project](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/team_project_access) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
+| [tfe_variable_set.aws_provider_authentication_dev](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable_set) | resource |
+| [tfe_variable_set.aws_provider_authentication_prod](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable_set) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.hcp_terraform_admin_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/workspace_variable_set) | resource |
