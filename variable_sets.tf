@@ -28,7 +28,6 @@ resource "tfe_variable" "aws_access_key_id" {
   for_each        = var.application_environments
   key             = "AWS_ACCESS_KEY_ID"
   value           = ""
-  sensitive       = true
   category        = "env"
   description     = "AWS Access Key ID"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
@@ -48,7 +47,6 @@ resource "tfe_variable" "aws_session_expiration" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_EXPIRATION"
   value           = ""
-  sensitive       = true
   category        = "env"
   description     = "AWS Session Expiration"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
