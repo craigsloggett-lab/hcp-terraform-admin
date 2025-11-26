@@ -21,3 +21,9 @@ variable "github_vcs_provider_oauth_token" {
   description = "The personal access token for a service account in the GitHub organization being connected."
   sensitive   = true
 }
+
+variable "application_environments" {
+  type        = set(string)
+  description = "A set of environments that applications will be deploying to."
+  default     = ["development", "production"]
+}
