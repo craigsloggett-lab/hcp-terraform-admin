@@ -29,6 +29,7 @@ resource "tfe_test_variable" "terraform_tfe_bootstrap_tfe_provider_authenticatio
   value           = "" # An empty value for a sensitive variable will never drift.
   sensitive       = true
   category        = "env"
+  description     = "Set to a Team Token for the \"owners\" team."
   organization    = tfe_organization.this.name
   module_name     = tfe_registry_module.terraform_tfe_bootstrap.name
   module_provider = tfe_registry_module.terraform_tfe_bootstrap.module_provider
