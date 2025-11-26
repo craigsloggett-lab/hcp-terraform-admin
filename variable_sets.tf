@@ -17,11 +17,6 @@ resource "tfe_workspace_variable_set" "hcp_terraform_admin_tfe_provider_authenti
   workspace_id    = tfe_workspace.hcp_terraform_admin.id
 }
 
-import {
-  id = "varset-zg85eodKaGw4H1sD"
-  to = tfe_variable_set.aws_provider_authentication["development"]
-}
-
 resource "tfe_variable_set" "aws_provider_authentication" {
   for_each    = var.application_environments
   name        = "AWS Provider Authentication (${title(each.key)})"
@@ -29,14 +24,23 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
+import {
+  id = "${module.bootstrap.tfe_organization.this.name}/${tfe_variable_set.aws_provider_authentication["development"].id}/var-vi9hPnWV9GyiP8pJ"
+  to = tfe_variable.aws_access_key_id["development"]
+}
+
 resource "tfe_variable" "aws_access_key_id" {
   for_each        = var.application_environments
   key             = "AWS_ACCESS_KEY_ID"
-  value           = ""
-  sensitive       = true
+  value_wo        = ""
   category        = "env"
   description     = "AWS Access Key ID"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
+}
+
+import {
+  id = "${module.bootstrap.tfe_organization.this.name}/${tfe_variable_set.aws_provider_authentication["development"].id}/var-ccYNnvqUN1a4tTfT"
+  to = tfe_variable.aws_secret_access_key["development"]
 }
 
 resource "tfe_variable" "aws_secret_access_key" {
@@ -49,14 +53,23 @@ resource "tfe_variable" "aws_secret_access_key" {
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
 }
 
+import {
+  id = "${module.bootstrap.tfe_organization.this.name}/${tfe_variable_set.aws_provider_authentication["development"].id}/var-ecEnWsokKGKMHYnc"
+  to = tfe_variable.aws_session_expiration["development"]
+}
+
 resource "tfe_variable" "aws_session_expiration" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_EXPIRATION"
-  value           = ""
-  sensitive       = true
+  value_wo        = ""
   category        = "env"
   description     = "AWS Session Expiration"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
+}
+
+import {
+  id = "${module.bootstrap.tfe_organization.this.name}/${tfe_variable_set.aws_provider_authentication["development"].id}/var-F9Biy4uAu84qbyFX"
+  to = tfe_variable.aws_session_token["development"]
 }
 
 resource "tfe_variable" "aws_session_token" {
