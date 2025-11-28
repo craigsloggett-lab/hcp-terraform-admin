@@ -26,7 +26,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Type |
 |------|------|
-| [tfe_no_code_module.terraform_tfe_discovery](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/no_code_module) | resource |
 | [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/oauth_client) | resource |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/organization) | resource |
 | [tfe_organization_membership.this](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/organization_membership) | resource |
