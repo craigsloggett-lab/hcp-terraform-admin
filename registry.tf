@@ -5,11 +5,6 @@ resource "tfe_registry_provider" "hashicorp" {
   namespace     = "hashicorp"
 }
 
-moved {
-  from = tfe_registry_module.terraform_tfe_bootstrap
-  to   = tfe_registry_module.terraform_tfe_discovery
-}
-
 import {
   id = "craigsloggett-lab/private/craigsloggett-lab/discovery/tfe/mod-rPNWcQe36gvPmm5y"
   to = tfe_registry_module.terraform_tfe_discovery
