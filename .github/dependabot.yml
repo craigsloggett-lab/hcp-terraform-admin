@@ -9,7 +9,7 @@ registries:
 updates:
 - package-ecosystem: terraform
   directory: /
-  registries: hcp-terraform
+  registries: '*'
   schedule:
     interval: weekly
 
