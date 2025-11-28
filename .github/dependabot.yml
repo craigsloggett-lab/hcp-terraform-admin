@@ -1,16 +1,19 @@
 version: 2
 
-updates:
-  - package-ecosystem: terraform
-    directory: /
-    schedule:
-      interval: weekly
-    commit-message:
-      prefix: chore
+registries:
+  hcp-terraform:
+    type: terraform-registry
+    url: https://app.terraform.io
+    token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
 
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-    commit-message:
-      prefix: chore
+updates:
+- package-ecosystem: terraform
+  directory: /
+  registries: hcp-terraform
+  schedule:
+    interval: weekly
+
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: weekly
