@@ -1,5 +1,5 @@
-# The bootstrap module is essentially a data source for all of the identifiers being imported.
-module "bootstrap" {
-  source  = "app.terraform.io/craigsloggett-lab/bootstrap/tfe"
-  version = "0.12.2"
+# The discovery module is essentially a data source for all of the identifiers being imported.
+module "discovery" {
+  source  = "app.terraform.io/craigsloggett-lab/discovery/tfe"
+  version = "0.12.3"
 }
