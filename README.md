@@ -20,7 +20,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_discovery"></a> [discovery](#module\_discovery) | app.terraform.io/craigsloggett-lab/discovery/tfe | 0.12.3 |
+| <a name="module_discovery"></a> [discovery](#module\_discovery) | app.terraform.io/craigsloggett-lab/discovery/tfe | 0.12.4 |
 
 ## Resources
 
