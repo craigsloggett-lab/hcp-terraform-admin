@@ -10,6 +10,11 @@ moved {
   to   = tfe_registry_module.terraform_tfe_discovery
 }
 
+import {
+  id = "craigsloggett-lab/private/craigsloggett-lab/discovery/tfe/mod-rPNWcQe36gvPmm5y"
+  to = tfe_registry_module.terraform_tfe_discovery
+}
+
 resource "tfe_registry_module" "terraform_tfe_discovery" {
   initial_version = "0.12.3"
 
@@ -23,10 +28,6 @@ resource "tfe_registry_module" "terraform_tfe_discovery" {
     identifier         = "${var.github_organization_name}/terraform-tfe-discovery"
     oauth_token_id     = tfe_oauth_client.github.oauth_token_id
   }
-}
-
-resource "tfe_no_code_module" "terraform_tfe_discovery" {
-  registry_module = tfe_registry_module.terraform_tfe_discovery.id
 }
 
 resource "tfe_test_variable" "terraform_tfe_discovery_tfe_provider_authentication_tfe_token" {
