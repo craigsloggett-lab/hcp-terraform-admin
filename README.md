@@ -20,7 +20,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | app.terraform.io/craigsloggett-lab/bootstrap/tfe | 0.12.0 |
+| <a name="module_bootstrap"></a> [bootstrap](#module\_bootstrap) | app.terraform.io/craigsloggett-lab/bootstrap/tfe | 0.12.2 |
 
 ## Resources
 
