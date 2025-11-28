@@ -9,6 +9,7 @@ moved {
   from = tfe_registry_module.terraform_tfe_bootstrap
   to   = tfe_registry_module.terraform_tfe_discovery
 }
+
 resource "tfe_registry_module" "terraform_tfe_discovery" {
   initial_version = "0.12.3"
 
