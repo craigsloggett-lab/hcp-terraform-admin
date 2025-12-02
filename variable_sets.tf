@@ -69,3 +69,22 @@ resource "tfe_variable" "aws_session_token" {
   description     = "AWS Session Token"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
 }
+
+resource "tfe_variable_set" "github_provider_authentication" {
+  name        = "GitHub Provider Authentication"
+  description = "The token used to authenticate the GitHub provider for managing the GitHub organization."
+}
+
+resource "tfe_variable" "github_token" {
+  key             = "GITHUB_TOKEN"
+  value           = ""
+  sensitive       = true
+  category        = "env"
+  description     = "Set to a Personal Access Token for a GitHub organization administrator."
+  variable_set_id = tfe_variable_set.github_provider_authentication.id
+}
+
+resource "tfe_workspace_variable_set" "github_admin_github_provider_authentication" {
+  variable_set_id = tfe_variable_set.github_provider_authentication.id
+  workspace_id    = tfe_workspace.github_admin.id
+}
