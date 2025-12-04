@@ -1,7 +1,7 @@
 variable "terraform_version" {
   type        = string
   description = "The version of Terraform to use in all workspaces."
-  default     = "1.14.0"
+  default     = "1.14.1"
 }
 
 variable "admins_team_emails" {
