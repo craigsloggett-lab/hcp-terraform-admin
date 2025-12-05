@@ -84,6 +84,14 @@ resource "tfe_variable" "github_token" {
   variable_set_id = tfe_variable_set.github_provider_authentication.id
 }
 
+resource "tfe_variable" "github_owner" {
+  key             = "GITHUB_OWNER"
+  value           = "craigsloggett-lab"
+  category        = "env"
+  description     = "Set to the name of the GitHub organization being managed."
+  variable_set_id = tfe_variable_set.github_provider_authentication.id
+}
+
 resource "tfe_workspace_variable_set" "github_admin_github_provider_authentication" {
   variable_set_id = tfe_variable_set.github_provider_authentication.id
   workspace_id    = tfe_workspace.github_admin.id
