@@ -46,6 +46,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.aws_secret_access_key](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.aws_session_expiration](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.aws_session_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
+| [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.71.0/docs/resources/variable) | resource |
@@ -67,7 +68,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | <a name="input_application_environments"></a> [application\_environments](#input\_application\_environments) | A set of environments that applications will be deploying to. | `set(string)` | <pre>[<br/>  "development",<br/>  "production"<br/>]</pre> | no |
 | <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name) | The name of the GitHub organization used to configure the VCS provider. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_github_vcs_provider_oauth_token"></a> [github\_vcs\_provider\_oauth\_token](#input\_github\_vcs\_provider\_oauth\_token) | The personal access token for a service account in the GitHub organization being connected. | `string` | n/a | yes |
-| <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.14.0"` | no |
+| <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.14.1"` | no |
 
 ## Outputs
 
