@@ -7,11 +7,6 @@ registries:
     token: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
 
 updates:
-- package-ecosystem: terraform
-  directory: /
-  schedule:
-    interval: weekly
-
 - package-ecosystem: github-actions
   directory: /
   schedule:
