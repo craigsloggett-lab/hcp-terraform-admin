@@ -1,5 +1,5 @@
-# The discovery module is essentially a data source for all of the identifiers being imported.
+# The discovery module acts as a data source for all of the identifiers being imported.
 module "discovery" {
-  source  = "app.terraform.io/craigsloggett-lab/discovery/tfe"
-  version = "0.12.4"
+  source  = "craigsloggett/discovery/tfe"
+  version = "0.14.0"
 }
