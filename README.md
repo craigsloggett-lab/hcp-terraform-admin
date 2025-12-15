@@ -20,7 +20,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_discovery"></a> [discovery](#module\_discovery) | craigsloggett/discovery/tfe | 0.14.0 |
+| <a name="module_discovery"></a> [discovery](#module\_discovery) | craigsloggett/discovery/tfe | 0.14.2 |
 
 ## Resources
 
@@ -66,7 +66,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | <a name="input_application_environments"></a> [application\_environments](#input\_application\_environments) | A set of environments that applications will be deploying to. | `set(string)` | <pre>[<br/>  "development",<br/>  "production"<br/>]</pre> | no |
 | <a name="input_github_organization_name"></a> [github\_organization\_name](#input\_github\_organization\_name) | The name of the GitHub organization used to configure the VCS provider. | `string` | `"craigsloggett-lab"` | no |
 | <a name="input_github_vcs_provider_oauth_token"></a> [github\_vcs\_provider\_oauth\_token](#input\_github\_vcs\_provider\_oauth\_token) | The personal access token for a service account in the GitHub organization being connected. | `string` | n/a | yes |
-| <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.14.1"` | no |
+| <a name="input_terraform_version"></a> [terraform\_version](#input\_terraform\_version) | The version of Terraform to use in all workspaces. | `string` | `"1.14.2"` | no |
 
 ## Outputs
 
