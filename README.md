@@ -51,9 +51,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable_set) | resource |
-| [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/workspace) | resource |
-| [tfe_workspace_variable_set.github_admin_github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.hcp_terraform_admin_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/data-sources/organization_membership) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/data-sources/variables) | data source |
