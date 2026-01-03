@@ -24,6 +24,12 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
+resource "tfe_workspace_variable_set" "aws_provider_authentication_dev" {
+  for_each        = tfe_workspace.terraform_modules_playground
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  workspace_id    = each.value.id
+}
+
 # This data source is used to get the values of non-sensitive variables since
 # they are expected to be updated outside of Terraform and will cause drift
 # otherwise.
