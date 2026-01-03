@@ -31,7 +31,7 @@ resource "tfe_workspace" "terraform_modules_playground" {
   auto_apply            = true
   queue_all_runs        = true
   terraform_version     = var.terraform_version
-  file_triggers_enabled = false
+  file_triggers_enabled = true
 
   vcs_repo {
     branch         = "main"
@@ -40,4 +40,5 @@ resource "tfe_workspace" "terraform_modules_playground" {
   }
 
   working_directory = "${each.key}/examples/basic"
+  trigger_patterns  = ["${each.key}/examples/basic/**/*"]
 }
