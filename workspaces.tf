@@ -50,12 +50,3 @@ resource "tfe_variable" "vpc_name" {
   description  = "The name of the VPC (as defined in the Name tag) where the RDS instance will be deployed."
   workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-rds-postgres"].id
 }
-
-resource "tfe_variable" "database_subnet_ids" {
-  key          = "database_subnet_ids"
-  value        = jsonencode(["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"])
-  category     = "terraform"
-  hcl          = true
-  description  = "List of subnet IDs for the database subnet group."
-  workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-rds-postgres"].id
-}
