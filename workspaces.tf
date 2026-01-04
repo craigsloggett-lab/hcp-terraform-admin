@@ -40,7 +40,7 @@ resource "tfe_workspace" "terraform_modules_playground" {
   }
 
   working_directory = "${each.key}/examples/basic"
-  trigger_patterns  = ["${each.key}/examples/basic/**/*"]
+  trigger_patterns  = ["${each.key}/**/*"]
 }
 
 resource "tfe_variable" "vpc_name" {
