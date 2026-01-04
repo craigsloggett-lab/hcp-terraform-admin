@@ -45,7 +45,7 @@ resource "tfe_workspace" "terraform_modules_playground" {
 
 resource "tfe_variable" "vpc_name" {
   key          = "vpc_name"
-  value        = "tfe-vpc"
+  value        = "tfe-vpc-001"
   category     = "terraform"
   description  = "The name of the VPC (as defined in the Name tag) where the RDS instance will be deployed."
   workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-rds-postgres"].id
