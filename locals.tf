@@ -38,6 +38,7 @@ locals {
     "terraform-aws-s3-bucket",
     "terraform-aws-ssm-config",
     "terraform-aws-tfe-iam",
-    "terraform-aws-tfe-orchestration"
+    "terraform-aws-tfe-orchestration",
+    "terraform-aws-vpc"
   ])
 }
