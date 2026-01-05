@@ -47,6 +47,9 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
+| [tfe_variable.iam_instance_profile_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
+| [tfe_variable.rds_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
+| [tfe_variable.s3_bucket_name](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
 | [tfe_variable.vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/variable_set) | resource |
