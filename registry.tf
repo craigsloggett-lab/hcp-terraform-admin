@@ -5,18 +5,18 @@ resource "tfe_registry_provider" "hashicorp" {
   namespace     = "hashicorp"
 }
 
-resource "tfe_registry_module" "playground" {
-  for_each = local.playground_modules
-
-  test_config {
-    tests_enabled = true
-  }
-
-  vcs_repo {
-    display_identifier = "${var.github_organization_name}/terraform-modules-playground"
-    identifier         = "${var.github_organization_name}/terraform-modules-playground"
-    branch             = "main"
-    oauth_token_id     = tfe_oauth_client.github.oauth_token_id
-    source_directory   = each.key
-  }
-}
+#resource "tfe_registry_module" "playground" {
+#  for_each = local.playground_modules
+#
+#  test_config {
+#    tests_enabled = true
+#  }
+#
+#  vcs_repo {
+#    display_identifier = "${var.github_organization_name}/terraform-modules-playground"
+#    identifier         = "${var.github_organization_name}/terraform-modules-playground"
+#    branch             = "main"
+#    oauth_token_id     = tfe_oauth_client.github.oauth_token_id
+#    source_directory   = each.key
+#  }
+#}
