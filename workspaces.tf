@@ -51,3 +51,19 @@ resource "tfe_variable" "vpc_name" {
   description  = "The name of the VPC (as defined in the Name tag) where the RDS instance will be deployed."
   workspace_id = tfe_workspace.terraform_modules_playground[each.key].id
 }
+
+resource "tfe_variable" "s3_bucket_name" {
+  key          = "s3_bucket_name"
+  value        = "703951826048-ca-central-1-terraform-enterprise-001"
+  category     = "terraform"
+  description  = "The name of the S3 bucket used by Terraform Enterprise."
+  workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-tfe-iam"].id
+}
+
+resource "tfe_variable" "rds_secret_arn" {
+  key          = "rds_secret_arn"
+  value        = "arn:aws:secretsmanager:ca-central-1:703951826048:secret:rds!db-3252334e-9b18-49f3-af8e-c7ff0cc1f6da-EXY0Un"
+  category     = "terraform"
+  description  = "The ARN of the RDS database secret."
+  workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-tfe-iam"].id
+}
