@@ -33,6 +33,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_project.default](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/project) | resource |
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/project) | resource |
 | [tfe_project.stacks](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/project) | resource |
+| [tfe_registry_module.playground](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/registry_module) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/registry_provider) | resource |
 | [tfe_team.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/team) | resource |
 | [tfe_team.owners](https://registry.terraform.io/providers/hashicorp/tfe/0.72.0/docs/resources/team) | resource |
