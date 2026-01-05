@@ -44,7 +44,7 @@ resource "tfe_workspace" "terraform_modules_playground" {
 }
 
 resource "tfe_variable" "vpc_name" {
-  for_each     = toset(["terraform-aws-rds-postgres", "terraform-aws-elasticache"])
+  for_each     = toset(["terraform-aws-rds-postgres", "terraform-aws-elasticache", "terraform-aws-alb"])
   key          = "vpc_name"
   value        = "tfe-vpc-001"
   category     = "terraform"
