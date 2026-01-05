@@ -67,3 +67,11 @@ resource "tfe_variable" "rds_secret_arn" {
   description  = "The ARN of the RDS database secret."
   workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-tfe-iam"].id
 }
+
+resource "tfe_variable" "iam_instance_profile_arn" {
+  key          = "iam_instance_profile_arn"
+  value        = "arn:aws:iam::703951826048:instance-profile/tfe-001-instance-profile"
+  category     = "terraform"
+  description  = "The ARN of the TFE Host EC2 instance profile."
+  workspace_id = tfe_workspace.terraform_modules_playground["terraform-aws-ec2-asg"].id
+}
