@@ -13,7 +13,7 @@ resource "tfe_registry_provider" "hashicorp" {
 #  }
 #
 #  vcs_repo {
-#    display_identifier = "${var.github_organization_name}/terraform-modules-playground"
+#    display_identifier = "${var.github_organization_name}/${each.key}"
 #    identifier         = "${var.github_organization_name}/terraform-modules-playground"
 #    branch             = "main"
 #    oauth_token_id     = tfe_oauth_client.github.oauth_token_id
