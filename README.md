@@ -50,17 +50,11 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
-| [tfe_variable.iam_instance_profile_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
-| [tfe_variable.rds_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
-| [tfe_variable.s3_bucket_name](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
-| [tfe_variable.vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/variable_set) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/workspace) | resource |
-| [tfe_workspace.terraform_modules_playground](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/workspace) | resource |
-| [tfe_workspace_variable_set.aws_provider_authentication_dev](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.hcp_terraform_admin_tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/data-sources/organization_membership) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.73.0/docs/data-sources/variables) | data source |

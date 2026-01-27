@@ -24,12 +24,6 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
-resource "tfe_workspace_variable_set" "aws_provider_authentication_dev" {
-  for_each        = tfe_workspace.terraform_modules_playground
-  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
-  workspace_id    = each.value.id
-}
-
 resource "tfe_project_variable_set" "aws_provider_authentication_dev" {
   variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
   project_id      = tfe_project.waypoint.id

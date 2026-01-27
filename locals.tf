@@ -27,17 +27,3 @@ locals {
     environment => lookup(variable, "AWS_SESSION_EXPIRATION", null)
   }
 }
-
-# Terraform Modules Playground
-locals {
-  playground_modules = toset([
-    "terraform-aws-alb",
-    "terraform-aws-ec2-asg",
-    "terraform-aws-elasticache",
-    "terraform-aws-rds-postgres",
-    "terraform-aws-s3-bucket",
-    "terraform-aws-tfe-iam",
-    "terraform-aws-tfe-orchestration",
-    "terraform-aws-vpc"
-  ])
-}
