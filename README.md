@@ -55,7 +55,24 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_pingfederate_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_pingfederate_license_path](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_pingfederate_zip_path](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_vault_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_vault_license](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable_set) | resource |
@@ -75,6 +92,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/data-sources/organization_membership) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/data-sources/variables) | data source |
+| [tfe_variables.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/data-sources/variables) | data source |
+| [tfe_variables.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/data-sources/variables) | data source |
 
 ## Inputs
 
