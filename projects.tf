@@ -32,6 +32,18 @@ resource "tfe_project" "stacks" {
   description = "A collection of stacks."
 }
 
+resource "tfe_project" "infrastructure" {
+  name        = "Infrastructure"
+  description = "A collection of workspaces to deploy infrastructure."
+}
+
+# Provide the 'admins' team admin access to the 'Infrastructure' project.
+resource "tfe_team_project_access" "admins_infrastructure" {
+  access     = "admin"
+  team_id    = tfe_team.admins.id
+  project_id = tfe_project.infrastructure.id
+}
+
 resource "tfe_project" "waypoint" {
   name        = "Waypoint"
   description = "A collection of workspaces deployed using Waypoint."
