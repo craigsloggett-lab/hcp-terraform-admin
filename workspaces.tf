@@ -71,6 +71,77 @@ resource "tfe_workspace" "vault_enterprise_deploy" {
   }
 }
 
+data "tfe_variables" "vault_enterprise_deploy" {
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_project_name" {
+  key          = "project_name"
+  value        = "vault"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_route53_zone_name" {
+  key          = "route53_zone_name"
+  value        = "craig-sloggett.sbx.hashidemos.io"
+  category     = "terraform"
+  description  = "Name of the existing Route 53 hosted zone."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_vault_license" {
+  key          = "vault_license"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "Vault Enterprise license string."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_ec2_key_pair_name" {
+  key          = "ec2_key_pair_name"
+  value        = local.vault_deploy_ec2_key_pair_name
+  category     = "terraform"
+  description  = "Name of an existing EC2 key pair for SSH access."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_ec2_ami_owner" {
+  key          = "ec2_ami_owner"
+  value        = "888995627335"
+  category     = "terraform"
+  description  = "AWS account ID of the AMI owner."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_ec2_ami_name" {
+  key          = "ec2_ami_name"
+  value        = "hc-base-ubuntu-2404-amd64-*"
+  category     = "terraform"
+  description  = "Name filter for the AMI (supports wildcards)."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_nlb_internal" {
+  key          = "nlb_internal"
+  value        = "false"
+  hcl          = true
+  category     = "terraform"
+  description  = "Whether the NLB is internal."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_vault_api_allowed_cidrs" {
+  key          = "vault_api_allowed_cidrs"
+  value        = "[\"0.0.0.0/0\"]"
+  hcl          = true
+  category     = "terraform"
+  description  = "CIDR blocks allowed to reach the Vault API (port 8200)."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "vault_enterprise_admin" {
   name       = "vault-enterprise-admin"
   project_id = tfe_project.admin.id
@@ -165,6 +236,83 @@ resource "tfe_workspace" "pingfederate_deploy" {
     identifier     = "${var.github_organization_name}/pingfederate-deploy"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+data "tfe_variables" "pingfederate_deploy" {
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_project_name" {
+  key          = "project_name"
+  value        = "plugin-dev"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_route53_zone_name" {
+  key          = "route53_zone_name"
+  value        = "craig-sloggett.sbx.hashidemos.io"
+  category     = "terraform"
+  description  = "Name of the existing Route 53 hosted zone."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_vpc_name" {
+  key          = "vpc_name"
+  value        = "vault"
+  category     = "terraform"
+  description  = "Name tag of the existing VPC."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_ec2_key_pair_name" {
+  key          = "ec2_key_pair_name"
+  value        = local.pingfederate_deploy_ec2_key_pair_name
+  category     = "terraform"
+  description  = "Name of an existing EC2 key pair for SSH access."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_ec2_ami_owner" {
+  key          = "ec2_ami_owner"
+  value        = "888995627335"
+  category     = "terraform"
+  description  = "AWS account ID of the AMI owner."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_ec2_ami_name" {
+  key          = "ec2_ami_name"
+  value        = "hc-base-ubuntu-2404-amd64-*"
+  category     = "terraform"
+  description  = "Name filter for the AMI (supports wildcards)."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_pingfederate_allowed_cidrs" {
+  key          = "pingfederate_allowed_cidrs"
+  value        = "[\"0.0.0.0/0\"]"
+  hcl          = true
+  category     = "terraform"
+  description  = "External CIDR blocks allowed to access PingFederate (ports 9999 and 9031)."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_pingfederate_zip_path" {
+  key          = "pingfederate_zip_path"
+  value        = "./pingfederate-13.0.1.zip"
+  category     = "terraform"
+  description  = "Local path to the PingFederate distribution zip file."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_pingfederate_license_path" {
+  key          = "pingfederate_license_path"
+  value        = "./PingFederate-13.0-Development.lic"
+  category     = "terraform"
+  description  = "Local path to the PingFederate license file."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
 }
 
 resource "tfe_workspace" "pingfederate_admin" {
