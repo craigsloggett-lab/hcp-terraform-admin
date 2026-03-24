@@ -44,6 +44,18 @@ resource "tfe_team_project_access" "admins_infrastructure" {
   project_id = tfe_project.infrastructure.id
 }
 
+resource "tfe_project" "workloads" {
+  name        = "Workloads"
+  description = "A collection of workspaces to deploy application workloads."
+}
+
+# Provide the 'admins' team admin access to the 'Workloads' project.
+resource "tfe_team_project_access" "admins_workloads" {
+  access     = "admin"
+  team_id    = tfe_team.admins.id
+  project_id = tfe_project.workloads.id
+}
+
 resource "tfe_project" "waypoint" {
   name        = "Waypoint"
   description = "A collection of workspaces deployed using Waypoint."

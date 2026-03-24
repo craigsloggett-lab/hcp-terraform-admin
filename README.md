@@ -35,6 +35,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_project.modules](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project) | resource |
 | [tfe_project.stacks](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project) | resource |
 | [tfe_project.waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project) | resource |
+| [tfe_project.workloads](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/project_variable_set) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/registry_provider) | resource |
@@ -46,6 +47,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_team_project_access.admins_default_project](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/team_project_access) | resource |
 | [tfe_team_project_access.admins_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/team_project_access) | resource |
 | [tfe_team_project_access.admins_waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/team_project_access) | resource |
+| [tfe_team_project_access.admins_workloads](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/team_project_access) | resource |
 | [tfe_variable.aws_access_key_id](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.aws_secret_access_key](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.aws_session_expiration](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
@@ -60,6 +62,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.consul_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
+| [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
