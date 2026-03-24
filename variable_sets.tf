@@ -12,7 +12,7 @@ resource "tfe_variable" "tfe_token" {
   variable_set_id = tfe_variable_set.tfe_provider_authentication.id
 }
 
-resource "tfe_workspace_variable_set" "hcp_terraform_admin_tfe_provider_authentication" {
+resource "tfe_workspace_variable_set" "tfe_provider_authentication_hcp_terraform_admin" {
   variable_set_id = tfe_variable_set.tfe_provider_authentication.id
   workspace_id    = tfe_workspace.hcp_terraform_admin.id
 }
@@ -24,9 +24,14 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
-resource "tfe_project_variable_set" "aws_provider_authentication_dev" {
+resource "tfe_project_variable_set" "aws_provider_authentication_dev_waypoint" {
   variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
   project_id      = tfe_project.waypoint.id
+}
+
+resource "tfe_project_variable_set" "aws_provider_authentication_dev_infrastructure" {
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  project_id      = tfe_project.infrastructure.id
 }
 
 # This data source is used to get the values of non-sensitive variables since
