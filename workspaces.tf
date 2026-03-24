@@ -198,3 +198,19 @@ resource "tfe_workspace" "github_admin" {
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
 }
+
+resource "tfe_workspace" "hashistack_workload_demo" {
+  name       = "hashistack-workload-demo"
+  project_id = tfe_project.workloads.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/hashistack-workload-demo"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
+}
