@@ -174,6 +174,77 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
   }
 }
 
+data "tfe_variables" "nomad_enterprise_deploy" {
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_project_name" {
+  key          = "project_name"
+  value        = "nomad"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_route53_zone_name" {
+  key          = "route53_zone_name"
+  value        = "craig-sloggett.sbx.hashidemos.io"
+  category     = "terraform"
+  description  = "Name of the existing Route 53 hosted zone."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_nomad_license" {
+  key          = "nomad_license"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "Nomad Enterprise license string."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_ec2_key_pair_name" {
+  key          = "ec2_key_pair_name"
+  value        = local.nomad_deploy_ec2_key_pair_name
+  category     = "terraform"
+  description  = "Name of an existing EC2 key pair for SSH access."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_ec2_ami_owner" {
+  key          = "ec2_ami_owner"
+  value        = "888995627335"
+  category     = "terraform"
+  description  = "AWS account ID of the AMI owner."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_ec2_ami_name" {
+  key          = "ec2_ami_name"
+  value        = "hc-base-ubuntu-2404-amd64-*"
+  category     = "terraform"
+  description  = "Name filter for the AMI (supports wildcards)."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_nlb_internal" {
+  key          = "nlb_internal"
+  value        = "false"
+  hcl          = true
+  category     = "terraform"
+  description  = "Whether the NLB is internal."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
+  key          = "nomad_api_allowed_cidrs"
+  value        = "[\"0.0.0.0/0\"]"
+  hcl          = true
+  category     = "terraform"
+  description  = "CIDR blocks allowed to reach the Nomad API (port 4646)."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "nomad_enterprise_admin" {
   name       = "nomad-enterprise-admin"
   project_id = tfe_project.admin.id
@@ -204,6 +275,77 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
     identifier     = "${var.github_organization_name}/consul-enterprise-deploy"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+data "tfe_variables" "consul_enterprise_deploy" {
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_project_name" {
+  key          = "project_name"
+  value        = "consul"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_route53_zone_name" {
+  key          = "route53_zone_name"
+  value        = "craig-sloggett.sbx.hashidemos.io"
+  category     = "terraform"
+  description  = "Name of the existing Route 53 hosted zone."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_consul_license" {
+  key          = "consul_license"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "Consul Enterprise license string."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_ec2_key_pair_name" {
+  key          = "ec2_key_pair_name"
+  value        = local.consul_deploy_ec2_key_pair_name
+  category     = "terraform"
+  description  = "Name of an existing EC2 key pair for SSH access."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_ec2_ami_owner" {
+  key          = "ec2_ami_owner"
+  value        = "888995627335"
+  category     = "terraform"
+  description  = "AWS account ID of the AMI owner."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_ec2_ami_name" {
+  key          = "ec2_ami_name"
+  value        = "hc-base-ubuntu-2404-amd64-*"
+  category     = "terraform"
+  description  = "Name filter for the AMI (supports wildcards)."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_nlb_internal" {
+  key          = "nlb_internal"
+  value        = "false"
+  hcl          = true
+  category     = "terraform"
+  description  = "Whether the NLB is internal."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_consul_api_allowed_cidrs" {
+  key          = "consul_api_allowed_cidrs"
+  value        = "[\"0.0.0.0/0\"]"
+  hcl          = true
+  category     = "terraform"
+  description  = "CIDR blocks allowed to reach the Consul API (port 8501)."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
 resource "tfe_workspace" "consul_enterprise_admin" {
