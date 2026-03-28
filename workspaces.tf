@@ -364,6 +364,38 @@ resource "tfe_workspace" "consul_enterprise_admin" {
   }
 }
 
+resource "tfe_workspace" "hashistack_aws_vpc" {
+  name       = "hashistack-aws-vpc"
+  project_id = tfe_project.infrastructure.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/hashistack-aws-vpc"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
+}
+
+resource "tfe_variable" "hashistack_aws_vpc_project_name" {
+  key          = "project_name"
+  value        = "hashistack"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.hashistack_aws_vpc.id
+}
+
+resource "tfe_variable" "hashistack_aws_vpc_region" {
+  key          = "region"
+  value        = "us-east-1"
+  category     = "terraform"
+  description  = "AWS region to deploy into."
+  workspace_id = tfe_workspace.hashistack_aws_vpc.id
+}
+
 resource "tfe_workspace" "pingfederate_deploy" {
   name       = "pingfederate-deploy"
   project_id = tfe_project.infrastructure.id
