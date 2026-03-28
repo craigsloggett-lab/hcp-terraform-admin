@@ -63,6 +63,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.hashistack_aws_vpc_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
+| [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/variable) | resource |
@@ -95,6 +97,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.consul_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
+| [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.74.1/docs/resources/workspace) | resource |
