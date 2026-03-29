@@ -142,6 +142,14 @@ resource "tfe_variable" "vault_deploy_vault_api_allowed_cidrs" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
+resource "tfe_variable" "vault_deploy_vpc_name" {
+  key          = "vpc_name"
+  value        = "hashistack"
+  category     = "terraform"
+  description  = "Name tag of the existing VPC."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "vault_enterprise_admin" {
   name       = "vault-enterprise-admin"
   project_id = tfe_project.admin.id
@@ -393,6 +401,15 @@ resource "tfe_variable" "hashistack_aws_vpc_region" {
   value        = "us-east-1"
   category     = "terraform"
   description  = "AWS region to deploy into."
+  workspace_id = tfe_workspace.hashistack_aws_vpc.id
+}
+
+resource "tfe_variable" "hashistack_vpc_enable_vpc_endpoints" {
+  key          = "enable_vpc_endpoints"
+  value        = "{ kms = true }"
+  hcl          = true
+  category     = "terraform"
+  description  = "VPC endpoints to provision."
   workspace_id = tfe_workspace.hashistack_aws_vpc.id
 }
 
