@@ -77,7 +77,7 @@ data "tfe_variables" "vault_enterprise_deploy" {
 
 resource "tfe_variable" "vault_deploy_project_name" {
   key          = "project_name"
-  value        = "vault"
+  value        = "lab"
   category     = "terraform"
   description  = "Name prefix for all resources."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
