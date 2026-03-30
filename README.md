@@ -60,6 +60,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.consul_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.consul_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
