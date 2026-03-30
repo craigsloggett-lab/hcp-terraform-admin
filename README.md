@@ -74,6 +74,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.nomad_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_artifacts_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_artifacts_region](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
@@ -105,6 +107,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.nomad_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
+| [tfe_workspace.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/workspace) | resource |
