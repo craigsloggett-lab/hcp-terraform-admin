@@ -437,14 +437,6 @@ resource "tfe_variable" "pingfederate_artifacts_project_name" {
   workspace_id = tfe_workspace.pingfederate_artifacts.id
 }
 
-resource "tfe_variable" "pingfederate_artifacts_region" {
-  key          = "region"
-  value        = "us-east-1"
-  category     = "terraform"
-  description  = "AWS region to deploy into."
-  workspace_id = tfe_workspace.pingfederate_artifacts.id
-}
-
 resource "tfe_workspace" "pingfederate_deploy" {
   name       = "pingfederate-deploy"
   project_id = tfe_project.infrastructure.id
