@@ -188,9 +188,17 @@ data "tfe_variables" "nomad_enterprise_deploy" {
 
 resource "tfe_variable" "nomad_deploy_project_name" {
   key          = "project_name"
-  value        = "nomad"
+  value        = "lab"
   category     = "terraform"
   description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_vpc_name" {
+  key          = "vpc_name"
+  value        = "hashistack"
+  category     = "terraform"
+  description  = "Name tag of the existing VPC."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
