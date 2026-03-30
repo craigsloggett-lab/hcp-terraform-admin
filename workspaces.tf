@@ -431,7 +431,7 @@ resource "tfe_workspace" "pingfederate_artifacts" {
 
 resource "tfe_variable" "pingfederate_artifacts_project_name" {
   key          = "project_name"
-  value        = "hashistack"
+  value        = "lab"
   category     = "terraform"
   description  = "Name prefix for all resources."
   workspace_id = tfe_workspace.pingfederate_artifacts.id
