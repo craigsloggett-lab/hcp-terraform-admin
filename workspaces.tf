@@ -413,6 +413,30 @@ resource "tfe_variable" "hashistack_vpc_enable_vpc_endpoints" {
   workspace_id = tfe_workspace.hashistack_aws_vpc.id
 }
 
+resource "tfe_workspace" "pingfederate_artifacts" {
+  name       = "pingfederate-artifacts"
+  project_id = tfe_project.infrastructure.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/pingfederate-artifacts"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
+}
+
+resource "tfe_variable" "pingfederate_artifacts_project_name" {
+  key          = "project_name"
+  value        = "hashistack"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.pingfederate_artifacts.id
+}
+
 resource "tfe_workspace" "pingfederate_deploy" {
   name       = "pingfederate-deploy"
   project_id = tfe_project.infrastructure.id
