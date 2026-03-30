@@ -459,7 +459,7 @@ data "tfe_variables" "pingfederate_deploy" {
 
 resource "tfe_variable" "pingfederate_deploy_project_name" {
   key          = "project_name"
-  value        = "plugin-dev"
+  value        = "lab"
   category     = "terraform"
   description  = "Name prefix for all resources."
   workspace_id = tfe_workspace.pingfederate_deploy.id
@@ -475,7 +475,7 @@ resource "tfe_variable" "pingfederate_deploy_route53_zone_name" {
 
 resource "tfe_variable" "pingfederate_deploy_vpc_name" {
   key          = "vpc_name"
-  value        = "vault"
+  value        = "hashistack"
   category     = "terraform"
   description  = "Name tag of the existing VPC."
   workspace_id = tfe_workspace.pingfederate_deploy.id
@@ -514,19 +514,36 @@ resource "tfe_variable" "pingfederate_deploy_pingfederate_allowed_cidrs" {
   workspace_id = tfe_workspace.pingfederate_deploy.id
 }
 
-resource "tfe_variable" "pingfederate_deploy_pingfederate_zip_path" {
-  key          = "pingfederate_zip_path"
-  value        = "./pingfederate-13.0.1.zip"
+resource "tfe_variable" "pingfederate_deploy_s3_artifact_bucket" {
+  key          = "s3_artifact_bucket"
+  value        = "lab-pingfederate-703951826048-us-east-1-an"
   category     = "terraform"
-  description  = "Local path to the PingFederate distribution zip file."
+  description  = "Name of the S3 bucket containing PingFederate distribution artifacts."
   workspace_id = tfe_workspace.pingfederate_deploy.id
 }
 
-resource "tfe_variable" "pingfederate_deploy_pingfederate_license_path" {
-  key          = "pingfederate_license_path"
-  value        = "./PingFederate-13.0-Development.lic"
+resource "tfe_variable" "pingfederate_deploy_pingfederate_zip_key" {
+  key          = "pingfederate_zip_key"
+  value        = "pingfederate-13.0.1.zip"
   category     = "terraform"
-  description  = "Local path to the PingFederate license file."
+  description  = "S3 object key for the PingFederate distribution zip file."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_pingfederate_license_key" {
+  key          = "pingfederate_license_key"
+  value        = "PingFederate-13.0-Development.lic"
+  category     = "terraform"
+  description  = "S3 object key for the PingFederate license file."
+  workspace_id = tfe_workspace.pingfederate_deploy.id
+}
+
+resource "tfe_variable" "pingfederate_deploy_nlb_internal" {
+  key          = "nlb_internal"
+  value        = "false"
+  hcl          = true
+  category     = "terraform"
+  description  = "Whether the NLB is internal."
   workspace_id = tfe_workspace.pingfederate_deploy.id
 }
 

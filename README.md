@@ -78,11 +78,13 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.pingfederate_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
-| [tfe_variable.pingfederate_deploy_pingfederate_license_path](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
-| [tfe_variable.pingfederate_deploy_pingfederate_zip_path](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_pingfederate_license_key](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_pingfederate_zip_key](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_deploy_s3_artifact_bucket](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
