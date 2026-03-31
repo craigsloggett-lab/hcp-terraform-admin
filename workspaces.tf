@@ -263,7 +263,7 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
 
 resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
   key          = "consul_ca_cert_secret_arn"
-  value        = local.nomad_deploy_consul_ca_cert_secret_arn
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_ca_cert_secret_arn
   category     = "terraform"
   description  = "ARN of the Secrets Manager secret containing the Consul CA certificate."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
@@ -271,7 +271,7 @@ resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
 
 resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
   key          = "consul_gossip_key_secret_arn"
-  value        = local.nomad_deploy_consul_gossip_key_secret_arn
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_gossip_key_secret_arn
   category     = "terraform"
   description  = "ARN of the Secrets Manager secret containing the Consul gossip encryption key."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
@@ -335,6 +335,11 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
 
 data "tfe_variables" "consul_enterprise_deploy" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+data "tfe_outputs" "consul_enterprise_deploy" {
+  organization = tfe_organization.this.name
+  workspace    = tfe_workspace.consul_enterprise_deploy.name
 }
 
 resource "tfe_variable" "consul_deploy_project_name" {
