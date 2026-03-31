@@ -261,6 +261,46 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
+resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
+  key          = "consul_ca_cert_secret_arn"
+  value        = local.nomad_deploy_consul_ca_cert_secret_arn
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul CA certificate."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
+  key          = "consul_gossip_key_secret_arn"
+  value        = local.nomad_deploy_consul_gossip_key_secret_arn
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul gossip encryption key."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_consul_datacenter" {
+  key          = "consul_datacenter"
+  value        = "dc1"
+  category     = "terraform"
+  description  = "Consul datacenter name."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_consul_package_version" {
+  key          = "consul_package_version"
+  value        = "1.22.6+ent-1"
+  category     = "terraform"
+  description  = "Consul Enterprise apt package version for the local client agent."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_client_count" {
+  key          = "client_count"
+  value        = "3"
+  category     = "terraform"
+  description  = "Number of Nomad client nodes to deploy."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "nomad_enterprise_admin" {
   name       = "nomad-enterprise-admin"
   project_id = tfe_project.admin.id
