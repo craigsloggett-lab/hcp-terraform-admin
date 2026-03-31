@@ -49,7 +49,9 @@ locals {
 
   # Lookup the required variable explicitly, handling the case
   # when the workspace hasn't been created yet.
-  nomad_deploy_ec2_key_pair_name = lookup(local.nomad_enterprise_deploy, "ec2_key_pair_name", null)
+  nomad_deploy_ec2_key_pair_name            = lookup(local.nomad_enterprise_deploy, "ec2_key_pair_name", null)
+  nomad_deploy_consul_ca_cert_secret_arn    = lookup(local.nomad_enterprise_deploy, "consul_ca_cert_secret_arn", null)
+  nomad_deploy_consul_gossip_key_secret_arn = lookup(local.nomad_enterprise_deploy, "consul_gossip_key_secret_arn", null)
 
   # Read non-sensitive workspace variables to avoid hardcoding values
   # that should be set out of band.
