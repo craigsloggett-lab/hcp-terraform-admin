@@ -277,6 +277,15 @@ resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
+resource "tfe_variable" "nomad_deploy_consul_token_secret_arn" {
+  key          = "consul_token_secret_arn"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul ACL token for Nomad."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_variable" "nomad_deploy_consul_datacenter" {
   key          = "consul_datacenter"
   value        = "dc1"
