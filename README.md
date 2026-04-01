@@ -72,6 +72,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.nomad_deploy_consul_datacenter](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_consul_gossip_key_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_consul_package_version](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.nomad_deploy_consul_token_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
