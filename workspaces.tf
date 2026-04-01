@@ -261,6 +261,15 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
+resource "tfe_variable" "nomad_deploy_consul_auto_join_ec2_tag" {
+  key          = "consul_auto_join_ec2_tag"
+  value        = jsonencode(data.tfe_outputs.consul_enterprise_deploy.values.consul_cluster_tag)
+  hcl          = true
+  category     = "terraform"
+  description  = "EC2 tag used for Consul cloud auto-join."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
   key          = "consul_ca_cert_secret_arn"
   value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_ca_cert_secret_arn
@@ -293,11 +302,11 @@ resource "tfe_variable" "nomad_deploy_consul_datacenter" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-resource "tfe_variable" "nomad_deploy_consul_package_version" {
-  key          = "consul_package_version"
-  value        = "1.22.6+ent-1"
+resource "tfe_variable" "nomad_deploy_consul_version" {
+  key          = "consul_version"
+  value        = "1.22.6+ent"
   category     = "terraform"
-  description  = "Consul Enterprise apt package version for the local client agent."
+  description  = "Consul Enterprise release version for the local client agent."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
