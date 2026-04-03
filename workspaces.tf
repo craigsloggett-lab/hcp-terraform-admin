@@ -312,6 +312,22 @@ resource "tfe_variable" "nomad_deploy_consul_datacenter" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
+resource "tfe_variable" "nomad_deploy_nomad_server_service_name" {
+  key          = "nomad_server_service_name"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_server_service_name
+  category     = "terraform"
+  description  = "Consul service name Nomad servers register as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_nomad_client_service_name" {
+  key          = "nomad_client_service_name"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_client_service_name
+  category     = "terraform"
+  description  = "Consul service name Nomad clients register as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_variable" "nomad_deploy_consul_version" {
   key          = "consul_version"
   value        = "1.22.6+ent"
