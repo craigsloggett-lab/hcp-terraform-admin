@@ -84,6 +84,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.nomad_deploy_nomad_client_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_server_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
+| [tfe_variable.nomad_deploy_nomad_snapshot_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.75.0/docs/resources/variable) | resource |
