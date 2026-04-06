@@ -249,6 +249,14 @@ resource "tfe_variable" "nomad_deploy_ec2_ami_name" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
+resource "tfe_variable" "nomad_deploy_nomad_instance_type" {
+  key          = "nomad_instance_type"
+  value        = "t3.medium"
+  category     = "terraform"
+  description  = "EC2 instance type for Nomad nodes."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
 resource "tfe_variable" "nomad_deploy_nlb_internal" {
   key          = "nlb_internal"
   value        = "false"
@@ -321,6 +329,14 @@ resource "tfe_variable" "nomad_deploy_nomad_client_service_name" {
   value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_client_service_name
   category     = "terraform"
   description  = "Consul service name Nomad clients register as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+resource "tfe_variable" "nomad_deploy_client_instance_type" {
+  key          = "client_instance_type"
+  value        = "t3.medium"
+  category     = "terraform"
+  description  = "EC2 instance type for Nomad client nodes."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 

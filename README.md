@@ -70,6 +70,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_vpc_enable_vpc_endpoints](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_client_count](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
+| [tfe_variable.nomad_deploy_client_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_consul_auto_join_ec2_tag](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_consul_ca_cert_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_consul_datacenter](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
@@ -82,6 +83,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.nomad_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_client_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
+| [tfe_variable.nomad_deploy_nomad_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_server_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_snapshot_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
