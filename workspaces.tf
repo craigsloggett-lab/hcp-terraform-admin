@@ -464,6 +464,14 @@ resource "tfe_variable" "consul_deploy_consul_api_allowed_cidrs" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
+resource "tfe_variable" "consul_deploy_consul_instance_type" {
+  key          = "consul_instance_type"
+  value        = "t3.medium"
+  category     = "terraform"
+  description  = "EC2 instance type for Consul nodes."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "consul_enterprise_admin" {
   name       = "consul-enterprise-admin"
   project_id = tfe_project.admin.id
