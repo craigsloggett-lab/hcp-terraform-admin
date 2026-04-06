@@ -109,24 +109,19 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable_set) | resource |
-| [tfe_workspace.consul_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
-| [tfe_workspace.nomad_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
-| [tfe_workspace.pingfederate_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
-| [tfe_workspace.vault_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/data-sources/organization_membership) | data source |
-| [tfe_outputs.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/data-sources/outputs) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/data-sources/variables) | data source |
 | [tfe_variables.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/data-sources/variables) | data source |
 | [tfe_variables.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/data-sources/variables) | data source |

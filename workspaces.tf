@@ -164,22 +164,6 @@ resource "tfe_variable" "vault_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_workspace" "vault_enterprise_admin" {
-  name       = "vault-enterprise-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/vault-enterprise-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
-
 resource "tfe_workspace" "nomad_enterprise_deploy" {
   name       = "nomad-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
@@ -372,22 +356,6 @@ resource "tfe_variable" "nomad_deploy_client_count" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-resource "tfe_workspace" "nomad_enterprise_admin" {
-  name       = "nomad-enterprise-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/nomad-enterprise-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
-
 resource "tfe_workspace" "consul_enterprise_deploy" {
   name       = "consul-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
@@ -408,10 +376,10 @@ data "tfe_variables" "consul_enterprise_deploy" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-data "tfe_outputs" "consul_enterprise_deploy" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.consul_enterprise_deploy.name
-}
+#data "tfe_outputs" "consul_enterprise_deploy" {
+#  organization = tfe_organization.this.name
+#  workspace    = tfe_workspace.consul_enterprise_deploy.name
+#}
 
 resource "tfe_variable" "consul_deploy_project_name" {
   key          = "project_name"
@@ -494,22 +462,6 @@ resource "tfe_variable" "consul_deploy_consul_server_instance_type" {
   category     = "terraform"
   description  = "EC2 instance type for Consul server nodes."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_workspace" "consul_enterprise_admin" {
-  name       = "consul-enterprise-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/consul-enterprise-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
 }
 
 resource "tfe_workspace" "hashistack_aws_vpc" {
@@ -685,22 +637,6 @@ resource "tfe_variable" "pingfederate_deploy_nlb_internal" {
   category     = "terraform"
   description  = "Whether the NLB is internal."
   workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_workspace" "pingfederate_admin" {
-  name       = "pingfederate-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/pingfederate-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
 }
 
 resource "tfe_workspace" "github_admin" {
