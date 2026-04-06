@@ -54,6 +54,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.aws_session_expiration](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.aws_session_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_consul_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
+| [tfe_variable.consul_deploy_consul_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_consul_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.1/docs/resources/variable) | resource |
