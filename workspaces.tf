@@ -2,11 +2,11 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   name       = "hcp-terraform-admin"
   project_id = tfe_project.admin.id
 
-  auto_apply              = true
-  auto_apply_run_trigger  = true
-  queue_all_runs          = true
-  terraform_version       = var.terraform_version
-  file_triggers_enabled   = false
+  auto_apply             = true
+  auto_apply_run_trigger = true
+  queue_all_runs         = true
+  terraform_version      = var.terraform_version
+  file_triggers_enabled  = false
 
   vcs_repo {
     branch         = "main"
