@@ -20,11 +20,6 @@ resource "tfe_run_trigger" "hcp_terraform_admin_from_consul" {
   sourceable_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_run_trigger" "hcp_terraform_admin_from_nomad" {
-  workspace_id  = tfe_workspace.hcp_terraform_admin.id
-  sourceable_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
 resource "tfe_variable" "github_vcs_provider_oauth_token" {
   key          = "github_vcs_provider_oauth_token"
   value        = ""
