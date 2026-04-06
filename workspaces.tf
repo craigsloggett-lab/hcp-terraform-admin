@@ -267,38 +267,38 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-#resource "tfe_variable" "nomad_deploy_consul_auto_join_ec2_tag" {
-#  key          = "consul_auto_join_ec2_tag"
-#  value        = jsonencode(data.tfe_outputs.consul_enterprise_deploy.values.consul_cluster_tag)
-#  hcl          = true
-#  category     = "terraform"
-#  description  = "EC2 tag used for Consul cloud auto-join."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_consul_auto_join_ec2_tag" {
+  key          = "consul_auto_join_ec2_tag"
+  value        = jsonencode(data.tfe_outputs.consul_enterprise_deploy.values.consul_cluster_tag)
+  hcl          = true
+  category     = "terraform"
+  description  = "EC2 tag used for Consul cloud auto-join."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
-#resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
-#  key          = "consul_ca_cert_secret_arn"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_ca_cert_secret_arn
-#  category     = "terraform"
-#  description  = "ARN of the Secrets Manager secret containing the Consul CA certificate."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_consul_ca_cert_secret_arn" {
+  key          = "consul_ca_cert_secret_arn"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_ca_cert_secret_arn
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul CA certificate."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
-#resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
-#  key          = "consul_gossip_key_secret_arn"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_gossip_key_secret_arn
-#  category     = "terraform"
-#  description  = "ARN of the Secrets Manager secret containing the Consul gossip encryption key."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
+  key          = "consul_gossip_key_secret_arn"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_gossip_key_secret_arn
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul gossip encryption key."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
-#resource "tfe_variable" "nomad_deploy_consul_token_secret_arn" {
-#  key          = "consul_token_secret_arn"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_token_secret_arn
-#  category     = "terraform"
-#  description  = "ARN of the Secrets Manager secret containing the Consul ACL token for Nomad."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_consul_token_secret_arn" {
+  key          = "consul_token_secret_arn"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_token_secret_arn
+  category     = "terraform"
+  description  = "ARN of the Secrets Manager secret containing the Consul ACL token for Nomad."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
 resource "tfe_variable" "nomad_deploy_consul_datacenter" {
   key          = "consul_datacenter"
@@ -308,21 +308,21 @@ resource "tfe_variable" "nomad_deploy_consul_datacenter" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-#resource "tfe_variable" "nomad_deploy_nomad_server_service_name" {
-#  key          = "nomad_server_service_name"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_server_service_name
-#  category     = "terraform"
-#  description  = "Consul service name Nomad servers register as."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_nomad_server_service_name" {
+  key          = "nomad_server_service_name"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_server_service_name
+  category     = "terraform"
+  description  = "Consul service name Nomad servers register as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
-#resource "tfe_variable" "nomad_deploy_nomad_client_service_name" {
-#  key          = "nomad_client_service_name"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_client_service_name
-#  category     = "terraform"
-#  description  = "Consul service name Nomad clients register as."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_nomad_client_service_name" {
+  key          = "nomad_client_service_name"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_client_service_name
+  category     = "terraform"
+  description  = "Consul service name Nomad clients register as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
 resource "tfe_variable" "nomad_deploy_nomad_client_instance_type" {
   key          = "nomad_client_instance_type"
@@ -332,13 +332,13 @@ resource "tfe_variable" "nomad_deploy_nomad_client_instance_type" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-#resource "tfe_variable" "nomad_deploy_nomad_snapshot_service_name" {
-#  key          = "nomad_snapshot_service_name"
-#  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_snapshot_service_name
-#  category     = "terraform"
-#  description  = "Consul service name the Nomad snapshot agent registers as."
-#  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-#}
+resource "tfe_variable" "nomad_deploy_nomad_snapshot_service_name" {
+  key          = "nomad_snapshot_service_name"
+  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_snapshot_service_name
+  category     = "terraform"
+  description  = "Consul service name the Nomad snapshot agent registers as."
+  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+}
 
 resource "tfe_variable" "nomad_deploy_consul_version" {
   key          = "consul_version"
@@ -376,10 +376,10 @@ data "tfe_variables" "consul_enterprise_deploy" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-#data "tfe_outputs" "consul_enterprise_deploy" {
-#  organization = tfe_organization.this.name
-#  workspace    = tfe_workspace.consul_enterprise_deploy.name
-#}
+data "tfe_outputs" "consul_enterprise_deploy" {
+  organization = tfe_organization.this.name
+  workspace    = tfe_workspace.consul_enterprise_deploy.name
+}
 
 resource "tfe_variable" "consul_deploy_project_name" {
   key          = "project_name"
