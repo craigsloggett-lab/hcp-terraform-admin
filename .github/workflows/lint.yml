@@ -6,8 +6,42 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Terraform Module # All downstream jobs are nested within this job in the GitHub UI.
-    uses: craigsloggett-lab/.github/.github/workflows/lint-terraform.yml@main
-    secrets:
-      hcp-terraform-api-token: ${{ secrets.TF_TOKEN_app_terraform_io }}
+  actionlint:
+    name: GitHub Actions
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Lint Workflow Files
+        uses: craigsloggett/lint-github-actions-workflows@e35be5a4bc8d07dd4e9e7410f26205820ae0e064 # v1.0.3
+
+  yamllint:
+    name: YAML
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Lint YAML Files
+        uses: craigsloggett/lint-yaml@40a90b91b0d3ac513cc98e8665ef332188b76176 # v1.0.12
+
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Lint Terraform Configuration
+        uses: craigsloggett/lint-terraform@bda487bbad69f35059ca8d84d8b411197c71cad3 # v1.1.2
+
+  terraform-docs:
+    name: Terraform Docs
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Lint Terraform Module Documentation
+        uses: craigsloggett/lint-terraform-docs@79585aac20acbf63a835d333fe7b094b9bd66e63 # v1.0.14
