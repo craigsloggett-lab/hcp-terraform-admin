@@ -97,8 +97,8 @@ resource "tfe_variable" "vault_deploy_route53_zone_name" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_vault_license" {
-  key          = "vault_license"
+resource "tfe_variable" "vault_deploy_vault_enterprise_license" {
+  key          = "vault_enterprise_license"
   value        = ""
   sensitive    = true
   category     = "terraform"
