@@ -116,6 +116,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.vault_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_deploy_hcp_terraform](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
