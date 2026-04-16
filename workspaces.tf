@@ -164,14 +164,6 @@ resource "tfe_variable" "vault_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_hcp_terraform" {
-  key          = "hcp_terraform_workspace_id"
-  value        = tfe_workspace.vault_enterprise_admin.id
-  category     = "terraform"
-  description  = "HCP Terraform workspace ID used to scope the JWT auth role for the Vault admin workspace."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
 data "tfe_outputs" "vault_enterprise_deploy" {
   organization = tfe_organization.this.name
   workspace    = tfe_workspace.vault_enterprise_deploy.name
