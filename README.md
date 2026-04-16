@@ -137,6 +137,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.terraform_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
+| [tfe_workspace.vault_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/organization_membership) | data source |

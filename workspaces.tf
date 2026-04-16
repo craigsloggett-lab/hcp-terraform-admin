@@ -183,22 +183,22 @@ resource "tfe_variable" "vault_deploy_hcp_terraform" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-#resource "tfe_workspace" "vault_enterprise_admin" {
-#  name       = "vault-enterprise-admin"
-#  project_id = tfe_project.admin.id
-#
-#  auto_apply            = true
-#  queue_all_runs        = true
-#  terraform_version     = var.terraform_version
-#  file_triggers_enabled = false
-#
-#  vcs_repo {
-#    branch         = "main"
-#    identifier     = "${var.github_organization_name}/vault-enterprise-admin"
-#    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-#  }
-#}
-#
+resource "tfe_workspace" "vault_enterprise_admin" {
+  name       = "vault-enterprise-admin"
+  project_id = tfe_project.admin.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/vault-enterprise-admin"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
+}
+
 #resource "tfe_variable" "vault_admin_tfc_vault_provider_auth" {
 #  key          = "TFC_VAULT_PROVIDER_AUTH"
 #  value        = "true"
