@@ -50,6 +50,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_project.workloads](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
+| [tfe_project_variable_set.vault_enterprise_authentication_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/registry_provider) | resource |
 | [tfe_run_trigger.hcp_terraform_admin_from_consul](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/run_trigger) | resource |
 | [tfe_team.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team) | resource |
@@ -115,11 +116,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.pingfederate_deploy_s3_artifact_bucket](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_admin_tfc_vault_addr](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_admin_tfc_vault_auth_path](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_admin_tfc_vault_encoded_cacert](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_admin_tfc_vault_provider_auth](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_admin_tfc_vault_role](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
@@ -130,9 +126,15 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.vault_deploy_vault_enterprise_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_vault_server_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_tfc_vault_addr](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_tfc_vault_auth_path](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_tfc_vault_encoded_cacert](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_tfc_vault_provider_auth](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_tfc_vault_run_role](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
+| [tfe_variable_set.vault_enterprise_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_workspace.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
@@ -147,6 +149,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.aws_provider_authentication_dev_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
+| [tfe_workspace_variable_set.vault_enterprise_authentication_vault_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [aws_ssm_parameter.vault_ca_bundle](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/organization_membership) | data source |
 | [tfe_outputs.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
