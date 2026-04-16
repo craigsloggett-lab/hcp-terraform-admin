@@ -197,13 +197,13 @@ resource "tfe_variable" "vault_admin_tfc_vault_provider_auth" {
   workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
-resource "tfe_variable" "vault_admin_tfc_vault_addr" {
-  key          = "TFC_VAULT_ADDR"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
-  category     = "env"
-  description  = "The address of the Vault instance."
-  workspace_id = tfe_workspace.vault_enterprise_admin.id
-}
+#resource "tfe_variable" "vault_admin_tfc_vault_addr" {
+#  key          = "TFC_VAULT_ADDR"
+#  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
+#  category     = "env"
+#  description  = "The address of the Vault instance."
+#  workspace_id = tfe_workspace.vault_enterprise_admin.id
+#}
 
 resource "tfe_variable" "vault_admin_tfc_vault_auth_path" {
   key          = "TFC_VAULT_AUTH_PATH"
