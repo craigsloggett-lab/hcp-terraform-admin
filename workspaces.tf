@@ -164,17 +164,12 @@ resource "tfe_variable" "vault_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-#data "tfe_outputs" "vault_enterprise_deploy" {
-#  organization = tfe_organization.this.name
-#  workspace    = tfe_workspace.vault_enterprise_deploy.name
-#}
-
 resource "tfe_variable" "vault_deploy_hcp_terraform" {
   key          = "hcp_terraform"
   value        = <<-EOT
     {
       org_name     = "${tfe_organization.this.name}"
-      workspace_id = "${tfe_workspace.vault_enterprise_deploy.id}"
+      workspace_id = "${tfe_workspace.vault_enterprise_admin.id}"
     }
   EOT
   hcl          = true
@@ -182,6 +177,11 @@ resource "tfe_variable" "vault_deploy_hcp_terraform" {
   description  = "HCP Terraform JWT auth configuration for Terraform-managed Vault administration."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
+
+#data "tfe_outputs" "vault_enterprise_deploy" {
+#  organization = tfe_organization.this.name
+#  workspace    = tfe_workspace.vault_enterprise_deploy.name
+#}
 
 resource "tfe_workspace" "vault_enterprise_admin" {
   name       = "vault-enterprise-admin"
