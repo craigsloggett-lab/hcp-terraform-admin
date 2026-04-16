@@ -15,6 +15,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Version |
 | ---- | ------- |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.0 |
 | <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.76.2 |
 
 ## Modules
@@ -116,6 +117,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_admin_tfc_vault_addr](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_admin_tfc_vault_auth_path](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vault_admin_tfc_vault_encoded_cacert](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_admin_tfc_vault_provider_auth](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_admin_tfc_vault_role](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
@@ -145,6 +147,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.aws_provider_authentication_dev_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
+| [aws_ssm_parameter.vault_ca_bundle](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/organization_membership) | data source |
 | [tfe_outputs.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
 | [tfe_outputs.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
