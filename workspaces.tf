@@ -169,52 +169,66 @@ data "tfe_outputs" "vault_enterprise_deploy" {
   workspace    = tfe_workspace.vault_enterprise_deploy.name
 }
 
-resource "tfe_variable" "vault_deploy_hcp_terraform_org_name" {
-  key          = "hcp_terraform_org_name"
-  value        = tfe_organization.this.name
+resource "tfe_variable" "vault_deploy_hcp_terraform" {
+  key          = "hcp_terraform"
+  value        = <<-EOT
+    {
+      org_name     = "${tfe_organization.this.name}"
+      workspace_id = "${tfe_workspace.vault_enterprise_deploy.id}"
+    }
+  EOT
+  hcl          = true
   category     = "terraform"
-  description  = "Name of the HCP Terraform organization scoped to the Vault JWT auth role."
+  description  = "HCP Terraform JWT auth configuration for Terraform-managed Vault administration."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_hcp_terraform_workspace_id" {
-  key          = "hcp_terraform_workspace_id"
-  value        = tfe_workspace.vault_enterprise_deploy.id
-  category     = "terraform"
-  description  = "Name of the HCP Terraform workspace ID scoped to the Vault JWT auth role."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+resource "tfe_workspace" "vault_enterprise_admin" {
+  name       = "vault-enterprise-admin"
+  project_id = tfe_project.admin.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/vault-enterprise-admin"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
 }
 
-resource "tfe_variable" "vault_deploy_tfc_vault_provider_auth" {
+resource "tfe_variable" "vault_admin_tfc_vault_provider_auth" {
   key          = "TFC_VAULT_PROVIDER_AUTH"
   value        = "true"
   category     = "env"
   description  = "Enable the Vault provider to authenticate using workload identity."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+  workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
-resource "tfe_variable" "vault_deploy_tfc_vault_addr" {
+resource "tfe_variable" "vault_admin_tfc_vault_addr" {
   key          = "TFC_VAULT_ADDR"
   value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
   category     = "env"
   description  = "The address of the Vault instance."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+  workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
-resource "tfe_variable" "vault_deploy_tfc_vault_auth_path" {
+resource "tfe_variable" "vault_admin_tfc_vault_auth_path" {
   key          = "TFC_VAULT_AUTH_PATH"
   value        = "jwt"
   category     = "env"
   description  = "The path of the JWT auth backend in Vault."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+  workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
-resource "tfe_variable" "vault_deploy_tfc_vault_role" {
+resource "tfe_variable" "vault_admin_tfc_vault_role" {
   key          = "TFC_VAULT_ROLE"
   value        = "terraform-admin"
   category     = "env"
   description  = "The Vault role to authenticate as via JWT."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+  workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
 resource "tfe_workspace" "nomad_enterprise_deploy" {
