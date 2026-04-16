@@ -218,7 +218,7 @@ resource "tfe_variable" "vault_admin_tfc_vault_auth_path" {
 }
 
 resource "tfe_variable" "vault_admin_tfc_vault_role" {
-  key          = "TFC_VAULT_ROLE"
+  key          = "TFC_VAULT_RUN_ROLE"
   value        = "terraform-admin"
   category     = "env"
   description  = "The Vault role to authenticate as via JWT."
