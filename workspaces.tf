@@ -164,6 +164,59 @@ resource "tfe_variable" "vault_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
+data "tfe_outputs" "vault_enterprise_deploy" {
+  organization = tfe_organization.this.name
+  workspace    = tfe_workspace.vault_enterprise_deploy.name
+}
+
+resource "tfe_variable" "vault_deploy_hcp_terraform_org_name" {
+  key          = "hcp_terraform_org_name"
+  value        = tfe_organization.this.name
+  category     = "terraform"
+  description  = "Name of the HCP Terraform organization scoped to the Vault JWT auth role."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_hcp_terraform_workspace_id" {
+  key          = "hcp_terraform_workspace_id"
+  value        = tfe_workspace.vault_enterprise_deploy.id
+  category     = "terraform"
+  description  = "Name of the HCP Terraform workspace ID scoped to the Vault JWT auth role."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_tfc_vault_provider_auth" {
+  key          = "TFC_VAULT_PROVIDER_AUTH"
+  value        = "true"
+  category     = "env"
+  description  = "Enable the Vault provider to authenticate using workload identity."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_tfc_vault_addr" {
+  key          = "TFC_VAULT_ADDR"
+  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
+  category     = "env"
+  description  = "The address of the Vault instance."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_tfc_vault_auth_path" {
+  key          = "TFC_VAULT_AUTH_PATH"
+  value        = "jwt"
+  category     = "env"
+  description  = "The path of the JWT auth backend in Vault."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_deploy_tfc_vault_role" {
+  key          = "TFC_VAULT_ROLE"
+  value        = "terraform-admin"
+  category     = "env"
+  description  = "The Vault role to authenticate as via JWT."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "nomad_enterprise_deploy" {
   name       = "nomad-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
