@@ -34,6 +34,11 @@ resource "tfe_project_variable_set" "aws_provider_authentication_dev_infrastruct
   project_id      = tfe_project.infrastructure.id
 }
 
+resource "tfe_workspace_variable_set" "aws_provider_authentication_dev_hcp_terraform_admin" {
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  workspace_id    = tfe_workspace.hcp_terraform_admin.id
+}
+
 # This data source is used to get the values of non-sensitive variables since
 # they are expected to be updated outside of Terraform and will cause drift
 # otherwise.

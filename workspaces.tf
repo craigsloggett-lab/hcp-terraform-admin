@@ -177,6 +177,10 @@ data "tfe_outputs" "vault_enterprise_deploy" {
   workspace    = tfe_workspace.vault_enterprise_deploy.name
 }
 
+data "aws_ssm_parameter" "vault_ca_bundle" {
+  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
+}
+
 resource "tfe_workspace" "vault_enterprise_admin" {
   name       = "vault-enterprise-admin"
   project_id = tfe_project.admin.id
@@ -222,6 +226,14 @@ resource "tfe_variable" "vault_admin_tfc_vault_role" {
   value        = "terraform-admin"
   category     = "env"
   description  = "The Vault role to authenticate as via JWT."
+  workspace_id = tfe_workspace.vault_enterprise_admin.id
+}
+
+resource "tfe_variable" "vault_admin_tfc_vault_encoded_cacert" {
+  key          = "TFC_VAULT_ENCODED_CACERT"
+  value        = base64encode(data.aws_ssm_parameter.vault_ca_bundle.value)
+  category     = "env"
+  description  = "A PEM-encoded CA certificate that has been Base64 encoded."
   workspace_id = tfe_workspace.vault_enterprise_admin.id
 }
 
