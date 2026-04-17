@@ -41,18 +41,6 @@ locals {
 
   # Read non-sensitive workspace variables to avoid hardcoding values
   # that should be set out of band.
-  nomad_enterprise_deploy = {
-    for variable in data.tfe_variables.nomad_enterprise_deploy.terraform :
-    variable.name => variable.value
-    if !variable.sensitive
-  }
-
-  # Lookup the required variable explicitly, handling the case
-  # when the workspace hasn't been created yet.
-  nomad_deploy_ec2_key_pair_name = lookup(local.nomad_enterprise_deploy, "ec2_key_pair_name", null)
-
-  # Read non-sensitive workspace variables to avoid hardcoding values
-  # that should be set out of band.
   consul_enterprise_deploy = {
     for variable in data.tfe_variables.consul_enterprise_deploy.terraform :
     variable.name => variable.value
