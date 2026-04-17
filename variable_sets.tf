@@ -91,14 +91,19 @@ resource "tfe_variable_set" "vault_enterprise_authentication" {
   global      = false
 }
 
-resource "tfe_project_variable_set" "vault_enterprise_authentication_infrastructure" {
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-  project_id      = tfe_project.infrastructure.id
+  workspace_id    = tfe_workspace.vault_enterprise_admin.id
 }
 
 resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-  workspace_id    = tfe_workspace.vault_enterprise_admin.id
+  workspace_id    = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+  workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
 }
 
 resource "tfe_variable" "vault_tfc_vault_provider_auth" {

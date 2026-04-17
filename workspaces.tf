@@ -81,7 +81,12 @@ data "tfe_variables" "vault_enterprise_deploy" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_project_name" {
+data "tfe_outputs" "vault_enterprise_deploy" {
+  organization = tfe_organization.this.name
+  workspace    = tfe_workspace.vault_enterprise_deploy.name
+}
+
+resource "tfe_variable" "vault_enterprise_deploy_project_name" {
   key          = "project_name"
   value        = "lab"
   category     = "terraform"
@@ -89,7 +94,7 @@ resource "tfe_variable" "vault_deploy_project_name" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_route53_zone_name" {
+resource "tfe_variable" "vault_enterprise_deploy_route53_zone_name" {
   key          = "route53_zone_name"
   value        = "craig-sloggett.sbx.hashidemos.io"
   category     = "terraform"
@@ -97,7 +102,7 @@ resource "tfe_variable" "vault_deploy_route53_zone_name" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_vault_enterprise_license" {
+resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   key          = "vault_enterprise_license"
   value        = ""
   sensitive    = true
@@ -106,15 +111,15 @@ resource "tfe_variable" "vault_deploy_vault_enterprise_license" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_ec2_key_pair_name" {
+resource "tfe_variable" "vault_enterprise_deploy_ec2_key_pair_name" {
   key          = "ec2_key_pair_name"
-  value        = local.vault_deploy_ec2_key_pair_name
+  value        = local.vault_enterprise_deploy_ec2_key_pair_name
   category     = "terraform"
   description  = "Name of an existing EC2 key pair for SSH access."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_ec2_ami_owner" {
+resource "tfe_variable" "vault_enterprise_deploy_ec2_ami_owner" {
   key          = "ec2_ami_owner"
   value        = "888995627335"
   category     = "terraform"
@@ -122,7 +127,7 @@ resource "tfe_variable" "vault_deploy_ec2_ami_owner" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_ec2_ami_name" {
+resource "tfe_variable" "vault_enterprise_deploy_ec2_ami_name" {
   key          = "ec2_ami_name"
   value        = "hc-base-ubuntu-2404-amd64-*"
   category     = "terraform"
@@ -130,7 +135,7 @@ resource "tfe_variable" "vault_deploy_ec2_ami_name" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_nlb_internal" {
+resource "tfe_variable" "vault_enterprise_deploy_nlb_internal" {
   key          = "nlb_internal"
   value        = "false"
   hcl          = true
@@ -139,7 +144,7 @@ resource "tfe_variable" "vault_deploy_nlb_internal" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_vault_api_allowed_cidrs" {
+resource "tfe_variable" "vault_enterprise_deploy_vault_api_allowed_cidrs" {
   key          = "vault_api_allowed_cidrs"
   value        = "[\"0.0.0.0/0\"]"
   hcl          = true
@@ -148,7 +153,7 @@ resource "tfe_variable" "vault_deploy_vault_api_allowed_cidrs" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_vpc_name" {
+resource "tfe_variable" "vault_enterprise_deploy_vpc_name" {
   key          = "vpc_name"
   value        = "hashistack"
   category     = "terraform"
@@ -156,7 +161,7 @@ resource "tfe_variable" "vault_deploy_vpc_name" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_deploy_vault_server_instance_type" {
+resource "tfe_variable" "vault_enterprise_deploy_vault_server_instance_type" {
   key          = "vault_server_instance_type"
   value        = "t3.medium"
   category     = "terraform"
@@ -484,6 +489,14 @@ resource "tfe_variable" "consul_deploy_consul_api_allowed_cidrs" {
 resource "tfe_variable" "consul_deploy_consul_server_instance_type" {
   key          = "consul_server_instance_type"
   value        = "t3.medium"
+  category     = "terraform"
+  description  = "EC2 instance type for Consul server nodes."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
+  key          = "vault_iam_role_name"
+  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
   category     = "terraform"
   description  = "EC2 instance type for Consul server nodes."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id

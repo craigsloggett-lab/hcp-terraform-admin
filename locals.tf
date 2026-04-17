@@ -37,7 +37,7 @@ locals {
 
   # Lookup the required variable explicitly, handling the case
   # when the workspace hasn't been created yet.
-  vault_deploy_ec2_key_pair_name = lookup(local.vault_enterprise_deploy, "ec2_key_pair_name", null)
+  vault_enterprise_deploy_ec2_key_pair_name = lookup(local.vault_enterprise_deploy, "ec2_key_pair_name", null)
 
   # Read non-sensitive workspace variables to avoid hardcoding values
   # that should be set out of band.
