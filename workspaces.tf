@@ -169,14 +169,9 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-data "tfe_outputs" "vault_enterprise_deploy" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.vault_enterprise_deploy.name
-}
-
-data "aws_ssm_parameter" "vault_ca_bundle" {
-  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
-}
+#data "aws_ssm_parameter" "vault_ca_bundle" {
+#  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
+#}
 
 resource "tfe_workspace" "vault_enterprise_admin" {
   name       = "vault-enterprise-admin"
@@ -313,13 +308,13 @@ resource "tfe_variable" "consul_deploy_consul_server_instance_type" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
-  key          = "vault_iam_role_name"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
-  category     = "terraform"
-  description  = "EC2 instance type for Consul server nodes."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
+#resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
+#  key          = "vault_iam_role_name"
+#  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
+#  category     = "terraform"
+#  description  = "EC2 instance type for Consul server nodes."
+#  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+#}
 
 resource "tfe_workspace" "hashistack_aws_vpc" {
   name       = "hashistack-aws-vpc"

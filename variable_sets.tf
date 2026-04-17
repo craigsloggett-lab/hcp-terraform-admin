@@ -96,12 +96,12 @@ resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_ent
   workspace_id    = tfe_workspace.vault_enterprise_admin.id
 }
 
-resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_consul_enterprise_deploy" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
   workspace_id    = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_nomad_enterprise_deploy" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
   workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
 }
@@ -114,13 +114,13 @@ resource "tfe_variable" "vault_tfc_vault_provider_auth" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
 }
 
-resource "tfe_variable" "vault_tfc_vault_addr" {
-  key             = "TFC_VAULT_ADDR"
-  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
-  category        = "env"
-  description     = "The address of the Vault instance."
-  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-}
+#resource "tfe_variable" "vault_tfc_vault_addr" {
+#  key             = "TFC_VAULT_ADDR"
+#  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
+#  category        = "env"
+#  description     = "The address of the Vault instance."
+#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+#}
 
 resource "tfe_variable" "vault_tfc_vault_auth_path" {
   key             = "TFC_VAULT_AUTH_PATH"
@@ -138,13 +138,13 @@ resource "tfe_variable" "vault_tfc_vault_run_role" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
 }
 
-resource "tfe_variable" "vault_tfc_vault_encoded_cacert" {
-  key             = "TFC_VAULT_ENCODED_CACERT"
-  value           = base64encode(data.aws_ssm_parameter.vault_ca_bundle.value)
-  category        = "env"
-  description     = "A PEM-encoded CA certificate that has been Base64 encoded."
-  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-}
+#resource "tfe_variable" "vault_tfc_vault_encoded_cacert" {
+#  key             = "TFC_VAULT_ENCODED_CACERT"
+#  value           = base64encode(data.aws_ssm_parameter.vault_ca_bundle.value)
+#  category        = "env"
+#  description     = "A PEM-encoded CA certificate that has been Base64 encoded."
+#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+#}
 
 resource "tfe_variable_set" "github_provider_authentication" {
   name        = "GitHub Provider Authentication"
