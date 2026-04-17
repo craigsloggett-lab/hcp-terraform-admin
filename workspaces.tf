@@ -316,6 +316,14 @@ resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
+resource "tfe_variable" "consul_deploy_vault_url" {
+  key          = "vault_url"
+  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
+  category     = "terraform"
+  description  = "The address of the Vault Enterprise instance."
+  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+}
+
 resource "tfe_workspace" "hashistack_aws_vpc" {
   name       = "hashistack-aws-vpc"
   project_id = tfe_project.infrastructure.id
