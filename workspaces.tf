@@ -14,7 +14,12 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   }
 }
 
-resource "tfe_variable" "github_vcs_provider_oauth_token" {
+moved {
+  from = tfe_variable.github_vcs_provider_oauth_token
+  to   = tfe_variable.hcp_terraform_admin_github_vcs_provider_oauth_token
+}
+
+resource "tfe_variable" "hcp_terraform_admin_github_vcs_provider_oauth_token" {
   key          = "github_vcs_provider_oauth_token"
   value        = ""
   sensitive    = true
