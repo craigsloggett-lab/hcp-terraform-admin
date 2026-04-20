@@ -2,22 +2,16 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   name       = "hcp-terraform-admin"
   project_id = tfe_project.admin.id
 
-  auto_apply             = true
-  auto_apply_run_trigger = true
-  queue_all_runs         = true
-  terraform_version      = var.terraform_version
-  file_triggers_enabled  = false
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
 
   vcs_repo {
     branch         = "main"
     identifier     = "${var.github_organization_name}/hcp-terraform-admin"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
-}
-
-resource "tfe_run_trigger" "hcp_terraform_admin_from_consul" {
-  workspace_id  = tfe_workspace.hcp_terraform_admin.id
-  sourceable_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
 resource "tfe_variable" "github_vcs_provider_oauth_token" {
@@ -29,43 +23,11 @@ resource "tfe_variable" "github_vcs_provider_oauth_token" {
   workspace_id = tfe_workspace.hcp_terraform_admin.id
 }
 
-resource "tfe_workspace" "terraform_enterprise_deploy" {
-  name       = "terraform-enterprise-deploy"
-  project_id = tfe_project.infrastructure.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/terraform-enterprise-deploy"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
-
-resource "tfe_workspace" "terraform_enterprise_admin" {
-  name       = "terraform-enterprise-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/terraform-enterprise-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
-
 resource "tfe_workspace" "vault_enterprise_deploy" {
   name       = "vault-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -77,29 +39,9 @@ resource "tfe_workspace" "vault_enterprise_deploy" {
   }
 }
 
-data "tfe_variables" "vault_enterprise_deploy" {
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
 data "tfe_outputs" "vault_enterprise_deploy" {
   organization = tfe_organization.this.name
   workspace    = tfe_workspace.vault_enterprise_deploy.name
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_project_name" {
-  key          = "project_name"
-  value        = "lab"
-  category     = "terraform"
-  description  = "Name prefix for all resources."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_route53_zone_name" {
-  key          = "route53_zone_name"
-  value        = "craig-sloggett.sbx.hashidemos.io"
-  category     = "terraform"
-  description  = "Name of the existing Route 53 hosted zone."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
 resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
@@ -111,36 +53,11 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_enterprise_deploy_ec2_key_pair_name" {
-  key          = "ec2_key_pair_name"
-  value        = local.vault_enterprise_deploy_ec2_key_pair_name
-  category     = "terraform"
-  description  = "Name of an existing EC2 key pair for SSH access."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
 resource "tfe_variable" "vault_enterprise_deploy_ec2_ami_owner" {
   key          = "ec2_ami_owner"
   value        = "888995627335"
   category     = "terraform"
   description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_ec2_ami_name" {
-  key          = "ec2_ami_name"
-  value        = "hc-base-ubuntu-2404-amd64-*"
-  category     = "terraform"
-  description  = "Name filter for the AMI (supports wildcards)."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_nlb_internal" {
-  key          = "nlb_internal"
-  value        = "false"
-  hcl          = true
-  category     = "terraform"
-  description  = "Whether the NLB is internal."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
@@ -150,14 +67,6 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_api_allowed_cidrs" {
   hcl          = true
   category     = "terraform"
   description  = "CIDR blocks allowed to reach the Vault API (port 8200)."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_vpc_name" {
-  key          = "vpc_name"
-  value        = "hashistack"
-  category     = "terraform"
-  description  = "Name tag of the existing VPC."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
@@ -173,27 +82,11 @@ data "aws_ssm_parameter" "vault_ca_bundle" {
   name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
 }
 
-resource "tfe_workspace" "vault_enterprise_admin" {
-  name       = "vault-enterprise-admin"
-  project_id = tfe_project.admin.id
-
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
-
-  vcs_repo {
-    branch         = "main"
-    identifier     = "${var.github_organization_name}/vault-enterprise-admin"
-    oauth_token_id = tfe_oauth_client.github.oauth_token_id
-  }
-}
-
 resource "tfe_workspace" "nomad_enterprise_deploy" {
   name       = "nomad-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -205,34 +98,6 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
   }
 }
 
-data "tfe_variables" "nomad_enterprise_deploy" {
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_project_name" {
-  key          = "project_name"
-  value        = "lab"
-  category     = "terraform"
-  description  = "Name prefix for all resources."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_vpc_name" {
-  key          = "vpc_name"
-  value        = "hashistack"
-  category     = "terraform"
-  description  = "Name tag of the existing VPC."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_route53_zone_name" {
-  key          = "route53_zone_name"
-  value        = "craig-sloggett.sbx.hashidemos.io"
-  category     = "terraform"
-  description  = "Name of the existing Route 53 hosted zone."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
 resource "tfe_variable" "nomad_deploy_nomad_license" {
   key          = "nomad_license"
   value        = ""
@@ -242,36 +107,11 @@ resource "tfe_variable" "nomad_deploy_nomad_license" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-resource "tfe_variable" "nomad_deploy_ec2_key_pair_name" {
-  key          = "ec2_key_pair_name"
-  value        = local.nomad_enterprise_deploy_ec2_key_pair_name
-  category     = "terraform"
-  description  = "Name of an existing EC2 key pair for SSH access."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
 resource "tfe_variable" "nomad_deploy_ec2_ami_owner" {
   key          = "ec2_ami_owner"
   value        = "888995627335"
   category     = "terraform"
   description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_ec2_ami_name" {
-  key          = "ec2_ami_name"
-  value        = "hc-base-ubuntu-2404-amd64-*"
-  category     = "terraform"
-  description  = "Name filter for the AMI (supports wildcards)."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_nlb_internal" {
-  key          = "nlb_internal"
-  value        = "false"
-  hcl          = true
-  category     = "terraform"
-  description  = "Whether the NLB is internal."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
@@ -284,84 +124,11 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-resource "tfe_variable" "nomad_deploy_consul_gossip_key_secret_arn" {
-  key          = "consul_gossip_key_secret_arn"
-  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_gossip_key_secret_arn
-  category     = "terraform"
-  description  = "ARN of the Secrets Manager secret containing the Consul gossip encryption key."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_consul_token_secret_arn" {
-  key          = "consul_token_secret_arn"
-  value        = data.tfe_outputs.consul_enterprise_deploy.values.consul_token_secret_arn
-  category     = "terraform"
-  description  = "ARN of the Secrets Manager secret containing the Consul ACL token for Nomad."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_consul_auto_join_ec2_tag" {
-  key          = "consul_auto_join_ec2_tag"
-  value        = jsonencode(data.tfe_outputs.consul_enterprise_deploy.values.consul_auto_join_ec2_tag)
-  hcl          = true
-  category     = "terraform"
-  description  = "EC2 tag used for Consul cloud auto-join."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_nomad_server_service_name" {
-  key          = "nomad_server_service_name"
-  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_server_service_name
-  category     = "terraform"
-  description  = "Consul service name Nomad servers register as."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_nomad_client_service_name" {
-  key          = "nomad_client_service_name"
-  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_client_service_name
-  category     = "terraform"
-  description  = "Consul service name Nomad clients register as."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_nomad_snapshot_service_name" {
-  key          = "nomad_snapshot_service_name"
-  value        = data.tfe_outputs.consul_enterprise_deploy.values.nomad_snapshot_service_name
-  category     = "terraform"
-  description  = "Consul service name the Nomad snapshot agent registers as."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_vault_url" {
-  key          = "vault_url"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
-  category     = "terraform"
-  description  = "Vault cluster URL."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_vault_tls_ca_bundle_ssm_name" {
-  key          = "vault_tls_ca_bundle_ssm_name"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
-  category     = "terraform"
-  description  = "SSM parameter name holding the Vault cluster's TLS CA bundle."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-resource "tfe_variable" "nomad_deploy_vault_iam_role_name" {
-  key          = "vault_iam_role_name"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
-  category     = "terraform"
-  description  = "Name of the IAM role attached to Vault server nodes."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
 resource "tfe_workspace" "consul_enterprise_deploy" {
   name       = "consul-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -373,39 +140,6 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
   }
 }
 
-data "tfe_variables" "consul_enterprise_deploy" {
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-data "tfe_outputs" "consul_enterprise_deploy" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.consul_enterprise_deploy.name
-}
-
-resource "tfe_variable" "consul_deploy_project_name" {
-  key          = "project_name"
-  value        = "lab"
-  category     = "terraform"
-  description  = "Name prefix for all resources."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_variable" "consul_deploy_vpc_name" {
-  key          = "vpc_name"
-  value        = "hashistack"
-  category     = "terraform"
-  description  = "Name tag of the existing VPC."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_variable" "consul_deploy_route53_zone_name" {
-  key          = "route53_zone_name"
-  value        = "craig-sloggett.sbx.hashidemos.io"
-  category     = "terraform"
-  description  = "Name of the existing Route 53 hosted zone."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
 resource "tfe_variable" "consul_deploy_consul_license" {
   key          = "consul_license"
   value        = ""
@@ -415,36 +149,11 @@ resource "tfe_variable" "consul_deploy_consul_license" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_ec2_key_pair_name" {
-  key          = "ec2_key_pair_name"
-  value        = local.consul_deploy_ec2_key_pair_name
-  category     = "terraform"
-  description  = "Name of an existing EC2 key pair for SSH access."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
 resource "tfe_variable" "consul_deploy_ec2_ami_owner" {
   key          = "ec2_ami_owner"
   value        = "888995627335"
   category     = "terraform"
   description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_variable" "consul_deploy_ec2_ami_name" {
-  key          = "ec2_ami_name"
-  value        = "hc-base-ubuntu-2404-amd64-*"
-  category     = "terraform"
-  description  = "Name filter for the AMI (supports wildcards)."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_variable" "consul_deploy_nlb_internal" {
-  key          = "nlb_internal"
-  value        = "false"
-  hcl          = true
-  category     = "terraform"
-  description  = "Whether the NLB is internal."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
@@ -550,7 +259,7 @@ resource "tfe_workspace" "pingfederate_deploy" {
   name       = "pingfederate-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -676,7 +385,7 @@ resource "tfe_workspace" "hashistack_workload_demo" {
   name       = "hashistack-workload-demo"
   project_id = tfe_project.workloads.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false

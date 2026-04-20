@@ -91,11 +91,6 @@ resource "tfe_variable_set" "vault_enterprise_authentication" {
   global      = false
 }
 
-resource "tfe_workspace_variable_set" "vault_enterprise_authentication_vault_enterprise_admin" {
-  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-  workspace_id    = tfe_workspace.vault_enterprise_admin.id
-}
-
 resource "tfe_workspace_variable_set" "vault_enterprise_authentication_consul_enterprise_deploy" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
   workspace_id    = tfe_workspace.consul_enterprise_deploy.id
@@ -166,4 +161,64 @@ resource "tfe_variable" "github_owner" {
   category        = "env"
   description     = "Set to the name of the GitHub organization being managed."
   variable_set_id = tfe_variable_set.github_provider_authentication.id
+}
+
+resource "tfe_variable_set" "common_infrastructure_configuration" {
+  name        = "Common Infrastructure Configuration"
+  description = "Common Terraform input variables shared across workspaces in the Infrastructure project."
+  global      = false
+}
+
+resource "tfe_project_variable_set" "common_infrastructure_configuration" {
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+  project_id      = tfe_project.infrastructure.id
+}
+
+resource "tfe_variable" "project_name" {
+  key             = "project_name"
+  value           = "lab"
+  category        = "terraform"
+  description     = "The name of the project."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "vpc_name" {
+  key             = "vpc_name"
+  value           = "hashistack"
+  category        = "terraform"
+  description     = "The name of the VPC."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "ec2_ami_name" {
+  key             = "ec2_ami_name"
+  value           = "hc-base-ubuntu-2404-amd64-20260420144356"
+  category        = "terraform"
+  description     = "The name of the EC2 AMI."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "ec2_key_pair_name" {
+  key             = "ec2_key_pair_name"
+  value           = "MacBook-Pro-M4"
+  category        = "terraform"
+  description     = "The name of the EC2 key pair."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "nlb_internal" {
+  key             = "nlb_internal"
+  value           = "false"
+  hcl             = true
+  category        = "terraform"
+  description     = "Whether the NLB is internal."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "route53_zone_name" {
+  key             = "route53_zone_name"
+  value           = "craig-sloggett.sbx.hashidemos.io"
+  category        = "terraform"
+  description     = "The name of the Route 53 zone."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
 }

@@ -50,8 +50,8 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_project.workloads](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
+| [tfe_project_variable_set.common_infrastructure_configuration](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/registry_provider) | resource |
-| [tfe_run_trigger.hcp_terraform_admin_from_consul](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/run_trigger) | resource |
 | [tfe_team.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team) | resource |
 | [tfe_team.owners](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team) | resource |
 | [tfe_team_organization_members.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team_organization_members) | resource |
@@ -68,39 +68,21 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.consul_deploy_consul_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_consul_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_consul_server_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_vault_iam_role_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_deploy_vault_url](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_aws_vpc_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_vpc_enable_vpc_endpoints](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_consul_auto_join_ec2_tag](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_consul_gossip_key_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_consul_token_secret_arn](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_nomad_client_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_nomad_server_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_nomad_snapshot_service_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_vault_iam_role_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_vault_tls_ca_bundle_ssm_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_vault_url](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_artifacts_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
@@ -113,23 +95,21 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.pingfederate_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_s3_artifact_bucket](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_enterprise_deploy_ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_route53_zone_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_enterprise_deploy_vault_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_enterprise_deploy_vault_enterprise_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_enterprise_deploy_vault_server_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.vault_enterprise_deploy_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_tfc_vault_addr](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_tfc_vault_auth_path](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_tfc_vault_encoded_cacert](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_tfc_vault_provider_auth](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.vault_tfc_vault_run_role](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
+| [tfe_variable_set.common_infrastructure_configuration](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
 | [tfe_variable_set.vault_enterprise_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable_set) | resource |
@@ -141,24 +121,16 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
-| [tfe_workspace.terraform_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
-| [tfe_workspace.terraform_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
-| [tfe_workspace.vault_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.aws_provider_authentication_dev_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.vault_enterprise_authentication_consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.vault_enterprise_authentication_nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
-| [tfe_workspace_variable_set.vault_enterprise_authentication_vault_enterprise_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [aws_ssm_parameter.vault_ca_bundle](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/organization_membership) | data source |
-| [tfe_outputs.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
 | [tfe_outputs.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
-| [tfe_variables.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
-| [tfe_variables.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
 | [tfe_variables.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
-| [tfe_variables.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
 
 ## Outputs
 
