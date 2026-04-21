@@ -115,6 +115,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace_variable_set.aws_provider_authentication_dev_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.common_infrastructure_configuration_consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.common_infrastructure_configuration_nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
+| [tfe_workspace_variable_set.common_infrastructure_configuration_pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.common_infrastructure_configuration_vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.vault_enterprise_authentication_consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |

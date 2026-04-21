@@ -260,3 +260,8 @@ resource "tfe_workspace_variable_set" "common_infrastructure_configuration_nomad
   variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
   workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
 }
+
+resource "tfe_workspace_variable_set" "common_infrastructure_configuration_pingfederate_deploy" {
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+  workspace_id    = tfe_workspace.pingfederate_deploy.id
+}
