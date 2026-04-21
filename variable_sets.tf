@@ -1,7 +1,11 @@
+# TFE Provider Authentication
+
 resource "tfe_variable_set" "tfe_provider_authentication" {
   name        = "TFE Provider Authentication"
   description = "The token used to authenticate the TFE provider for managing this HCP Terraform organization."
 }
+
+## Variables
 
 resource "tfe_variable" "tfe_token" {
   key             = "TFE_TOKEN"
@@ -12,10 +16,14 @@ resource "tfe_variable" "tfe_token" {
   variable_set_id = tfe_variable_set.tfe_provider_authentication.id
 }
 
+## Scope
+
 resource "tfe_workspace_variable_set" "tfe_provider_authentication_hcp_terraform_admin" {
   variable_set_id = tfe_variable_set.tfe_provider_authentication.id
   workspace_id    = tfe_workspace.hcp_terraform_admin.id
 }
+
+# AWS Provider Authentication
 
 resource "tfe_variable_set" "aws_provider_authentication" {
   for_each    = var.application_environments
@@ -24,28 +32,7 @@ resource "tfe_variable_set" "aws_provider_authentication" {
   global      = false
 }
 
-resource "tfe_project_variable_set" "aws_provider_authentication_dev_waypoint" {
-  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
-  project_id      = tfe_project.waypoint.id
-}
-
-resource "tfe_project_variable_set" "aws_provider_authentication_dev_infrastructure" {
-  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
-  project_id      = tfe_project.infrastructure.id
-}
-
-resource "tfe_workspace_variable_set" "aws_provider_authentication_dev_hcp_terraform_admin" {
-  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
-  workspace_id    = tfe_workspace.hcp_terraform_admin.id
-}
-
-# This data source is used to get the values of non-sensitive variables since
-# they are expected to be updated outside of Terraform and will cause drift
-# otherwise.
-data "tfe_variables" "aws_provider_authentication" {
-  for_each        = var.application_environments
-  variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
-}
+## Variables
 
 resource "tfe_variable" "aws_access_key_id" {
   for_each        = var.application_environments
@@ -85,21 +72,32 @@ resource "tfe_variable" "aws_session_token" {
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
 }
 
+## Scope
+
+resource "tfe_project_variable_set" "aws_provider_authentication_dev_waypoint" {
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  project_id      = tfe_project.waypoint.id
+}
+
+resource "tfe_project_variable_set" "aws_provider_authentication_dev_infrastructure" {
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  project_id      = tfe_project.infrastructure.id
+}
+
+resource "tfe_workspace_variable_set" "aws_provider_authentication_dev_hcp_terraform_admin" {
+  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
+  workspace_id    = tfe_workspace.hcp_terraform_admin.id
+}
+
+# Vault Enterprise Authentication
+
 resource "tfe_variable_set" "vault_enterprise_authentication" {
   name        = "Vault Enterprise Authentication"
   description = "Dynamic credentials used to authenticate the Vault provider via workload identity."
   global      = false
 }
 
-resource "tfe_workspace_variable_set" "vault_enterprise_authentication_consul_enterprise_deploy" {
-  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-  workspace_id    = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_workspace_variable_set" "vault_enterprise_authentication_nomad_enterprise_deploy" {
-  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-  workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
-}
+## Variables
 
 resource "tfe_variable" "vault_tfc_vault_provider_auth" {
   key             = "TFC_VAULT_PROVIDER_AUTH"
@@ -141,10 +139,26 @@ resource "tfe_variable" "vault_tfc_vault_encoded_cacert" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
 }
 
+## Scope
+
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_consul_enterprise_deploy" {
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+  workspace_id    = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_workspace_variable_set" "vault_enterprise_authentication_nomad_enterprise_deploy" {
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+  workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
+}
+
+## GitHub Provider Authentication
+
 resource "tfe_variable_set" "github_provider_authentication" {
   name        = "GitHub Provider Authentication"
   description = "The token used to authenticate the GitHub provider for managing the GitHub organization."
 }
+
+## Variables
 
 resource "tfe_variable" "github_token" {
   key             = "GITHUB_TOKEN"
@@ -163,16 +177,15 @@ resource "tfe_variable" "github_owner" {
   variable_set_id = tfe_variable_set.github_provider_authentication.id
 }
 
+# Common Infrastructure Configuration
+
 resource "tfe_variable_set" "common_infrastructure_configuration" {
   name        = "Common Infrastructure Configuration"
   description = "Common Terraform input variables shared across workspaces in the Infrastructure project."
   global      = false
 }
 
-resource "tfe_project_variable_set" "common_infrastructure_configuration" {
-  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
-  project_id      = tfe_project.infrastructure.id
-}
+## Variables
 
 resource "tfe_variable" "project_name" {
   key             = "project_name"
@@ -195,6 +208,14 @@ resource "tfe_variable" "ec2_ami_name" {
   value           = "hc-base-ubuntu-2404-amd64-20260420144356"
   category        = "terraform"
   description     = "The name of the EC2 AMI."
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+resource "tfe_variable" "ec2_ami_owner" {
+  key             = "ec2_ami_owner"
+  value           = "888995627335"
+  category        = "terraform"
+  description     = "AWS account ID of the AMI owner."
   variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
 }
 
@@ -221,4 +242,11 @@ resource "tfe_variable" "route53_zone_name" {
   category        = "terraform"
   description     = "The name of the Route 53 zone."
   variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+}
+
+## Scope
+
+resource "tfe_project_variable_set" "common_infrastructure_configuration" {
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+  project_id      = tfe_project.infrastructure.id
 }

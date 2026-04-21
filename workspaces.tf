@@ -1,3 +1,5 @@
+# HCP Terraform Admin
+
 resource "tfe_workspace" "hcp_terraform_admin" {
   name       = "hcp-terraform-admin"
   project_id = tfe_project.admin.id
@@ -14,6 +16,8 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   }
 }
 
+## Variables
+
 resource "tfe_variable" "hcp_terraform_admin_github_vcs_provider_oauth_token" {
   key          = "github_vcs_provider_oauth_token"
   value        = ""
@@ -22,6 +26,8 @@ resource "tfe_variable" "hcp_terraform_admin_github_vcs_provider_oauth_token" {
   description  = "Set to a Personal Access Token for the service account in the craigsloggett-lab GitHub organization."
   workspace_id = tfe_workspace.hcp_terraform_admin.id
 }
+
+# Vault Enterprise Deploy
 
 resource "tfe_workspace" "vault_enterprise_deploy" {
   name       = "vault-enterprise-deploy"
@@ -39,10 +45,7 @@ resource "tfe_workspace" "vault_enterprise_deploy" {
   }
 }
 
-data "tfe_outputs" "vault_enterprise_deploy" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.vault_enterprise_deploy.name
-}
+## Variables
 
 resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   key          = "vault_enterprise_license"
@@ -50,14 +53,6 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   sensitive    = true
   category     = "terraform"
   description  = "Vault Enterprise license string."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_ec2_ami_owner" {
-  key          = "ec2_ami_owner"
-  value        = "888995627335"
-  category     = "terraform"
-  description  = "AWS account ID of the AMI owner."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
@@ -78,9 +73,7 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_server_instance_type" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-data "aws_ssm_parameter" "vault_ca_bundle" {
-  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
-}
+# Nomad Enterprise Deploy
 
 resource "tfe_workspace" "nomad_enterprise_deploy" {
   name       = "nomad-enterprise-deploy"
@@ -98,7 +91,14 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
   }
 }
 
-resource "tfe_variable" "nomad_deploy_nomad_license" {
+## Variables
+
+moved {
+  from = tfe_variable.nomad_deploy_nomad_license
+  to   = tfe_variable.nomad_enterprise_deploy_nomad_license
+}
+
+resource "tfe_variable" "nomad_enterprise_deploy_nomad_license" {
   key          = "nomad_license"
   value        = ""
   sensitive    = true
@@ -107,15 +107,12 @@ resource "tfe_variable" "nomad_deploy_nomad_license" {
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-resource "tfe_variable" "nomad_deploy_ec2_ami_owner" {
-  key          = "ec2_ami_owner"
-  value        = "888995627335"
-  category     = "terraform"
-  description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.nomad_enterprise_deploy.id
+moved {
+  from = tfe_variable.nomad_deploy_nomad_api_allowed_cidrs
+  to   = tfe_variable.nomad_enterprise_deploy_nomad_api_allowed_cidrs
 }
 
-resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
+resource "tfe_variable" "nomad_enterprise_deploy_nomad_api_allowed_cidrs" {
   key          = "nomad_api_allowed_cidrs"
   value        = "[\"0.0.0.0/0\"]"
   hcl          = true
@@ -123,6 +120,8 @@ resource "tfe_variable" "nomad_deploy_nomad_api_allowed_cidrs" {
   description  = "CIDR blocks allowed to reach the Nomad API (port 4646) from outside the VPC. Only effective when nlb_internal is false."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
 }
+
+# Consul Enterprise Deploy
 
 resource "tfe_workspace" "consul_enterprise_deploy" {
   name       = "consul-enterprise-deploy"
@@ -140,7 +139,14 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
   }
 }
 
-resource "tfe_variable" "consul_deploy_consul_license" {
+## Variables
+
+moved {
+  from = tfe_variable.consul_deploy_consul_license
+  to   = tfe_variable.consul_enterprise_deploy_consul_license
+}
+
+resource "tfe_variable" "consul_enterprise_deploy_consul_license" {
   key          = "consul_license"
   value        = ""
   sensitive    = true
@@ -149,15 +155,12 @@ resource "tfe_variable" "consul_deploy_consul_license" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_ec2_ami_owner" {
-  key          = "ec2_ami_owner"
-  value        = "888995627335"
-  category     = "terraform"
-  description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
+moved {
+  from = tfe_variable.consul_deploy_consul_api_allowed_cidrs
+  to   = tfe_variable.consul_enterprise_deploy_consul_api_allowed_cidrs
 }
 
-resource "tfe_variable" "consul_deploy_consul_api_allowed_cidrs" {
+resource "tfe_variable" "consul_enterprise_deploy_consul_api_allowed_cidrs" {
   key          = "consul_api_allowed_cidrs"
   value        = "[\"0.0.0.0/0\"]"
   hcl          = true
@@ -166,7 +169,12 @@ resource "tfe_variable" "consul_deploy_consul_api_allowed_cidrs" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_consul_server_instance_type" {
+moved {
+  from = tfe_variable.consul_deploy_consul_server_instance_type
+  to   = tfe_variable.consul_enterprise_deploy_consul_server_instance_type
+}
+
+resource "tfe_variable" "consul_enterprise_deploy_consul_server_instance_type" {
   key          = "consul_server_instance_type"
   value        = "t3.medium"
   category     = "terraform"
@@ -174,7 +182,12 @@ resource "tfe_variable" "consul_deploy_consul_server_instance_type" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
+moved {
+  from = tfe_variable.consul_deploy_vault_iam_role_name
+  to   = tfe_variable.consul_enterprise_deploy_vault_iam_role_name
+}
+
+resource "tfe_variable" "consul_enterprise_deploy_vault_iam_role_name" {
   key          = "vault_iam_role_name"
   value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
   category     = "terraform"
@@ -182,13 +195,20 @@ resource "tfe_variable" "consul_deploy_vault_iam_role_name" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_deploy_vault_url" {
+moved {
+  from = tfe_variable.consul_deploy_vault_url
+  to   = tfe_variable.consul_enterprise_deploy_vault_url
+}
+
+resource "tfe_variable" "consul_enterprise_deploy_vault_url" {
   key          = "vault_url"
   value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
   category     = "terraform"
   description  = "The address of the Vault Enterprise instance."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
+
+# HashiStack AWS VPC
 
 resource "tfe_workspace" "hashistack_aws_vpc" {
   name       = "hashistack-aws-vpc"
@@ -206,6 +226,8 @@ resource "tfe_workspace" "hashistack_aws_vpc" {
   }
 }
 
+## Variables
+
 resource "tfe_variable" "hashistack_aws_vpc_project_name" {
   key          = "project_name"
   value        = "hashistack"
@@ -213,6 +235,8 @@ resource "tfe_variable" "hashistack_aws_vpc_project_name" {
   description  = "Name prefix for all resources."
   workspace_id = tfe_workspace.hashistack_aws_vpc.id
 }
+
+# TODO: Remove this and configure the provider
 
 resource "tfe_variable" "hashistack_aws_vpc_region" {
   key          = "region"
@@ -231,6 +255,8 @@ resource "tfe_variable" "hashistack_vpc_enable_vpc_endpoints" {
   workspace_id = tfe_workspace.hashistack_aws_vpc.id
 }
 
+# PingFederate Artifacts
+
 resource "tfe_workspace" "pingfederate_artifacts" {
   name       = "pingfederate-artifacts"
   project_id = tfe_project.infrastructure.id
@@ -247,13 +273,7 @@ resource "tfe_workspace" "pingfederate_artifacts" {
   }
 }
 
-resource "tfe_variable" "pingfederate_artifacts_project_name" {
-  key          = "project_name"
-  value        = "lab"
-  category     = "terraform"
-  description  = "Name prefix for all resources."
-  workspace_id = tfe_workspace.pingfederate_artifacts.id
-}
+# PingFederate Deploy
 
 resource "tfe_workspace" "pingfederate_deploy" {
   name       = "pingfederate-deploy"
@@ -271,57 +291,7 @@ resource "tfe_workspace" "pingfederate_deploy" {
   }
 }
 
-data "tfe_variables" "pingfederate_deploy" {
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_project_name" {
-  key          = "project_name"
-  value        = "lab"
-  category     = "terraform"
-  description  = "Name prefix for all resources."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_route53_zone_name" {
-  key          = "route53_zone_name"
-  value        = "craig-sloggett.sbx.hashidemos.io"
-  category     = "terraform"
-  description  = "Name of the existing Route 53 hosted zone."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_vpc_name" {
-  key          = "vpc_name"
-  value        = "hashistack"
-  category     = "terraform"
-  description  = "Name tag of the existing VPC."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_ec2_key_pair_name" {
-  key          = "ec2_key_pair_name"
-  value        = local.pingfederate_deploy_ec2_key_pair_name
-  category     = "terraform"
-  description  = "Name of an existing EC2 key pair for SSH access."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_ec2_ami_owner" {
-  key          = "ec2_ami_owner"
-  value        = "888995627335"
-  category     = "terraform"
-  description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
-
-resource "tfe_variable" "pingfederate_deploy_ec2_ami_name" {
-  key          = "ec2_ami_name"
-  value        = "hc-base-ubuntu-2404-amd64-*"
-  category     = "terraform"
-  description  = "Name filter for the AMI (supports wildcards)."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
+## Variables
 
 resource "tfe_variable" "pingfederate_deploy_pingfederate_allowed_cidrs" {
   key          = "pingfederate_allowed_cidrs"
@@ -356,14 +326,7 @@ resource "tfe_variable" "pingfederate_deploy_pingfederate_license_key" {
   workspace_id = tfe_workspace.pingfederate_deploy.id
 }
 
-resource "tfe_variable" "pingfederate_deploy_nlb_internal" {
-  key          = "nlb_internal"
-  value        = "false"
-  hcl          = true
-  category     = "terraform"
-  description  = "Whether the NLB is internal."
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}
+# GitHub Admin
 
 resource "tfe_workspace" "github_admin" {
   name       = "github-admin"
@@ -380,6 +343,8 @@ resource "tfe_workspace" "github_admin" {
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
 }
+
+# HashiStack Workload Demo
 
 resource "tfe_workspace" "hashistack_workload_demo" {
   name       = "hashistack-workload-demo"
