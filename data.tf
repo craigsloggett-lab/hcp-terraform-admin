@@ -15,10 +15,3 @@ data "tfe_variables" "aws_provider_authentication" {
   for_each        = var.application_environments
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
 }
-
-# This data source is used to get the values of non-sensitive variables since
-# they are expected to be updated outside of Terraform and will cause drift
-# otherwise.
-data "tfe_variables" "pingfederate_deploy" {
-  workspace_id = tfe_workspace.pingfederate_deploy.id
-}

@@ -26,14 +26,4 @@ locals {
     for environment, variable in local.aws_provider_authentication :
     environment => lookup(variable, "AWS_SESSION_EXPIRATION", null)
   }
-
-  pingfederate_deploy = {
-    for variable in data.tfe_variables.pingfederate_deploy.terraform :
-    variable.name => variable.value
-    if !variable.sensitive
-  }
-
-  # Lookup the required variable explicitly, handling the case
-  # when the workspace hasn't been created yet.
-  pingfederate_deploy_ec2_key_pair_name = lookup(local.pingfederate_deploy, "ec2_key_pair_name", null)
 }

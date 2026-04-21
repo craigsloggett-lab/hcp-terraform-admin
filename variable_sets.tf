@@ -23,6 +23,11 @@ resource "tfe_workspace_variable_set" "tfe_provider_authentication_hcp_terraform
   workspace_id    = tfe_workspace.hcp_terraform_admin.id
 }
 
+resource "tfe_workspace_variable_set" "tfe_provider_authentication_consul_enterprise_deploy" {
+  variable_set_id = tfe_variable_set.tfe_provider_authentication.id
+  workspace_id    = tfe_workspace.consul_enterprise_deploy.id
+}
+
 # AWS Provider Authentication
 
 resource "tfe_variable_set" "aws_provider_authentication" {
