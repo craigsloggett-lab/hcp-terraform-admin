@@ -93,11 +93,6 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
 
 ## Variables
 
-moved {
-  from = tfe_variable.nomad_deploy_nomad_license
-  to   = tfe_variable.nomad_enterprise_deploy_nomad_license
-}
-
 resource "tfe_variable" "nomad_enterprise_deploy_nomad_license" {
   key          = "nomad_license"
   value        = ""
@@ -105,11 +100,6 @@ resource "tfe_variable" "nomad_enterprise_deploy_nomad_license" {
   category     = "terraform"
   description  = "Nomad Enterprise license string."
   workspace_id = tfe_workspace.nomad_enterprise_deploy.id
-}
-
-moved {
-  from = tfe_variable.nomad_deploy_nomad_api_allowed_cidrs
-  to   = tfe_variable.nomad_enterprise_deploy_nomad_api_allowed_cidrs
 }
 
 resource "tfe_variable" "nomad_enterprise_deploy_nomad_api_allowed_cidrs" {
@@ -141,11 +131,6 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
 
 ## Variables
 
-moved {
-  from = tfe_variable.consul_deploy_consul_license
-  to   = tfe_variable.consul_enterprise_deploy_consul_license
-}
-
 resource "tfe_variable" "consul_enterprise_deploy_consul_license" {
   key          = "consul_license"
   value        = ""
@@ -153,11 +138,6 @@ resource "tfe_variable" "consul_enterprise_deploy_consul_license" {
   category     = "terraform"
   description  = "Consul Enterprise license string."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-moved {
-  from = tfe_variable.consul_deploy_consul_api_allowed_cidrs
-  to   = tfe_variable.consul_enterprise_deploy_consul_api_allowed_cidrs
 }
 
 resource "tfe_variable" "consul_enterprise_deploy_consul_api_allowed_cidrs" {
@@ -169,11 +149,6 @@ resource "tfe_variable" "consul_enterprise_deploy_consul_api_allowed_cidrs" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-moved {
-  from = tfe_variable.consul_deploy_consul_server_instance_type
-  to   = tfe_variable.consul_enterprise_deploy_consul_server_instance_type
-}
-
 resource "tfe_variable" "consul_enterprise_deploy_consul_server_instance_type" {
   key          = "consul_server_instance_type"
   value        = "t3.medium"
@@ -182,22 +157,12 @@ resource "tfe_variable" "consul_enterprise_deploy_consul_server_instance_type" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-moved {
-  from = tfe_variable.consul_deploy_vault_iam_role_name
-  to   = tfe_variable.consul_enterprise_deploy_vault_iam_role_name
-}
-
 resource "tfe_variable" "consul_enterprise_deploy_vault_iam_role_name" {
   key          = "vault_iam_role_name"
   value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
   category     = "terraform"
   description  = "EC2 instance type for Consul server nodes."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-moved {
-  from = tfe_variable.consul_deploy_vault_url
-  to   = tfe_variable.consul_enterprise_deploy_vault_url
 }
 
 resource "tfe_variable" "consul_enterprise_deploy_vault_url" {
