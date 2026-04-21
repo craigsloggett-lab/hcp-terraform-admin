@@ -5,7 +5,7 @@ data "tfe_outputs" "vault_enterprise_deploy" {
 
 # TODO: Move this to the vault-enterprise-deploy Terraform configuration
 data "aws_ssm_parameter" "vault_ca_bundle" {
-  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_name
+  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_parameter_name
 }
 
 # This data source is used to get the values of non-sensitive variables since
