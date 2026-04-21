@@ -81,6 +81,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_enterprise_deploy_nomad_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_enterprise_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.pingfederate_artifacts_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_license_key](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_zip_key](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
