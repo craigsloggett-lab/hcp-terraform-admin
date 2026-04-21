@@ -157,22 +157,6 @@ resource "tfe_variable" "consul_enterprise_deploy_consul_server_instance_type" {
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 
-resource "tfe_variable" "consul_enterprise_deploy_vault_iam_role_name" {
-  key          = "vault_iam_role_name"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_iam_role_name
-  category     = "terraform"
-  description  = "EC2 instance type for Consul server nodes."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
-resource "tfe_variable" "consul_enterprise_deploy_vault_url" {
-  key          = "vault_url"
-  value        = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
-  category     = "terraform"
-  description  = "The address of the Vault Enterprise instance."
-  workspace_id = tfe_workspace.consul_enterprise_deploy.id
-}
-
 # HashiStack AWS VPC
 
 resource "tfe_workspace" "hashistack_aws_vpc" {
