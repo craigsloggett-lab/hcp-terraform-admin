@@ -246,7 +246,17 @@ resource "tfe_variable" "route53_zone_name" {
 
 ## Scope
 
-resource "tfe_project_variable_set" "common_infrastructure_configuration" {
+resource "tfe_workspace_variable_set" "common_infrastructure_configuration_vault_enterprise_deploy" {
   variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
-  project_id      = tfe_project.infrastructure.id
+  workspace_id    = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_workspace_variable_set" "common_infrastructure_configuration_consul_enterprise_deploy" {
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+  workspace_id    = tfe_workspace.consul_enterprise_deploy.id
+}
+
+resource "tfe_workspace_variable_set" "common_infrastructure_configuration_nomad_enterprise_deploy" {
+  variable_set_id = tfe_variable_set.common_infrastructure_configuration.id
+  workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
 }
