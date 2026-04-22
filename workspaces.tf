@@ -93,11 +93,6 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
 
 ## Variables
 
-moved {
-  from = tfe_variable.nomad_enterprise_deploy_nomad_license
-  to   = tfe_variable.nomad_enterprise_deploy_nomad_enterprise_license
-}
-
 resource "tfe_variable" "nomad_enterprise_deploy_nomad_enterprise_license" {
   key          = "nomad_enterprise_license"
   value        = ""
@@ -135,11 +130,6 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
 }
 
 ## Variables
-
-moved {
-  from = tfe_variable.consul_enterprise_deploy_consul_license
-  to   = tfe_variable.consul_enterprise_deploy_consul_enterprise_license
-}
 
 resource "tfe_variable" "consul_enterprise_deploy_consul_enterprise_license" {
   key          = "consul_enterprise_license"
