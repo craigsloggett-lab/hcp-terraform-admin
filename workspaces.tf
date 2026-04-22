@@ -93,8 +93,13 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
 
 ## Variables
 
-resource "tfe_variable" "nomad_enterprise_deploy_nomad_license" {
-  key          = "nomad_license"
+moved {
+  from = tfe_variable.nomad_enterprise_deploy_nomad_license
+  to   = tfe_variable.nomad_enterprise_deploy_nomad_enterprise_license
+}
+
+resource "tfe_variable" "nomad_enterprise_deploy_nomad_enterprise_license" {
+  key          = "nomad_enterprise_license"
   value        = ""
   sensitive    = true
   category     = "terraform"
@@ -131,8 +136,13 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
 
 ## Variables
 
-resource "tfe_variable" "consul_enterprise_deploy_consul_license" {
-  key          = "consul_license"
+moved {
+  from = tfe_variable.consul_enterprise_deploy_consul_license
+  to   = tfe_variable.consul_enterprise_deploy_consul_enterprise_license
+}
+
+resource "tfe_variable" "consul_enterprise_deploy_consul_enterprise_license" {
+  key          = "consul_enterprise_license"
   value        = ""
   sensitive    = true
   category     = "terraform"
@@ -145,7 +155,7 @@ resource "tfe_variable" "consul_enterprise_deploy_consul_api_allowed_cidrs" {
   value        = "[\"0.0.0.0/0\"]"
   hcl          = true
   category     = "terraform"
-  description  = "CIDR blocks allowed to reach the Consul API (port 8501)."
+  description  = "CIDR blocks allowed to reach the Consul API (port 8501) from outside the VPC. Only effective when nlb_internal is false."
   workspace_id = tfe_workspace.consul_enterprise_deploy.id
 }
 

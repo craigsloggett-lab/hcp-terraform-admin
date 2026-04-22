@@ -65,7 +65,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.aws_session_expiration](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.aws_session_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_enterprise_deploy_consul_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.consul_enterprise_deploy_consul_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.consul_enterprise_deploy_consul_enterprise_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.consul_enterprise_deploy_consul_server_instance_type](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
@@ -78,7 +78,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.hcp_terraform_admin_github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_enterprise_deploy_nomad_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
-| [tfe_variable.nomad_enterprise_deploy_nomad_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.nomad_enterprise_deploy_nomad_enterprise_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_artifacts_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.pingfederate_deploy_pingfederate_license_key](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
