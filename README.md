@@ -129,5 +129,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+| ---- | ----------- |
+| <a name="output_tfc_agent_token"></a> [tfc\_agent\_token](#output\_tfc\_agent\_token) | HCP Terraform Agent token. |
 <!-- END_TF_DOCS -->
