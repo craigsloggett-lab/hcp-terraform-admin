@@ -33,7 +33,7 @@ resource "tfe_workspace" "vault_enterprise_deploy" {
   name       = "vault-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = false
+  auto_apply            = true
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -79,7 +79,7 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
   name       = "nomad-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = false
+  auto_apply            = true
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
@@ -117,7 +117,7 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
   name       = "consul-enterprise-deploy"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = false
+  auto_apply            = true
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
