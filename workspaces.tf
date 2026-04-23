@@ -350,7 +350,7 @@ resource "tfe_variable" "hcp_terraform_agents_aws_ami" {
 
 resource "tfe_variable" "hcp_terraform_agents_tfc_agent_token" {
   key          = "tfc_agent_token"
-  value        = ""
+  value        = data.tfe_outputs.hcp_terraform_admin.values.tfc_agent_token
   sensitive    = true
   category     = "terraform"
   description  = "HCP Terraform agent pool token."
