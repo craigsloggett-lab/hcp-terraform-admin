@@ -78,6 +78,10 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_vpc_enable_vpc_endpoints](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.hcp_terraform_admin_github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.hcp_terraform_agents_aws_ami](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.hcp_terraform_agents_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.hcp_terraform_agents_tfc_agent_token](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
+| [tfe_variable.hcp_terraform_agents_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nlb_internal](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_enterprise_deploy_nomad_api_allowed_cidrs](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
 | [tfe_variable.nomad_enterprise_deploy_nomad_enterprise_license](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/variable) | resource |
@@ -108,6 +112,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
+| [tfe_workspace.hcp_terraform_agents](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |

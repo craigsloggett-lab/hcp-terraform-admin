@@ -303,6 +303,60 @@ resource "tfe_workspace" "github_admin" {
   }
 }
 
+# HCP Terraform Agents
+
+resource "tfe_workspace" "hcp_terraform_agents" {
+  name       = "hcp-terraform-agents"
+  project_id = tfe_project.infrastructure.id
+
+  auto_apply            = true
+  queue_all_runs        = true
+  terraform_version     = var.terraform_version
+  file_triggers_enabled = false
+
+  vcs_repo {
+    branch         = "main"
+    identifier     = "${var.github_organization_name}/hcp-terraform-agents"
+    oauth_token_id = tfe_oauth_client.github.oauth_token_id
+  }
+}
+
+## Variables
+
+resource "tfe_variable" "hcp_terraform_agents_project_name" {
+  key          = "project_name"
+  value        = "lab"
+  category     = "terraform"
+  description  = "Name prefix for all resources."
+  workspace_id = tfe_workspace.hcp_terraform_agents.id
+}
+
+resource "tfe_variable" "hcp_terraform_agents_vpc_name" {
+  key          = "vpc_name"
+  value        = "hashistack"
+  category     = "terraform"
+  description  = "Name of the VPC to deploy into."
+  workspace_id = tfe_workspace.hcp_terraform_agents.id
+}
+
+resource "tfe_variable" "hcp_terraform_agents_aws_ami" {
+  key          = "aws_ami"
+  value        = "{ owner = \"888995627335\", name = \"hc-base-ubuntu-2404-amd64-20260420144356\" }"
+  hcl          = true
+  category     = "terraform"
+  description  = "AMI owner and name filter for the agent instances."
+  workspace_id = tfe_workspace.hcp_terraform_agents.id
+}
+
+resource "tfe_variable" "hcp_terraform_agents_tfc_agent_token" {
+  key          = "tfc_agent_token"
+  value        = ""
+  sensitive    = true
+  category     = "terraform"
+  description  = "HCP Terraform agent pool token."
+  workspace_id = tfe_workspace.hcp_terraform_agents.id
+}
+
 # HashiStack Workload Demo
 
 resource "tfe_workspace" "hashistack_workload_demo" {
