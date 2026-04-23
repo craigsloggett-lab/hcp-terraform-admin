@@ -127,7 +127,7 @@ resource "tfe_variable" "vault_tfc_vault_addr" {
 
 resource "tfe_variable" "vault_tfc_vault_auth_path" {
   key             = "TFC_VAULT_AUTH_PATH"
-  value           = "jwt"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_jwt_auth_path
   category        = "env"
   description     = "The path of the JWT auth backend in Vault."
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
@@ -135,7 +135,7 @@ resource "tfe_variable" "vault_tfc_vault_auth_path" {
 
 resource "tfe_variable" "vault_tfc_vault_run_role" {
   key             = "TFC_VAULT_RUN_ROLE"
-  value           = "terraform-admin"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_jwt_auth_role_name
   category        = "env"
   description     = "The Vault role to authenticate as via JWT."
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
