@@ -117,6 +117,14 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace) | resource |
+| [tfe_workspace_settings.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.pingfederate_artifacts](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
+| [tfe_workspace_settings.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_settings) | resource |
 | [tfe_workspace_variable_set.aws_provider_authentication_dev_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.common_infrastructure_configuration_consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace_variable_set.common_infrastructure_configuration_nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
