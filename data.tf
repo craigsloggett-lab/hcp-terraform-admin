@@ -3,11 +3,6 @@ data "tfe_outputs" "vault_enterprise_deploy" {
   workspace    = tfe_workspace.vault_enterprise_deploy.name
 }
 
-data "tfe_outputs" "hcp_terraform_admin" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.hcp_terraform_admin.name
-}
-
 # TODO: Move this to the vault-enterprise-deploy Terraform configuration
 data "aws_ssm_parameter" "vault_ca_bundle" {
   name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_parameter_name

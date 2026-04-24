@@ -137,7 +137,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace_variable_set.vault_enterprise_authentication_nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/workspace_variable_set) | resource |
 | [aws_ssm_parameter.vault_ca_bundle](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter) | data source |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/organization_membership) | data source |
-| [tfe_outputs.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
 | [tfe_outputs.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/outputs) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/data-sources/variables) | data source |
 
