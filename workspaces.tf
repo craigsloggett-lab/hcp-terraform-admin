@@ -4,10 +4,11 @@ resource "tfe_workspace" "hcp_terraform_admin" {
   name       = "hcp-terraform-admin"
   project_id = tfe_project.admin.id
 
-  auto_apply            = true
-  queue_all_runs        = true
-  terraform_version     = var.terraform_version
-  file_triggers_enabled = false
+  auto_apply             = true
+  auto_apply_run_trigger = true
+  queue_all_runs         = true
+  terraform_version      = var.terraform_version
+  file_triggers_enabled  = false
 
   vcs_repo {
     branch         = "main"
@@ -25,6 +26,13 @@ resource "tfe_variable" "hcp_terraform_admin_github_vcs_provider_oauth_token" {
   category     = "terraform"
   description  = "Set to a Personal Access Token for the service account in the craigsloggett-lab GitHub organization."
   workspace_id = tfe_workspace.hcp_terraform_admin.id
+}
+
+## Run Triggers
+
+resource "tfe_run_trigger" "hcp_terraform_admin_vault_enterprise_deploy" {
+  workspace_id  = tfe_workspace.hcp_terraform_admin.id
+  sourceable_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
 # Vault Enterprise Deploy
