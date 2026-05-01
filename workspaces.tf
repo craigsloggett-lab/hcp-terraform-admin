@@ -53,6 +53,11 @@ resource "tfe_workspace" "vault_enterprise_deploy" {
   }
 }
 
+resource "tfe_workspace_settings" "vault_enterprise_deploy" {
+  workspace_id   = tfe_workspace.vault_enterprise_deploy.id
+  execution_mode = "remote"
+}
+
 ## Variables
 
 resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
@@ -99,6 +104,11 @@ resource "tfe_workspace" "nomad_enterprise_deploy" {
   }
 }
 
+resource "tfe_workspace_settings" "nomad_enterprise_deploy" {
+  workspace_id   = tfe_workspace.nomad_enterprise_deploy.id
+  execution_mode = "remote"
+}
+
 ## Variables
 
 resource "tfe_variable" "nomad_enterprise_deploy_nomad_enterprise_license" {
@@ -135,6 +145,11 @@ resource "tfe_workspace" "consul_enterprise_deploy" {
     identifier     = "${var.github_organization_name}/consul-enterprise-deploy"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+resource "tfe_workspace_settings" "consul_enterprise_deploy" {
+  workspace_id   = tfe_workspace.consul_enterprise_deploy.id
+  execution_mode = "remote"
 }
 
 ## Variables
@@ -181,6 +196,11 @@ resource "tfe_workspace" "hashistack_aws_vpc" {
     identifier     = "${var.github_organization_name}/hashistack-aws-vpc"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+resource "tfe_workspace_settings" "hashistack_aws_vpc" {
+  workspace_id   = tfe_workspace.hashistack_aws_vpc.id
+  execution_mode = "remote"
 }
 
 ## Variables
@@ -230,6 +250,11 @@ resource "tfe_workspace" "pingfederate_artifacts" {
   }
 }
 
+resource "tfe_workspace_settings" "pingfederate_artifacts" {
+  workspace_id   = tfe_workspace.pingfederate_artifacts.id
+  execution_mode = "remote"
+}
+
 ## Variables
 
 resource "tfe_variable" "pingfederate_artifacts_project_name" {
@@ -256,6 +281,11 @@ resource "tfe_workspace" "pingfederate_deploy" {
     identifier     = "${var.github_organization_name}/pingfederate-deploy"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+resource "tfe_workspace_settings" "pingfederate_deploy" {
+  workspace_id   = tfe_workspace.pingfederate_deploy.id
+  execution_mode = "remote"
 }
 
 ## Variables
@@ -309,6 +339,11 @@ resource "tfe_workspace" "github_admin" {
     identifier     = "${var.github_organization_name}/github-admin"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+resource "tfe_workspace_settings" "github_admin" {
+  workspace_id   = tfe_workspace.github_admin.id
+  execution_mode = "remote"
 }
 
 # HCP Terraform Agents
@@ -381,4 +416,9 @@ resource "tfe_workspace" "hashistack_workload_demo" {
     identifier     = "${var.github_organization_name}/hashistack-workload-demo"
     oauth_token_id = tfe_oauth_client.github.oauth_token_id
   }
+}
+
+resource "tfe_workspace_settings" "hashistack_workload_demo" {
+  workspace_id   = tfe_workspace.hashistack_workload_demo.id
+  execution_mode = "remote"
 }
