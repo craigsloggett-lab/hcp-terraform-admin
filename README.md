@@ -53,6 +53,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_project_variable_set.aws_provider_authentication_dev_infrastructure](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_project_variable_set.aws_provider_authentication_dev_waypoint](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/project_variable_set) | resource |
 | [tfe_registry_provider.hashicorp](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/registry_provider) | resource |
+| [tfe_run_trigger.hcp_terraform_admin_vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/run_trigger) | resource |
 | [tfe_team.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team) | resource |
 | [tfe_team.owners](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team) | resource |
 | [tfe_team_organization_members.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.76.2/docs/resources/team_organization_members) | resource |
@@ -142,7 +143,5 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 ## Outputs
 
-| Name | Description |
-| ---- | ----------- |
-| <a name="output_tfc_agent_token"></a> [tfc\_agent\_token](#output\_tfc\_agent\_token) | HCP Terraform Agent token. |
+No outputs.
 <!-- END_TF_DOCS -->
