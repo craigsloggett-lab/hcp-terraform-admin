@@ -352,7 +352,7 @@ resource "tfe_workspace" "hcp_terraform_agents" {
   name       = "hcp-terraform-agents"
   project_id = tfe_project.infrastructure.id
 
-  auto_apply            = true
+  auto_apply            = false
   queue_all_runs        = true
   terraform_version     = var.terraform_version
   file_triggers_enabled = false
