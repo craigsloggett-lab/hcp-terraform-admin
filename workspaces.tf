@@ -69,20 +69,27 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_enterprise_deploy_vault_api_allowed_cidrs" {
-  key          = "vault_api_allowed_cidrs"
-  value        = "[\"0.0.0.0/0\"]"
-  hcl          = true
+resource "tfe_variable" "vault_enterprise_deploy_key_pair_key_name" {
+  key          = "key_pair_key_name"
+  value        = "MacBook-Pro-M4"
   category     = "terraform"
-  description  = "CIDR blocks allowed to reach the Vault API (port 8200)."
+  description  = "The name of the EC2 key pair."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_enterprise_deploy_vault_server_instance_type" {
-  key          = "vault_server_instance_type"
-  value        = "t3.medium"
+resource "tfe_variable" "vault_enterprise_deploy_ami_owner" {
+  key          = "ami_owner"
+  value        = "888995627335"
   category     = "terraform"
-  description  = "EC2 instance type for Vault server nodes."
+  description  = "AWS account ID of the AMI owner."
+  workspace_id = tfe_workspace.vault_enterprise_deploy.id
+}
+
+resource "tfe_variable" "vault_enterprise_deploy_ami_name" {
+  key          = "ami_name"
+  value        = "hc-base-ubuntu-2404-amd64-20260504145506"
+  category     = "terraform"
+  description  = "The name of the EC2 AMI."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
