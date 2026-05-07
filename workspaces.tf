@@ -69,35 +69,11 @@ resource "tfe_variable" "vault_enterprise_deploy_vault_enterprise_license" {
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
-resource "tfe_variable" "vault_enterprise_deploy_existing_vpc_name" {
-  key          = "existing_vpc_name"
-  value        = "hashistack"
-  category     = "terraform"
-  description  = "Name of the VPC to deploy Vault Enterprise to."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
 resource "tfe_variable" "vault_enterprise_deploy_key_pair_key_name" {
   key          = "key_pair_key_name"
   value        = "MacBook-Pro-M4"
   category     = "terraform"
   description  = "Name of an existing EC2 key pair for SSH access."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_ami_owner" {
-  key          = "ami_owner"
-  value        = "888995627335"
-  category     = "terraform"
-  description  = "AWS account ID of the AMI owner."
-  workspace_id = tfe_workspace.vault_enterprise_deploy.id
-}
-
-resource "tfe_variable" "vault_enterprise_deploy_ami_name" {
-  key          = "ami_name"
-  value        = "hc-base-ubuntu-2404-amd64-20260504145506"
-  category     = "terraform"
-  description  = "Name filter for the AMI."
   workspace_id = tfe_workspace.vault_enterprise_deploy.id
 }
 
