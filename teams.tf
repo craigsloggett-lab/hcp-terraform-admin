@@ -31,11 +31,6 @@ resource "tfe_team" "admins" {
   }
 }
 
-data "tfe_organization_membership" "admins" {
-  for_each = var.admins_team_emails
-  email    = each.key
-}
-
 resource "tfe_team_organization_members" "admins" {
   team_id                     = tfe_team.admins.id
   organization_membership_ids = [for email in var.admins_team_emails : data.tfe_organization_membership.admins[email].id]

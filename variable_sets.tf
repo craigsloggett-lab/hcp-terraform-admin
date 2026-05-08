@@ -109,7 +109,7 @@ resource "tfe_variable_set" "vault_enterprise_authentication" {
 
 ## Variables
 
-resource "tfe_variable" "vault_tfc_vault_provider_auth" {
+resource "tfe_variable" "tfc_vault_provider_auth" {
   key             = "TFC_VAULT_PROVIDER_AUTH"
   value           = "true"
   category        = "env"
@@ -117,37 +117,37 @@ resource "tfe_variable" "vault_tfc_vault_provider_auth" {
   variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
 }
 
-#resource "tfe_variable" "vault_tfc_vault_addr" {
-#  key             = "TFC_VAULT_ADDR"
-#  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_url
-#  category        = "env"
-#  description     = "The address of the Vault instance."
-#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-#}
-#
-#resource "tfe_variable" "vault_tfc_vault_auth_path" {
-#  key             = "TFC_VAULT_AUTH_PATH"
-#  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_jwt_auth_path
-#  category        = "env"
-#  description     = "The path of the JWT auth backend in Vault."
-#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-#}
-#
-#resource "tfe_variable" "vault_tfc_vault_run_role" {
-#  key             = "TFC_VAULT_RUN_ROLE"
-#  value           = data.tfe_outputs.vault_enterprise_deploy.values.vault_jwt_auth_role_name
-#  category        = "env"
-#  description     = "The Vault role to authenticate as via JWT."
-#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-#}
-#
-#resource "tfe_variable" "vault_tfc_vault_encoded_cacert" {
-#  key             = "TFC_VAULT_ENCODED_CACERT"
-#  value           = base64encode(data.aws_ssm_parameter.vault_ca_bundle.value)
-#  category        = "env"
-#  description     = "A PEM-encoded CA certificate that has been Base64 encoded."
-#  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
-#}
+resource "tfe_variable" "tfc_vault_addr" {
+  key             = "TFC_VAULT_ADDR"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.hcp_terraform_vault_addr
+  category        = "env"
+  description     = "The address of the Vault instance."
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+}
+
+resource "tfe_variable" "tfc_vault_auth_path" {
+  key             = "TFC_VAULT_AUTH_PATH"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.hcp_terraform_vault_auth_path
+  category        = "env"
+  description     = "The path of the JWT auth backend in Vault."
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+}
+
+resource "tfe_variable" "tfc_vault_run_role" {
+  key             = "TFC_VAULT_RUN_ROLE"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.hcp_terraform_vault_auth_run_role
+  category        = "env"
+  description     = "The Vault role to authenticate as via JWT."
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+}
+
+resource "tfe_variable" "tfc_vault_encoded_cacert" {
+  key             = "TFC_VAULT_ENCODED_CACERT"
+  value           = data.tfe_outputs.vault_enterprise_deploy.values.hcp_terraform_vault_encoded_cacert
+  category        = "env"
+  description     = "A PEM-encoded CA certificate that has been Base64 encoded."
+  variable_set_id = tfe_variable_set.vault_enterprise_authentication.id
+}
 
 ## Scope
 

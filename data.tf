@@ -1,12 +1,12 @@
-#data "tfe_outputs" "vault_enterprise_deploy" {
-#  organization = tfe_organization.this.name
-#  workspace    = tfe_workspace.vault_enterprise_deploy.name
-#}
+data "tfe_organization_membership" "admins" {
+  for_each = var.admins_team_emails
+  email    = each.key
+}
 
-## TODO: Move this to the vault-enterprise-deploy Terraform configuration
-#data "aws_ssm_parameter" "vault_ca_bundle" {
-#  name = data.tfe_outputs.vault_enterprise_deploy.values.vault_tls_ca_bundle_ssm_parameter_name
-#}
+data "tfe_outputs" "vault_enterprise_deploy" {
+  organization = tfe_organization.this.name
+  workspace    = tfe_workspace.vault_enterprise_deploy.name
+}
 
 # This data source is used to get the values of non-sensitive variables since
 # they are expected to be updated outside of Terraform and will cause drift
