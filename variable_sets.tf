@@ -161,32 +161,6 @@ resource "tfe_workspace_variable_set" "vault_enterprise_authentication_nomad_ent
   workspace_id    = tfe_workspace.nomad_enterprise_deploy.id
 }
 
-## GitHub Provider Authentication
-
-resource "tfe_variable_set" "github_provider_authentication" {
-  name        = "GitHub Provider Authentication"
-  description = "The token used to authenticate the GitHub provider for managing the GitHub organization."
-}
-
-## Variables
-
-resource "tfe_variable" "github_token" {
-  key             = "GITHUB_TOKEN"
-  value           = ""
-  sensitive       = true
-  category        = "env"
-  description     = "Set to a Personal Access Token for a GitHub organization administrator."
-  variable_set_id = tfe_variable_set.github_provider_authentication.id
-}
-
-resource "tfe_variable" "github_owner" {
-  key             = "GITHUB_OWNER"
-  value           = "craigsloggett-lab"
-  category        = "env"
-  description     = "Set to the name of the GitHub organization being managed."
-  variable_set_id = tfe_variable_set.github_provider_authentication.id
-}
-
 # Common Infrastructure Configuration
 
 resource "tfe_variable_set" "common_infrastructure_configuration" {

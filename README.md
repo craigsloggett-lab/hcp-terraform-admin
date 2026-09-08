@@ -72,8 +72,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.ec2_ami_name](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable.ec2_ami_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable.ec2_key_pair_name](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
-| [tfe_variable.github_owner](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
-| [tfe_variable.github_token](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_aws_vpc_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_vpc_enable_vpc_endpoints](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
@@ -103,11 +101,9 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.common_infrastructure_configuration](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable_set) | resource |
-| [tfe_variable_set.github_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.vault_enterprise_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/variable_set) | resource |
 | [tfe_workspace.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
-| [tfe_workspace.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
 | [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
@@ -117,7 +113,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.pingfederate_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
 | [tfe_workspace.vault_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace) | resource |
 | [tfe_workspace_settings.consul_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace_settings) | resource |
-| [tfe_workspace_settings.github_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace_settings) | resource |
 | [tfe_workspace_settings.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace_settings) | resource |
 | [tfe_workspace_settings.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace_settings) | resource |
 | [tfe_workspace_settings.nomad_enterprise_deploy](https://registry.terraform.io/providers/hashicorp/tfe/0.78.0/docs/resources/workspace_settings) | resource |
