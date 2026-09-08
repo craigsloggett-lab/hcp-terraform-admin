@@ -3,11 +3,6 @@ data "tfe_organization_membership" "admins" {
   email    = each.key
 }
 
-data "tfe_outputs" "vault_enterprise_deploy" {
-  organization = tfe_organization.this.name
-  workspace    = tfe_workspace.vault_enterprise_deploy.name
-}
-
 # This data source is used to get the values of non-sensitive variables since
 # they are expected to be updated outside of Terraform and will cause drift
 # otherwise.
