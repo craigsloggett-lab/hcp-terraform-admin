@@ -20,7 +20,7 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Source | Version |
 | ---- | ------ | ------- |
-| <a name="module_discovery"></a> [discovery](#module\_discovery) | craigsloggett/discovery/tfe | 0.14.4 |
+| <a name="module_discovery"></a> [discovery](#module\_discovery) | craigsloggett/discovery/tfe | 0.14.5 |
 
 ## Inputs
 
