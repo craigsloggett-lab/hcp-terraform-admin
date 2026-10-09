@@ -36,8 +36,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 
 | Name | Type |
 | ---- | ---- |
-| [tfe_agent_pool.this](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/agent_pool) | resource |
-| [tfe_agent_token.this](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/agent_token) | resource |
 | [tfe_oauth_client.github](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/oauth_client) | resource |
 | [tfe_organization.this](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/organization) | resource |
 | [tfe_organization_membership.this](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/organization_membership) | resource |
@@ -68,19 +66,12 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_variable.hashistack_aws_vpc_region](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
 | [tfe_variable.hashistack_vpc_enable_vpc_endpoints](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
 | [tfe_variable.hcp_terraform_admin_github_vcs_provider_oauth_token](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
-| [tfe_variable.hcp_terraform_agents_aws_ami](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
-| [tfe_variable.hcp_terraform_agents_project_name](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
-| [tfe_variable.hcp_terraform_agents_tfc_agent_token](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
-| [tfe_variable.hcp_terraform_agents_vpc_name](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
 | [tfe_variable.tfe_token](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable) | resource |
 | [tfe_variable_set.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable_set) | resource |
 | [tfe_variable_set.tfe_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/variable_set) | resource |
 | [tfe_workspace.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace) | resource |
-| [tfe_workspace.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace) | resource |
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace) | resource |
-| [tfe_workspace.hcp_terraform_agents](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace) | resource |
 | [tfe_workspace_settings.hashistack_aws_vpc](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace_settings) | resource |
-| [tfe_workspace_settings.hashistack_workload_demo](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace_settings) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/data-sources/organization_membership) | data source |
 | [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.81.0/docs/data-sources/variables) | data source |
