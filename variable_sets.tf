@@ -74,11 +74,6 @@ resource "tfe_variable" "aws_session_token" {
 
 ## Scope
 
-resource "tfe_project_variable_set" "aws_provider_authentication_dev_waypoint" {
-  variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
-  project_id      = tfe_project.waypoint.id
-}
-
 resource "tfe_project_variable_set" "aws_provider_authentication_dev_infrastructure" {
   variable_set_id = tfe_variable_set.aws_provider_authentication["development"].id
   project_id      = tfe_project.infrastructure.id
