@@ -37,7 +37,7 @@ resource "tfe_variable_set" "aws_provider_authentication" {
 resource "tfe_variable" "aws_access_key_id" {
   for_each        = var.application_environments
   key             = "AWS_ACCESS_KEY_ID"
-  value           = local.aws_access_key_id_value[each.key]
+  value_wo        = "" # Populated out of band.
   category        = "env"
   description     = "AWS Access Key ID"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id
@@ -56,7 +56,7 @@ resource "tfe_variable" "aws_secret_access_key" {
 resource "tfe_variable" "aws_session_expiration" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_EXPIRATION"
-  value           = local.aws_session_expiration_value[each.key]
+  value_wo        = "" # Populated out of band.
   category        = "env"
   description     = "AWS Session Expiration"
   variable_set_id = tfe_variable_set.aws_provider_authentication[each.key].id

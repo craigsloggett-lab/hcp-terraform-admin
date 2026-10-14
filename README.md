@@ -1,6 +1,6 @@
 # HCP Terraform Admin
 
-An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terraform organization.
+An infrastructure as code repository to manage the `craigsloggett-hashicorp` HCP Terraform organization.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -66,7 +66,6 @@ An infrastructure as code repository to manage the `craigsloggett-lab` HCP Terra
 | [tfe_workspace.hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.82.0/docs/resources/workspace) | resource |
 | [tfe_workspace_variable_set.tfe_provider_authentication_hcp_terraform_admin](https://registry.terraform.io/providers/hashicorp/tfe/0.82.0/docs/resources/workspace_variable_set) | resource |
 | [tfe_organization_membership.admins](https://registry.terraform.io/providers/hashicorp/tfe/0.82.0/docs/data-sources/organization_membership) | data source |
-| [tfe_variables.aws_provider_authentication](https://registry.terraform.io/providers/hashicorp/tfe/0.82.0/docs/data-sources/variables) | data source |
 
 ## Outputs
 
