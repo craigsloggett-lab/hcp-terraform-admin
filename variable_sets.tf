@@ -9,7 +9,7 @@ resource "tfe_variable_set" "tfe_provider_authentication" {
 
 resource "tfe_variable" "tfe_token" {
   key             = "TFE_TOKEN"
-  value           = ""
+  value_wo        = ""
   sensitive       = true
   category        = "env"
   description     = "Set to a Team Token for the \"owners\" team."
@@ -46,7 +46,7 @@ resource "tfe_variable" "aws_access_key_id" {
 resource "tfe_variable" "aws_secret_access_key" {
   for_each        = var.application_environments
   key             = "AWS_SECRET_ACCESS_KEY"
-  value           = "" # An empty value for a sensitive variable will never drift.
+  value_wo        = "" # Populated out of band.
   sensitive       = true
   category        = "env"
   description     = "AWS Secret Access Key"
@@ -65,7 +65,7 @@ resource "tfe_variable" "aws_session_expiration" {
 resource "tfe_variable" "aws_session_token" {
   for_each        = var.application_environments
   key             = "AWS_SESSION_TOKEN"
-  value           = "" # An empty value for a sensitive variable will never drift.
+  value_wo        = "" # Populated out of band.
   sensitive       = true
   category        = "env"
   description     = "AWS Session Token"

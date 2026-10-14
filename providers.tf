@@ -1,3 +1,3 @@
 provider "tfe" {
-  organization = "craigsloggett-lab"
+  organization = "craigsloggett-hashicorp"
 }

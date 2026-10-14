@@ -2,7 +2,7 @@
 
 terraform {
   cloud {
-    organization = "craigsloggett-lab"
+    organization = "craigsloggett-hashicorp"
 
     workspaces {
       project = "Administration"

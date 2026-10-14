@@ -1,6 +1,6 @@
 terraform {
-  # Version v1.7.0 is the first version to introduce the `terraform test` command.
-  required_version = "~> 1.7"
+  # Write-only arguments require Terraform 1.11 or later.
+  required_version = "~> 1.11"
 
   required_providers {
     tfe = {

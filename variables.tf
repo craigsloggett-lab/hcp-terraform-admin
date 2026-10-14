@@ -13,7 +13,7 @@ variable "admins_team_emails" {
 variable "github_organization_name" {
   type        = string
   description = "The name of the GitHub organization used to configure the VCS provider."
-  default     = "craigsloggett-lab"
+  default     = "craigsloggett-hashicorp"
 }
 
 variable "github_vcs_provider_oauth_token" {
